@@ -1,0 +1,530 @@
+Here is a complete `index.html` you can save and open in a browser. It recreates a clean Perplexity-style layout and centers your Joy audio reading as the main content. Replace `Joy.m4a` in the `src` attribute with the correct path if needed.[1]
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Joy – Dante’s Intentions & Feelings</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    :root {
+      --bg: #020617;
+      --bg-elevated: #020617;
+      --border-subtle: rgba(148, 163, 184, 0.15);
+      --accent: #6366f1;
+      --accent-soft: rgba(99, 102, 241, 0.14);
+      --text: #e5e7eb;
+      --text-soft: #9ca3af;
+      --pill-bg: rgba(15, 23, 42, 0.85);
+      --shadow-soft: 0 18px 45px rgba(15, 23, 42, 0.9);
+      --radius-lg: 18px;
+      --radius-pill: 999px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text",
+        "Inter", sans-serif;
+      background: radial-gradient(circle at top, #1f2937 0, #020617 45%);
+      color: var(--text);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .page {
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    .header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 14px 24px;
+      border-bottom: 1px solid rgba(148, 163, 184, 0.15);
+      backdrop-filter: blur(18px);
+      background: linear-gradient(
+        to bottom,
+        rgba(15, 23, 42, 0.9),
+        rgba(15, 23, 42, 0.7)
+      );
+      position: sticky;
+      top: 0;
+      z-index: 20;
+    }
+
+    .logo {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .logo-mark {
+      width: 26px;
+      height: 26px;
+      border-radius: 22%;
+      background: radial-gradient(circle at 30% 20%, #e5e7eb, #4f46e5);
+      box-shadow: 0 0 0 1px rgba(148, 163, 184, 0.4),
+        0 10px 30px rgba(15, 23, 42, 0.8);
+    }
+
+    .logo-text {
+      font-weight: 600;
+      letter-spacing: -0.03em;
+      font-size: 17px;
+    }
+
+    .header-right {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 12px;
+      border-radius: var(--radius-pill);
+      background: var(--pill-bg);
+      border: 1px solid rgba(148, 163, 184, 0.2);
+      color: var(--text-soft);
+      font-size: 12px;
+    }
+
+    .pill-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 999px;
+      background: #22c55e;
+      box-shadow: 0 0 0 4px rgba(34, 197, 94, 0.15);
+    }
+
+    .avatar {
+      width: 30px;
+      height: 30px;
+      border-radius: 999px;
+      background: linear-gradient(135deg, #4f46e5, #ec4899);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 14px;
+      font-weight: 600;
+      box-shadow: 0 6px 18px rgba(15, 23, 42, 0.8);
+    }
+
+    .main {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      padding: 32px 16px 40px;
+    }
+
+    .content {
+      width: 100%;
+      max-width: 900px;
+      display: grid;
+      grid-template-columns: minmax(0, 1.8fr) minmax(0, 1.2fr);
+      gap: 24px;
+    }
+
+    @media (max-width: 900px) {
+      .content {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+
+    .card {
+      background: radial-gradient(circle at top left, #020617, #020617 45%);
+      border-radius: 22px;
+      border: 1px solid rgba(148, 163, 184, 0.22);
+      box-shadow: var(--shadow-soft);
+      padding: 20px 20px 18px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(
+        circle at top left,
+        rgba(99, 102, 241, 0.12),
+        transparent 60%
+      );
+      pointer-events: none;
+    }
+
+    .card-inner {
+      position: relative;
+      z-index: 1;
+    }
+
+    .prompt-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 5px 12px;
+      border-radius: var(--radius-pill);
+      background: rgba(15, 23, 42, 0.9);
+      border: 1px solid rgba(148, 163, 184, 0.35);
+      color: var(--text-soft);
+      font-size: 12px;
+      margin-bottom: 14px;
+    }
+
+    .prompt-pill-icon {
+      width: 18px;
+      height: 18px;
+      border-radius: 999px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 11px;
+      background: radial-gradient(circle at 30% 20%, #e5e7eb, #4f46e5);
+      color: #020617;
+    }
+
+    .title {
+      font-size: 22px;
+      font-weight: 600;
+      letter-spacing: -0.03em;
+      margin-bottom: 6px;
+    }
+
+    .subtitle {
+      font-size: 13px;
+      color: var(--text-soft);
+      margin-bottom: 18px;
+    }
+
+    .audio-block {
+      padding: 14px 14px 12px;
+      border-radius: 18px;
+      background: linear-gradient(
+        135deg,
+        rgba(15, 23, 42, 0.95),
+        rgba(15, 23, 42, 0.92)
+      );
+      border: 1px solid rgba(148, 163, 184, 0.45);
+      margin-bottom: 18px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .audio-label {
+      font-size: 12px;
+      color: var(--text-soft);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .wave {
+      display: inline-flex;
+      align-items: center;
+      gap: 3px;
+    }
+
+    .wave span {
+      width: 2px;
+      border-radius: 999px;
+      background: rgba(96, 165, 250, 0.7);
+      animation: pulse 1.2s infinite ease-in-out;
+    }
+
+    .wave span:nth-child(1) { height: 6px; animation-delay: 0s; }
+    .wave span:nth-child(2) { height: 10px; animation-delay: 0.15s; }
+    .wave span:nth-child(3) { height: 14px; animation-delay: 0.3s; }
+    .wave span:nth-child(4) { height: 10px; animation-delay: 0.45s; }
+    .wave span:nth-child(5) { height: 6px; animation-delay: 0.6s; }
+
+    @keyframes pulse {
+      0%, 100% { transform: scaleY(0.8); opacity: 0.6; }
+      50% { transform: scaleY(1.2); opacity: 1; }
+    }
+
+    audio {
+      width: 100%;
+      margin-top: 4px;
+    }
+
+    .section-heading {
+      font-size: 14px;
+      font-weight: 600;
+      margin: 10px 0 4px;
+    }
+
+    .section-text {
+      font-size: 13px;
+      color: var(--text-soft);
+      line-height: 1.6;
+      margin: 0 0 6px;
+    }
+
+    .chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 8px;
+    }
+
+    .chip {
+      font-size: 11px;
+      padding: 4px 9px;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.35);
+      background: rgba(15, 23, 42, 0.9);
+      color: var(--text-soft);
+    }
+
+    .side-card {
+      background: rgba(15, 23, 42, 0.9);
+      border-radius: 18px;
+      border: 1px solid rgba(148, 163, 184, 0.35);
+      padding: 16px 16px 14px;
+      box-shadow: 0 16px 40px rgba(15, 23, 42, 0.95);
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      height: fit-content;
+      position: sticky;
+      top: 82px;
+    }
+
+    @media (max-width: 900px) {
+      .side-card {
+        position: static;
+      }
+    }
+
+    .side-eyebrow {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: var(--text-soft);
+    }
+
+    .side-title {
+      font-size: 16px;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+    }
+
+    .side-text {
+      font-size: 13px;
+      color: var(--text-soft);
+      line-height: 1.6;
+    }
+
+    .badge-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+
+    .badge {
+      padding: 4px 9px;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.3);
+      font-size: 11px;
+      color: var(--text-soft);
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(15, 23, 42, 0.9);
+    }
+
+    .badge-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 999px;
+      background: #6366f1;
+      box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.25);
+    }
+
+    .button-primary {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      width: 100%;
+      padding: 9px 12px;
+      border-radius: 999px;
+      border: none;
+      font-size: 13px;
+      font-weight: 500;
+      color: white;
+      background: linear-gradient(135deg, #4f46e5, #0ea5e9);
+      box-shadow: 0 12px 28px rgba(37, 99, 235, 0.7);
+      cursor: pointer;
+    }
+
+    .button-secondary {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      width: 100%;
+      padding: 8px 12px;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.4);
+      font-size: 12px;
+      font-weight: 400;
+      color: var(--text-soft);
+      background: rgba(15, 23, 42, 0.9);
+      cursor: pointer;
+    }
+
+    .footer {
+      padding: 10px 20px 16px;
+      border-top: 1px solid rgba(148, 163, 184, 0.15);
+      font-size: 11px;
+      color: var(--text-soft);
+      display: flex;
+      justify-content: space-between;
+      gap: 8px;
+      background: rgba(15, 23, 42, 0.95);
+    }
+
+    @media (max-width: 640px) {
+      .header {
+        padding-inline: 16px;
+      }
+      .footer {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <header class="header">
+      <div class="logo">
+        <div class="logo-mark"></div>
+        <div class="logo-text">Sibylhaus</div>
+      </div>
+      <div class="header-right">
+        <div class="pill">
+          <span class="pill-dot"></span>
+          <span>Joy reading active</span>
+        </div>
+        <div class="avatar">J</div>
+      </div>
+    </header>
+
+    <main class="main">
+      <div class="content">
+        <!-- MAIN CARD -->
+        <section class="card">
+          <div class="card-inner">
+            <div class="prompt-pill">
+              <span class="prompt-pill-icon">✨</span>
+              <span>Joy · Dante’s intentions & feelings</span>
+            </div>
+
+            <h1 class="title">Your audio tarot reading</h1>
+            <p class="subtitle">
+              A channeled look into Dante’s intentions toward you and his current emotional landscape, anchored in your Joy session.
+            </p>
+
+            <div class="audio-block">
+              <div class="audio-label">
+                <div class="wave">
+                  <span></span><span></span><span></span><span></span><span></span>
+                </div>
+                <span>Listen to your Joy.m4a reading</span>
+              </div>
+              <audio controls>
+                <source src="Joy.m4a" type="audio/mpeg" />
+                Your browser does not support the audio element.
+              </audio>
+            </div>
+
+            <h2 class="section-heading">Dante’s intentions</h2>
+            <p class="section-text">
+              You and Dante show up on the same energetic level, both coming through as knight energy, suggesting you’re peers in age or life stage and meeting one another as equals. [file:2]
+            </p>
+            <p class="section-text">
+              His intentions are to stay open rather than guarded, have a good time, and see how things unfold, while still remaining available for a genuine romantic connection. [file:2]
+            </p>
+            <p class="section-text">
+              He is actively tuned into you, likely watching your social media and asking others about you, which confirms curiosity and interest in who you are and what you are doing. [file:2]
+            </p>
+
+            <h2 class="section-heading">Dante’s feelings</h2>
+            <p class="section-text">
+              Emotionally, Dante feels generally fulfilled and not in a place of lack; his life feels full on its own, and he is waiting for the “good thing” to arrive rather than chasing love from a wounded place. [file:2]
+            </p>
+            <p class="section-text">
+              There is a sense of him feeling lucky or optimistic, yet also tired of chaotic or superficial situationships; he wants something cleaner and more emotionally honest without being jaded or closed off. [file:2]
+            </p>
+            <p class="section-text">
+              The reading shows many cups, highlighting strong emotional currents, and suggests he may be a water sign (Scorpio, Pisces, Cancer) or a Gemini, emphasizing both feeling and mental engagement. [file:2]
+            </p>
+
+            <div class="chips">
+              <span class="chip">Audio tarot reading</span>
+              <span class="chip">Intentions & feelings</span>
+              <span class="chip">Love & connection</span>
+            </div>
+          </div>
+        </section>
+
+        <!-- SIDE PANEL -->
+        <aside class="side-card">
+          <div>
+            <div class="side-eyebrow">Session overview</div>
+            <div class="side-title">What this reading covers</div>
+          </div>
+          <p class="side-text">
+            This Joy recording explores how Dante moves toward connection, what he is emotionally available for, and the kind of relationship dynamic he is open to building with you. [file:2]
+          </p>
+
+          <div class="badge-row">
+            <div class="badge">
+              <span class="badge-dot"></span>
+              <span>Energetic alignment</span>
+            </div>
+            <div class="badge">
+              <span class="badge-dot"></span>
+              <span>Romantic openness</span>
+            </div>
+            <div class="badge">
+              <span class="badge-dot"></span>
+              <span>Emotional readiness</span>
+            </div>
+          </div>
+
+          <button class="button-primary">
+            Replay Joy reading
+          </button>
+          <button class="button-secondary">
+            Book another Joy session
+          </button>
+        </aside>
+      </div>
+    </main>
+
+    <footer class="footer">
+      <span>© 2025 Sibylhaus · Joy tarot audio readings</span>
+      <span>For entertainment and guidance only; not a substitute for professional advice.</span>
+    </footer>
+  </div>
+</body>
+</html>
+```
+
+[1](https://ppl-ai-file-upload.s3.amazonaws.com/web/direct-files/attachments/12715661/c8e5ae8f-1cbd-4ff5-a876-ec3ea29175bd/Joy.m4a)
+[2](https://www.perplexity.ai/apps/8878afef-d157-4007-af7a-37cd1259686e)
