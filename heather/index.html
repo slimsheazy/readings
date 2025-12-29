@@ -10,6 +10,9 @@
       rel="stylesheet"
     />
     <style>
+      :root {
+        --card-image-size: 300px;
+      }
       * {
         margin: 0;
         padding: 0;
@@ -207,12 +210,15 @@
       }
 
       .card-image {
-        width: 100%;
-        max-width: 600px;
-        height: auto;
-        margin-bottom: 1.5rem;
+        width: var(--card-image-size);
+        height: var(--card-image-size);
         display: block;
-        border-radius: 4px;
+        margin-bottom: 1.5rem;
+        border-radius: 8px;
+        object-fit: contain;
+        background-color: transparent;
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.45),
+          0 2px 6px rgba(0, 0, 0, 0.25);
       }
 
       .card-audio {
@@ -235,6 +241,26 @@
       .card-audio audio {
         width: 100%;
         height: 32px;
+      }
+
+      .transcript-toggle {
+        background: transparent;
+        border: none;
+        color: #000;
+        font-weight: 700;
+        cursor: pointer;
+        padding: 0;
+        margin-top: 0.5rem;
+        text-decoration: underline;
+      }
+
+      .transcript {
+        background: #ffffff;
+        color: #1a1a1a;
+        padding: 1rem;
+        border-radius: 6px;
+        margin-top: 0.75rem;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
       }
 
       .card-text {
@@ -392,7 +418,8 @@
         }
 
         .card-image {
-          max-width: 100%;
+          width: calc(var(--card-image-size) * 0.9);
+          height: calc(var(--card-image-size) * 0.9);
         }
       }
     </style>
@@ -447,10 +474,34 @@
                     transcript is available below.
                   </audio>
                 </figure>
-                <p class="transcript" aria-live="polite">
-                  Transcript: Not provided. Contact Sibylhaus to request the
-                  transcript.
-                </p>
+                <button
+                  class="transcript-toggle"
+                  aria-expanded="false"
+                  aria-controls="transcript-situation"
+                >
+                  Show transcript
+                </button>
+                <div id="transcript-situation" class="transcript" hidden>
+                  <p>
+                    "Okay. Um, I don't know why I was just kept saying card
+                    nine. Anyway, card six is the heart of the matter. Okay. Uh
+                    it says, this card describes the situation, the matter
+                    itself, what brings you here, what is what is this all
+                    about? What is the most pressing issue? The five of wands.
+                    Um, not being heard, argument. Uh, I just want to mention,
+                    you'll be able to see this card obviously whenever you're
+                    listening to this, but like Sean mentioned that this looks
+                    like this tiger is flying through the air, which I thought
+                    was hilarious and looks like it's he's right about that. I
+                    don't really know if that's what's happening, but anyhow,
+                    um, let's see. Five of wands. She says it means
+                    perseverance, indomitable, unyielding, invincible,
+                    unrelenting, um, singular focus that overcomes, uh, tip of
+                    the spear. Okay. Then reverse is beaten, discouraged,
+                    dispirited, loss of confidence, fatigue, overworked, running
+                    ragged, tired, flagging, spent, surrender, give up."
+                  </p>
+                </div>
               </div>
               <p class="card-text" style="margin-top: 1rem">
                 <strong>Five of Wands:</strong> Perseverance, singular focus
@@ -490,10 +541,35 @@
                     transcript is available below.
                   </audio>
                 </figure>
-                <p class="transcript" aria-live="polite">
-                  Transcript: Not provided. Contact Sibylhaus to request the
-                  transcript.
-                </p>
+                <button
+                  class="transcript-toggle"
+                  aria-expanded="false"
+                  aria-controls="transcript-what-you-want"
+                >
+                  Show transcript
+                </button>
+                <div id="transcript-what-you-want" class="transcript" hidden>
+                  <p>
+                    "Okay, for position one, what you want, your libido, where
+                    your energy is being directed, your desire, your passion,
+                    what you hope and want from the matter. And it's the two of
+                    cups. And actually, let me think. So this book, I I read the
+                    two of cups already in here and I feel like it's got
+                    something insightful. Let me look. Um, twos. Uh, let me see
+                    what it says here. I'll insert a photo of the card, but it
+                    says, um, let's see what it says. Let me see. I thought
+                    there was something good in here. Uh, um, um, um, um. Forget
+                    it. It's oh, okay, it's talking about Yin and Yang inside
+                    matched by being matched by okay. What drives our soul
+                    drives our body. The Yin and Yang inside are matched by our
+                    mate on the outside. The whole universe is driven on duality
+                    and the tension between opposites without which there would
+                    only be one, which I think is very interesting. Um, anyway,
+                    and aside from that, the two of cups is what we know it to
+                    be. And then the second position is for erg. Um, let me
+                    actually"
+                  </p>
+                </div>
               </div>
               <p class="card-text" style="margin-top: 1rem">
                 <strong>Two of Cups:</strong> Yin and Yang in balance. What
@@ -523,10 +599,38 @@
                     transcript is available below.
                   </audio>
                 </figure>
-                <p class="transcript" aria-live="polite">
-                  Transcript: Not provided. Contact Sibylhaus to request the
-                  transcript.
-                </p>
+                <button
+                  class="transcript-toggle"
+                  aria-expanded="false"
+                  aria-controls="transcript-your-reality"
+                >
+                  Show transcript
+                </button>
+                <div id="transcript-your-reality" class="transcript" hidden>
+                  <p>
+                    "Okay, next card is for what your reality what the reality
+                    is. Says the fiscal reality of the matter, the direction and
+                    trend as it is going right now if nothing were to be
+                    changed. And you have the eight of discs and it looks like
+                    so the picture you'll see. I'll post it below this
+                    obviously, but so there's a little lamb in between two looks
+                    like um they're some sort of large cat, I would say. Anyway,
+                    they look pretty like upset or vicious and then there's a
+                    little lamb sitting in between them, but he's fine. He's
+                    totally chilling. So, yeah, that's interesting. And then
+                    eight of discs natively means what? What is this your
+                    reality? Perfecting perfection ism or perfecting uh honing
+                    in on your craft or like just work. Anyway, I fuck if I know
+                    obviously. Eight of discs is actually according to Mariel,
+                    it is is this it? Nope, this one is it? Nope. What? I missed
+                    it. Okay, sorry. It is this one? Yeah. Um peaceful
+                    coexistence, fairness, justice, harmony, balance, be in the
+                    present moment, be present in the moment. The manifestation
+                    of your life as a work of art. Reverse is absent. That's
+                    interesting. But I'm not reading this reverse for you. I
+                    just find her interpretations interesting. Next"
+                  </p>
+                </div>
               </div>
               <p class="card-text" style="margin-top: 1rem">
                 <strong>Eight of Disks:</strong> Peaceful coexistence, balance,
@@ -566,10 +670,31 @@
                     transcript is available below.
                   </audio>
                 </figure>
-                <p class="transcript" aria-live="polite">
-                  Transcript: Not provided. Contact Sibylhaus to request the
-                  transcript.
-                </p>
+                <button
+                  class="transcript-toggle"
+                  aria-expanded="false"
+                  aria-controls="transcript-what-you-feel"
+                >
+                  Show transcript
+                </button>
+                <div id="transcript-what-you-feel" class="transcript" hidden>
+                  <p>
+                    "Okay, so the third position is what you feel. You got
+                    judgment here. That's probably pretty self-explanatory. So,
+                    if we're not just using the word judgment straight up, we
+                    could say self-reflection, um, reckoning, which, um, that's
+                    a good one, I guess, probably for what you feel, reckoning.
+                    Let me see if she's got anything worth mentioning in here.
+                    Erg, judgment. It says, just kidding, there's so much in
+                    here. I'm not reading all that. I'll just read the little.
+                    All right. Um, she talks about Metatron, it looks like. And,
+                    uh, also, um, rebirth and resurrection after annihilation,
+                    life after death, reincarnation, reboot, restart, reinvent,
+                    rebrand. Oh my gosh, it's like those, um, retrograde things
+                    you were reading. Um, good judgment and discernment,
+                    redemption. Beautiful, wonderful"
+                  </p>
+                </div>
               </div>
               <p class="card-text" style="margin-top: 1rem">
                 <strong>Judgement:</strong> Self-reflection, reckoning, rebirth
@@ -605,10 +730,50 @@
                     transcript is available below.
                   </audio>
                 </figure>
-                <p class="transcript" aria-live="polite">
-                  Transcript: Not provided. Contact Sibylhaus to request the
-                  transcript.
-                </p>
+                <button
+                  class="transcript-toggle"
+                  aria-expanded="false"
+                  aria-controls="transcript-your-thoughts"
+                >
+                  Show transcript
+                </button>
+                <div id="transcript-your-thoughts" class="transcript" hidden>
+                  <p>
+                    "Okay. What you know, this is what your thoughts are, this
+                    is what your thoughts on the matter are, your ideas, your
+                    plans. Ace of Disks. So, an opportunity, right? A you
+                    probably know what Okay. Oh, it's what you know. Okay, um,
+                    let me just I'm interested in this book because it's new,
+                    but anyway, there was there is definitely there are
+                    definitely parts where this bitch gets really weird about
+                    what she's talking about. But you'll well see if that
+                    happens. I don't think it's going to happen to you unless
+                    she gets weird about this king up here. It's just like this
+                    isn't related obviously, but like I forgot which card it
+                    was, but she talks about like that somebody spreads the high
+                    priestess's legs and fucks her and uh and that becomes oh, I
+                    don't know. He fucks the earth and that's how that works.
+                    Anyway, what the fuck? I I'll have to find that to show you.
+                    I shouldn't have ruined or messed up this by saying that.
+                    But it's actually insane. She also says the word masturbate
+                    in here. So it's like what what are you talking about? Mary
+                    L. okay, moving on to your reading. So Ace of Disks, there
+                    she is. Um, it says, um, Wow, she's got a lot to say. Uh,
+                    what in the hell? So, what? Um, she's kind of crazy. Anyway,
+                    uh there's something about an owl here. I'll just say that.
+                    Okay, no, that's an acronym, but still. She says this is
+                    okay, building a foundation for a new house. Okay, that's
+                    all I needed to see. Um, job or health, a balanced
+                    foundation, a balanced team, ground floor, listen to what
+                    your body is saying, discovery of a new strength, beginning
+                    the journey through the maze of life. Um, I haven't none of
+                    these are upside down. But if just so you know, the reverse
+                    is uh interesting. So it's a maze, illness or prison, one
+                    must find their way out of bad food, lack of foundation,
+                    strength yet to be discovered if you ever needed to know
+                    that. I think she made this up"
+                  </p>
+                </div>
               </div>
               <p class="card-text" style="margin-top: 1rem">
                 <strong>Ace of Disks:</strong> Building a foundation for a new
@@ -648,10 +813,35 @@
                     transcript is available below.
                   </audio>
                 </figure>
-                <p class="transcript" aria-live="polite">
-                  Transcript: Not provided. Contact Sibylhaus to request the
-                  transcript.
-                </p>
+                <button
+                  class="transcript-toggle"
+                  aria-expanded="false"
+                  aria-controls="transcript-your-strengths"
+                >
+                  Show transcript
+                </button>
+                <div id="transcript-your-strengths" class="transcript" hidden>
+                  <p>
+                    "Okay, then the your strength. This is the strength your
+                    strengths and skills that you now must use to overcome
+                    whatever obstacles you're facing. This is what you will use
+                    to take action. This act this is the action you must take.
+                    And it's the King of Wands. Okay, okay. So, Okay, let's see
+                    what she says. Uh, where are the kings? Oops. King Wait,
+                    where are they? Where are these court cards at? Um Where are
+                    you guys? Uh Okay, here they are. King of Wands says Oh, the
+                    Queen of Disks is so beautiful. I've got to show you. Um Ew,
+                    fuck. The king's not, sorry. Running into an obstacle there.
+                    King of Wands, action you must take. Natural leader,
+                    director, boss, manager, ruler, successful entrepreneur,
+                    success in career and business, um, ambition and optimism,
+                    and the skills to use it, pride, dignity, maturity,
+                    experience, self-respect, self-esteem, personal worth,
+                    someone who brings the magic and the fire. Oh my God, that's
+                    you. That's you. That's you. Oh my God, that is you already.
+                    Well, so great. You're doing great"
+                  </p>
+                </div>
               </div>
               <p class="card-text" style="margin-top: 1rem">
                 <strong>King of Wands:</strong> Natural leader, successful
@@ -684,10 +874,45 @@
                     transcript is available below.
                   </audio>
                 </figure>
-                <p class="transcript" aria-live="polite">
-                  Transcript: Not provided. Contact Sibylhaus to request the
-                  transcript.
-                </p>
+                <button
+                  class="transcript-toggle"
+                  aria-expanded="false"
+                  aria-controls="transcript-your-weakness"
+                >
+                  Show transcript
+                </button>
+                <div id="transcript-your-weakness" class="transcript" hidden>
+                  <p>
+                    "I keep on recording myself even though I find myself very
+                    annoying. Maybe I can just pull the extract the audio and
+                    put the fucking point. Your weakness in the matter is card
+                    five and it is a Ace of Wands. So I would think that would
+                    be something like um falling victim to the spark of
+                    something new or um the initial spark of anything or or you
+                    know what Mariel says which is and also the picture is not
+                    really helping me. The picture looks hurt. Like this picture
+                    harms me to view because you'll see and I mean also I
+                    apologize about the dicks. I should have done so in advance,
+                    but it looks like her belly's all cut out and their their
+                    hands hurt. Like their hands and fingers are all fucking
+                    fucked up. Anyway, let's see what she says. An Ace of Wands
+                    is Ace of Wands. Don't you love a reading where the person's
+                    going to look at the book for every Sorry, you know, I'm
+                    just doing this because obviously. Moving on going to the
+                    Ace of Wands. I guess I don't have to continue talking as I
+                    search. This is cute. It's got a little quote at the
+                    beginning that says the privilege of a lifetime is being who
+                    you are by Joseph Campbell. Upright initiating energy, pure
+                    untamed energy and libido, creative potential, divine spark,
+                    dynamic, vitality, creative energy, and unbounding
+                    enthusiasm, the courage to accept a new challenge, a good
+                    start. Okay, that makes sense, right? Um oh, I love these
+                    reverse meetings. Reverses fire that gets out of hand. Wow.
+                    Oh my God, that's a good one. Um unable to focus with so
+                    much rowdy energy. Anyway, or a bad start, just a bad start.
+                    That makes a lot of sense"
+                  </p>
+                </div>
               </div>
               <p class="card-text" style="margin-top: 1rem">
                 <strong>Ace of Wands:</strong> Fire that gets out of hand,
@@ -727,10 +952,40 @@
                     transcript is available below.
                   </audio>
                 </figure>
-                <p class="transcript" aria-live="polite">
-                  Transcript: Not provided. Contact Sibylhaus to request the
-                  transcript.
-                </p>
+                <button
+                  class="transcript-toggle"
+                  aria-expanded="false"
+                  aria-controls="transcript-angel-advice"
+                >
+                  Show transcript
+                </button>
+                <div id="transcript-angel-advice" class="transcript" hidden>
+                  <p>
+                    "Okay, so next we have the advice from your angel. The angel
+                    on your other shoulder. Oh shit, sorry. Um telling you what
+                    is right and good. This shouldn't be disregarded. Fuck. As
+                    boring or leading you away from fun. It has its own wisdom
+                    too and its specialty is allowing you to exist in a society
+                    where people have respect for each other, love and take care
+                    of each other. You can also see this as logic. This card
+                    will tell you how you can do the right thing in this
+                    situation, take the high road and be responsive to other
+                    people's needs. Okay. It's the nine of Swords. So nine of
+                    Swords says, that was a nine for sure. Nine. There we go,
+                    right here. Okay. Um let's see. It says, accomplishments
+                    coming home, bringing back what you have learned, written
+                    record. I don't know where she came up with this, but I
+                    don't mind it. Mountain of knowledge, library, knowledge
+                    base, ideas realized, knowledge manifested, truth known.
+                    Sorry, you texted me answer. Okay, sorry. Using what you
+                    have learned for the betterment of the world. The reversed
+                    says gatekeeper, protect what? Test your worth, test your
+                    metal, m e t t l e. Argue your points, demonstrate your
+                    character, getting crushed on the rocks and rolled in the
+                    surf, but proving yourself. What? Okay, that's a little
+                    outlandish"
+                  </p>
+                </div>
               </div>
               <p class="card-text" style="margin-top: 1rem">
                 <strong>Nine of Swords:</strong> Knowledge manifested, mountain
@@ -763,10 +1018,54 @@
                     transcript is available below.
                   </audio>
                 </figure>
-                <p class="transcript" aria-live="polite">
-                  Transcript: Not provided. Contact Sibylhaus to request the
-                  transcript.
-                </p>
+                <button
+                  class="transcript-toggle"
+                  aria-expanded="false"
+                  aria-controls="transcript-devil-advice"
+                >
+                  Show transcript
+                </button>
+                <div id="transcript-devil-advice" class="transcript" hidden>
+                  <p>
+                    "Next up, we have the card that is advice from your devil.
+                    You can imagine it as the little devil sitting on your
+                    shoulder trying to tempt you into wickedness. There is an
+                    aspect of you though that is somewhat selfish and just wants
+                    to satisfy its own desires. While it can be disagreeable to
+                    other people or society, it also gives energy and drive to
+                    your being. Often it has a subtle wisdom that is congruent
+                    with the natural ebbs and flows of nature. It should never
+                    be discarded, only balanced. You can also see this as
+                    creativity. This card will tell you what is best for you,
+                    what will satisfy you and your desires. No pressure. Um, it
+                    is the Knight of Cups. And I don't even care what I have to
+                    say anymore. I just want to look at the book because anyway,
+                    Knight of Cups says, for some reason I feel to read this
+                    first sentence. The hanged man is number 12 like the knights
+                    and while the body is bound, the soul is free to roam and
+                    play. Hmm. Hmm. Okay. Anyway, uh she mentions the last
+                    supper. So going forward, let me get to the these faster.
+                    Motivated by heart, driven by higher purpose and calling,
+                    clean, pure, and not ruled by ego, authentic, a full cup, a
+                    full heart. And since this is the devil, I'm going to
+                    definitely read the reverse, which is inauthentic, dry,
+                    wasted, blighted. I don't know if that word means. Hey
+                    Google, define b l i g h t e d. Google Assistant Blighted
+                    describes something affected by a condition that causes it
+                    to wither or become weakened. Unknown Speaker A Something
+                    affected by a condition that makes it wither. Fuck. Hey
+                    Google, volume up. Hey Google, can you repeat that, please?
+                    So sorry. Hey Google, define blighted. Google Assistant
+                    Blighted means something is suffering from a disease or
+                    condition that causes it to decay, spoil, or become run
+                    down... Unknown Speaker A That's not the best thing I've
+                    ever heard. Anyway, that's did I finish? Oh yeah, blighted
+                    and then uh desert, cold, empty heart. this is the reverse
+                    interpretation. Emotionally draining or emotionally drained,
+                    also an empty cup. Okay. So interesting. Uh nine okay,
+                    sorry. I just read"
+                  </p>
+                </div>
               </div>
               <p class="card-text" style="margin-top: 1rem">
                 <strong>Knight of Cups:</strong> Motivated by heart, driven by
@@ -803,10 +1102,41 @@
                     transcript is available below.
                   </audio>
                 </figure>
-                <p class="transcript" aria-live="polite">
-                  Transcript: Not provided. Contact Sibylhaus to request the
-                  transcript.
-                </p>
+                <button
+                  class="transcript-toggle"
+                  aria-expanded="false"
+                  aria-controls="transcript-outcome"
+                >
+                  Show transcript
+                </button>
+                <div id="transcript-outcome" class="transcript" hidden>
+                  <p>
+                    "And the last card is to show you the final outcome, of
+                    course. Um, this is what will happen if things continue the
+                    way they are presently on course to go. So I'll stop there
+                    with that. And then, um, oh fuck. Sorry, I'm sitting
+                    cross-legged on my bed and it's not really driving with me.
+                    Okay, next. So, we're going to look at the Seven of Disks.
+                    This is actually a really pretty looking card. But we'll see
+                    what she comes up with for that. I mean, why don't we just
+                    make up all the meanings for all the cards? Why not? Um,
+                    seven, do you know that Mary L, I'm sure you know. Her name,
+                    she gave herself that name because she's like researched all
+                    the Archangels and it's like Michael, Uriel, and she was
+                    like, Mary L. Anyway. So, Seven of Disks, the final outcome.
+                    Okay. Embodiment, this is upright, embodiment of careful
+                    planning, hard work, and skillful execution. Um, execution
+                    of your intent and pre-will. That seems kind of vague.
+                    Greatness, moving mountains, awakening or awaken a sleeping
+                    giant inside you. Okay? Inside you. Anyway, stumble, okay,
+                    reversed. stumble, fall, crash and burn, stumble many times,
+                    get up stronger. I guess for that one I should be able to
+                    tell you whether it's reversed or upright. But any who, this
+                    is very fun. Uh, I'm might, um, Oh, yeah. Bottom of the deck
+                    is the Eight of Cups and the bottom bottom is the Seven of
+                    Swords. Hmm"
+                  </p>
+                </div>
               </div>
               <p class="card-text" style="margin-top: 1rem">
                 <strong>Seven of Disks:</strong> Embodiment of careful planning,
@@ -834,5 +1164,27 @@
     <footer>
       <p>&copy; 2025 Sibylhaus. Private reading. For Heather.</p>
     </footer>
+    <script>
+      (function () {
+        const toggles = document.querySelectorAll(".transcript-toggle");
+        toggles.forEach((btn) => {
+          btn.addEventListener("click", () => {
+            const id = btn.getAttribute("aria-controls");
+            const el = document.getElementById(id);
+            if (!el) return;
+            const isHidden = el.hasAttribute("hidden");
+            if (isHidden) {
+              el.removeAttribute("hidden");
+              btn.setAttribute("aria-expanded", "true");
+              btn.textContent = "Hide transcript";
+            } else {
+              el.setAttribute("hidden", "");
+              btn.setAttribute("aria-expanded", "false");
+              btn.textContent = "Show transcript";
+            }
+          });
+        });
+      })();
+    </script>
   </body>
 </html>
