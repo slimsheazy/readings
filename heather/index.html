@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Sibylhaus | Private Reading for Heather</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;600;700&display=swap"
       rel="stylesheet"
@@ -399,7 +400,7 @@
   <body>
     <header>
       <div class="logo">SIBYLHAUS</div>
-      <nav class="nav">
+      <nav class="nav" aria-label="Main navigation">
         <a href="/">HOME</a>
         <a href="#">CART (0)</a>
       </nav>
@@ -418,7 +419,7 @@
       </div>
     </div>
 
-    <div class="content-area">
+    <main class="content-area">
       <div class="container">
         <!-- THE SITUATION -->
         <section>
@@ -432,10 +433,24 @@
                 class="card-image"
               />
               <div class="card-audio">
-                <label>The Situation (Audio Reading)</label>
-                <audio controls>
-                  <source src="audio/the_situation.m4a" type="audio/mp4" />
-                </audio>
+                <figure>
+                  <figcaption id="situation-audio-label" class="audio-label">
+                    The Situation (Audio Reading)
+                  </figcaption>
+                  <audio
+                    controls
+                    preload="metadata"
+                    aria-labelledby="situation-audio-label"
+                  >
+                    <source src="audio/the_situation.m4a" type="audio/mp4" />
+                    Your browser does not support the audio element. A
+                    transcript is available below.
+                  </audio>
+                </figure>
+                <p class="transcript" aria-live="polite">
+                  Transcript: Not provided. Contact Sibylhaus to request the
+                  transcript.
+                </p>
               </div>
               <p class="card-text" style="margin-top: 1rem">
                 <strong>Five of Wands:</strong> Perseverance, singular focus
@@ -458,10 +473,27 @@
                 class="card-image"
               />
               <div class="card-audio">
-                <label>What You Want (Audio)</label>
-                <audio controls>
-                  <source src="audio/what_you_want.m4a" type="audio/mp4" />
-                </audio>
+                <figure>
+                  <figcaption
+                    id="what-you-want-audio-label"
+                    class="audio-label"
+                  >
+                    What You Want (Audio)
+                  </figcaption>
+                  <audio
+                    controls
+                    preload="metadata"
+                    aria-labelledby="what-you-want-audio-label"
+                  >
+                    <source src="audio/what_you_want.m4a" type="audio/mp4" />
+                    Your browser does not support the audio element. A
+                    transcript is available below.
+                  </audio>
+                </figure>
+                <p class="transcript" aria-live="polite">
+                  Transcript: Not provided. Contact Sibylhaus to request the
+                  transcript.
+                </p>
               </div>
               <p class="card-text" style="margin-top: 1rem">
                 <strong>Two of Cups:</strong> Yin and Yang in balance. What
@@ -477,10 +509,24 @@
                 class="card-image"
               />
               <div class="card-audio">
-                <label>Your Reality (Audio)</label>
-                <audio controls>
-                  <source src="audio/your_reality.m4a" type="audio/mp4" />
-                </audio>
+                <figure>
+                  <figcaption id="your-reality-audio-label" class="audio-label">
+                    Your Reality (Audio)
+                  </figcaption>
+                  <audio
+                    controls
+                    preload="metadata"
+                    aria-labelledby="your-reality-audio-label"
+                  >
+                    <source src="audio/your_reality.m4a" type="audio/mp4" />
+                    Your browser does not support the audio element. A
+                    transcript is available below.
+                  </audio>
+                </figure>
+                <p class="transcript" aria-live="polite">
+                  Transcript: Not provided. Contact Sibylhaus to request the
+                  transcript.
+                </p>
               </div>
               <p class="card-text" style="margin-top: 1rem">
                 <strong>Eight of Disks:</strong> Peaceful coexistence, balance,
@@ -503,10 +549,27 @@
                 class="card-image"
               />
               <div class="card-audio">
-                <label>What You Feel (Audio)</label>
-                <audio controls>
-                  <source src="audio/what_you_feel.m4a" type="audio/m4a" />
-                </audio>
+                <figure>
+                  <figcaption
+                    id="what-you-feel-audio-label"
+                    class="audio-label"
+                  >
+                    What You Feel (Audio)
+                  </figcaption>
+                  <audio
+                    controls
+                    preload="metadata"
+                    aria-labelledby="what-you-feel-audio-label"
+                  >
+                    <source src="audio/what_you_feel.m4a" type="audio/mp4" />
+                    Your browser does not support the audio element. A
+                    transcript is available below.
+                  </audio>
+                </figure>
+                <p class="transcript" aria-live="polite">
+                  Transcript: Not provided. Contact Sibylhaus to request the
+                  transcript.
+                </p>
               </div>
               <p class="card-text" style="margin-top: 1rem">
                 <strong>Judgement:</strong> Self-reflection, reckoning, rebirth
@@ -522,13 +585,30 @@
                 class="card-image"
               />
               <div class="card-audio">
-                <label>Your Thoughts (Audio)</label>
-                <audio controls>
-                  <source
-                    src="audio/what_your_thoughts_are.m4a"
-                    type="audio/m4a"
-                  />
-                </audio>
+                <figure>
+                  <figcaption
+                    id="your-thoughts-audio-label"
+                    class="audio-label"
+                  >
+                    Your Thoughts (Audio)
+                  </figcaption>
+                  <audio
+                    controls
+                    preload="metadata"
+                    aria-labelledby="your-thoughts-audio-label"
+                  >
+                    <source
+                      src="audio/what_your_thoughts_are.m4a"
+                      type="audio/mp4"
+                    />
+                    Your browser does not support the audio element. A
+                    transcript is available below.
+                  </audio>
+                </figure>
+                <p class="transcript" aria-live="polite">
+                  Transcript: Not provided. Contact Sibylhaus to request the
+                  transcript.
+                </p>
               </div>
               <p class="card-text" style="margin-top: 1rem">
                 <strong>Ace of Disks:</strong> Building a foundation for a new
@@ -551,10 +631,27 @@
                 class="card-image"
               />
               <div class="card-audio">
-                <label>Your Strengths (Audio)</label>
-                <audio controls>
-                  <source src="audio/your_strengths.m4a" type="audio/m4a" />
-                </audio>
+                <figure>
+                  <figcaption
+                    id="your-strengths-audio-label"
+                    class="audio-label"
+                  >
+                    Your Strengths (Audio)
+                  </figcaption>
+                  <audio
+                    controls
+                    preload="metadata"
+                    aria-labelledby="your-strengths-audio-label"
+                  >
+                    <source src="audio/your_strengths.m4a" type="audio/mp4" />
+                    Your browser does not support the audio element. A
+                    transcript is available below.
+                  </audio>
+                </figure>
+                <p class="transcript" aria-live="polite">
+                  Transcript: Not provided. Contact Sibylhaus to request the
+                  transcript.
+                </p>
               </div>
               <p class="card-text" style="margin-top: 1rem">
                 <strong>King of Wands:</strong> Natural leader, successful
@@ -570,10 +667,27 @@
                 class="card-image"
               />
               <div class="card-audio">
-                <label>Your Weakness (Audio)</label>
-                <audio controls>
-                  <source src="audio/your_weakness.m4a" type="audio/m4a" />
-                </audio>
+                <figure>
+                  <figcaption
+                    id="your-weakness-audio-label"
+                    class="audio-label"
+                  >
+                    Your Weakness (Audio)
+                  </figcaption>
+                  <audio
+                    controls
+                    preload="metadata"
+                    aria-labelledby="your-weakness-audio-label"
+                  >
+                    <source src="audio/your_weakness.m4a" type="audio/mp4" />
+                    Your browser does not support the audio element. A
+                    transcript is available below.
+                  </audio>
+                </figure>
+                <p class="transcript" aria-live="polite">
+                  Transcript: Not provided. Contact Sibylhaus to request the
+                  transcript.
+                </p>
               </div>
               <p class="card-text" style="margin-top: 1rem">
                 <strong>Ace of Wands:</strong> Fire that gets out of hand,
@@ -596,13 +710,27 @@
                 class="card-image"
               />
               <div class="card-audio">
-                <label>Angel Advice (Audio)</label>
-                <audio controls>
-                  <source
-                    src="audio/advice_from_your_angel.m4a"
-                    type="audio/m4a"
-                  />
-                </audio>
+                <figure>
+                  <figcaption id="angel-advice-audio-label" class="audio-label">
+                    Angel Advice (Audio)
+                  </figcaption>
+                  <audio
+                    controls
+                    preload="metadata"
+                    aria-labelledby="angel-advice-audio-label"
+                  >
+                    <source
+                      src="audio/advice_from_your_angel.m4a"
+                      type="audio/mp4"
+                    />
+                    Your browser does not support the audio element. A
+                    transcript is available below.
+                  </audio>
+                </figure>
+                <p class="transcript" aria-live="polite">
+                  Transcript: Not provided. Contact Sibylhaus to request the
+                  transcript.
+                </p>
               </div>
               <p class="card-text" style="margin-top: 1rem">
                 <strong>Nine of Swords:</strong> Knowledge manifested, mountain
@@ -618,13 +746,27 @@
                 class="card-image"
               />
               <div class="card-audio">
-                <label>Devil Advice (Audio)</label>
-                <audio controls>
-                  <source
-                    src="audio/advice_from_your_devil.m4a"
-                    type="audio/m4a"
-                  />
-                </audio>
+                <figure>
+                  <figcaption id="devil-advice-audio-label" class="audio-label">
+                    Devil Advice (Audio)
+                  </figcaption>
+                  <audio
+                    controls
+                    preload="metadata"
+                    aria-labelledby="devil-advice-audio-label"
+                  >
+                    <source
+                      src="audio/advice_from_your_devil.m4a"
+                      type="audio/mp4"
+                    />
+                    Your browser does not support the audio element. A
+                    transcript is available below.
+                  </audio>
+                </figure>
+                <p class="transcript" aria-live="polite">
+                  Transcript: Not provided. Contact Sibylhaus to request the
+                  transcript.
+                </p>
               </div>
               <p class="card-text" style="margin-top: 1rem">
                 <strong>Knight of Cups:</strong> Motivated by heart, driven by
@@ -647,10 +789,24 @@
                 class="card-image"
               />
               <div class="card-audio">
-                <label>The Outcome (Audio)</label>
-                <audio controls>
-                  <source src="audio/outcome.m4a" type="audio/m4a" />
-                </audio>
+                <figure>
+                  <figcaption id="outcome-audio-label" class="audio-label">
+                    The Outcome (Audio)
+                  </figcaption>
+                  <audio
+                    controls
+                    preload="metadata"
+                    aria-labelledby="outcome-audio-label"
+                  >
+                    <source src="audio/outcome.m4a" type="audio/mp4" />
+                    Your browser does not support the audio element. A
+                    transcript is available below.
+                  </audio>
+                </figure>
+                <p class="transcript" aria-live="polite">
+                  Transcript: Not provided. Contact Sibylhaus to request the
+                  transcript.
+                </p>
               </div>
               <p class="card-text" style="margin-top: 1rem">
                 <strong>Seven of Disks:</strong> Embodiment of careful planning,
@@ -668,11 +824,12 @@
             href="https://www.etsy.com/shop/Sibylhaus"
             class="cta-button"
             target="_blank"
+            rel="noopener noreferrer"
             >Book Another Reading</a
           >
         </div>
       </div>
-    </div>
+    </main>
 
     <footer>
       <p>&copy; 2025 Sibylhaus. Private reading. For Heather.</p>
