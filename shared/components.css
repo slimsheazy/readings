@@ -1,0 +1,383 @@
+/* ==========================================
+   SIBYLHAUS COMPONENT LIBRARY
+   Mix & match layouts for reading variety
+   ========================================== */
+
+/* ==========================================
+   CARD VARIATIONS
+   Choose different card styles per reading
+   ========================================== */
+
+/* === STANDARD CARD (Classic left-border) === */
+.card {
+  background-color: #FFFFFF;
+  padding: 1.5rem;
+  border-left: 4px solid #000;
+  margin-bottom: 1.5rem;
+}
+
+.card h3 {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1.1rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  margin-bottom: 0.8rem;
+  color: #000;
+}
+
+.card p {
+  font-size: 0.9rem;
+  line-height: 1.7;
+  color: #333;
+}
+
+/* === CARD WITH IMAGE (For tarot cards with images) === */
+.card-with-image {
+  background-color: #FFFFFF;
+  padding: 2rem;
+  border-left: 4px solid #000;
+  margin-bottom: 2rem;
+}
+
+.card-with-image h3 {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1.3rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  margin-bottom: 1.5rem;
+  color: #000;
+}
+
+.card-image {
+  width: 300px;
+  height: 300px;
+  display: block;
+  margin-bottom: 1.5rem;
+  border-radius: 8px;
+  object-fit: contain;
+  background-color: transparent;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.45), 0 2px 6px rgba(0, 0, 0, 0.25);
+}
+
+.card-text {
+  font-size: 0.9rem;
+  line-height: 1.7;
+  color: #333;
+}
+
+/* === CENTERED CARD === */
+.card-centered {
+  background-color: #FFFFFF;
+  padding: 2rem;
+  border-top: 4px solid #000;
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+.card-centered h3 {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1.2rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+  color: #000;
+}
+
+/* === FLOATING CARD === */
+.card-floating {
+  background-color: #FFFFFF;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  margin-bottom: 1.5rem;
+}
+
+.card-floating h3 {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1.1rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+  color: #000;
+}
+
+/* === MINIMAL CARD === */
+.card-minimal {
+  background-color: transparent;
+  padding: 1.5rem 0;
+  border-bottom: 1px solid #e0e0e0;
+  margin-bottom: 1.5rem;
+}
+
+.card-minimal h3 {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1.1rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+  color: #000;
+}
+
+/* ==========================================
+   GRID LAYOUTS
+   Different column arrangements
+   ========================================== */
+
+/* === TWO COLUMN GRID === */
+.grid-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  margin-top: 1.5rem;
+}
+
+/* === THREE COLUMN GRID === */
+.grid-3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+}
+
+/* === STACKED LAYOUT (Full width, single column) === */
+.stacked {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  margin-top: 1.5rem;
+}
+
+/* === ALTERNATING LAYOUT === */
+.alternating {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  margin-top: 1.5rem;
+}
+
+.alternating > :nth-child(odd) {
+  margin-left: 0;
+  margin-right: 2rem;
+}
+
+.alternating > :nth-child(even) {
+  margin-left: 2rem;
+  margin-right: 0;
+}
+
+/* === MASONRY-STYLE LAYOUT === */
+.masonry {
+  column-count: 2;
+  column-gap: 2rem;
+  margin-top: 1.5rem;
+}
+
+.masonry > * {
+  break-inside: avoid;
+  margin-bottom: 2rem;
+}
+
+/* ==========================================
+   SPECIAL COMPONENTS
+   Unique layout elements
+   ========================================== */
+
+/* === PATH BOX === */
+.path-box {
+  background-color: #FFFFFF;
+  padding: 2rem;
+  border-top: 4px solid #000;
+  margin-bottom: 1.5rem;
+}
+
+.path-box h3 {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1.3rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  margin-bottom: 1.2rem;
+  color: #000;
+}
+
+.path-box ul {
+  list-style: none;
+  padding: 0;
+}
+
+.path-box li {
+  font-size: 0.9rem;
+  line-height: 1.7;
+  margin-bottom: 0.8rem;
+  padding-left: 1.5rem;
+  position: relative;
+  color: #333;
+}
+
+.path-box li:before {
+  content: "→";
+  position: absolute;
+  left: 0;
+  color: #666;
+  font-weight: 700;
+}
+
+/* === ADVICE LIST === */
+.advice-list {
+  background-color: #FFFFFF;
+  padding: 2rem;
+  border-left: 4px solid #000;
+  margin-bottom: 1.5rem;
+}
+
+.advice-list ul {
+  list-style: none;
+  padding: 0;
+}
+
+.advice-list li {
+  font-size: 0.9rem;
+  line-height: 1.8;
+  margin-bottom: 1rem;
+  padding-left: 1.5rem;
+  position: relative;
+  color: #333;
+}
+
+.advice-list li:before {
+  content: "•";
+  position: absolute;
+  left: 0;
+  color: #000;
+  font-weight: 700;
+}
+
+.advice-list li:last-child {
+  margin-bottom: 0;
+}
+
+.advice-list strong {
+  font-weight: 700;
+  color: #000;
+}
+
+/* === CARD AUDIO PLAYER === */
+.card-audio {
+  background-color: #f5f5f5;
+  padding: 1rem;
+  border-radius: 8px;
+  margin-top: 1rem;
+}
+
+.card-audio label {
+  display: block;
+  font-size: 0.75rem;
+  letter-spacing: 0.05em;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: #666;
+  margin-bottom: 0.75rem;
+}
+
+.card-audio audio {
+  width: 100%;
+  height: 32px;
+}
+
+/* === TRANSCRIPT TOGGLE === */
+.transcript-toggle {
+  background: transparent;
+  border: none;
+  color: #000;
+  font-weight: 700;
+  cursor: pointer;
+  padding: 0;
+  margin-top: 0.5rem;
+  text-decoration: underline;
+  font-size: 0.85rem;
+}
+
+.transcript {
+  background: #ffffff;
+  color: #1a1a1a;
+  padding: 1rem;
+  border-radius: 6px;
+  margin-top: 0.75rem;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+  font-size: 0.9rem;
+  line-height: 1.7;
+}
+
+/* ==========================================
+   IMAGE VARIATIONS
+   Different ways to display card images
+   ========================================== */
+
+/* === LARGE IMAGE (300x300) === */
+.card-image-large {
+  width: 300px;
+  height: 300px;
+}
+
+/* === MEDIUM IMAGE (250x250) === */
+.card-image-medium {
+  width: 250px;
+  height: 250px;
+}
+
+/* === SMALL IMAGE (200x200) === */
+.card-image-small {
+  width: 200px;
+  height: 200px;
+}
+
+/* === SIDE-BY-SIDE IMAGE & TEXT === */
+.image-text-row {
+  display: flex;
+  gap: 2rem;
+  align-items: flex-start;
+}
+
+.image-text-row .card-image {
+  flex-shrink: 0;
+}
+
+.image-text-row .card-content {
+  flex: 1;
+}
+
+/* ==========================================
+   RESPONSIVE ADJUSTMENTS
+   ========================================== */
+
+@media (max-width: 768px) {
+  .grid-2,
+  .grid-3 {
+    grid-template-columns: 1fr;
+  }
+  
+  .masonry {
+    column-count: 1;
+  }
+  
+  .alternating > :nth-child(odd),
+  .alternating > :nth-child(even) {
+    margin-left: 0;
+    margin-right: 0;
+  }
+  
+  .card-image {
+    width: 90%;
+    height: auto;
+    aspect-ratio: 1;
+  }
+  
+  .image-text-row {
+    flex-direction: column;
+  }
+}
