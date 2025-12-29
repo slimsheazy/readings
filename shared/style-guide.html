@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sibylhaus | Component Style Guide</title>
+  <link rel="stylesheet" href="base-styles.css">
+  <link rel="stylesheet" href="components.css">
+  <style>
+    .demo-section {
+      margin-bottom: 4rem;
+      padding-bottom: 2rem;
+      border-bottom: 2px solid #ddd;
+    }
+    .demo-label {
+      background: #000;
+      color: #fff;
+      padding: 0.5rem 1rem;
+      font-size: 0.85rem;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      margin-bottom: 1rem;
+      display: inline-block;
+    }
+    .component-name {
+      font-family: 'Inter', monospace;
+      background: #f5f5f5;
+      padding: 0.25rem 0.5rem;
+      font-size: 0.85rem;
+      color: #666;
+      border-radius: 4px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">SIBYLHAUS</div>
+    <nav class="nav">
+      <a href="/">HOME</a>
+      <a href="#components">COMPONENTS</a>
+    </nav>
+  </header>
+
+  <div class="hero">
+    <h1>COMPONENT STYLE GUIDE</h1>
+    <h2>Mix & Match for Reading Variety</h2>
+    <p>Choose different layouts and components for each reading to create unique experiences while maintaining your brand consistency.</p>
+  </div>
+
+  <div class="content-area">
+    <div class="container">
+      
+      <!-- CARD VARIATIONS -->
+      <div class="demo-section">
+        <h2>CARD VARIATIONS</h2>
+        <p class="pattern-text">Choose different card styles to create visual variety across readings.</p>
+        
+        <div class="demo-label">Standard Card (.card)</div>
+        <div class="card">
+          <h3>Card Title</h3>
+          <p>This is the classic left-border style card. Clean and professional.</p>
+        </div>
+
+        <div class="demo-label">Centered Card (.card-centered)</div>
+        <div class="card-centered">
+          <h3>Centered Title</h3>
+          <p>Perfect for emphasizing key messages or outcomes.</p>
+        </div>
+
+        <div class="demo-label">Floating Card (.card-floating)</div>
+        <div class="card-floating">
+          <h3>Floating Card</h3>
+          <p>Modern rounded corners with subtle shadow for a softer look.</p>
+        </div>
+
+        <div class="demo-label">Minimal Card (.card-minimal)</div>
+        <div class="card-minimal">
+          <h3>Minimal Style</h3>
+          <p>Clean and understated with just a bottom border.</p>
+        </div>
+      </div>
+
+      <!-- GRID LAYOUTS -->
+      <div class="demo-section">
+        <h2>GRID LAYOUTS</h2>
+        <p class="pattern-text">Different column arrangements for organizing content.</p>
+        
+        <div class="demo-label">Two Column Grid (.grid-2)</div>
+        <div class="grid-2">
+          <div class="card">
+            <h3>Column 1</h3>
+            <p>First item in a two-column layout.</p>
+          </div>
+          <div class="card">
+            <h3>Column 2</h3>
+            <p>Second item side by side.</p>
+          </div>
+        </div>
+
+        <div class="demo-label">Three Column Grid (.grid-3)</div>
+        <div class="grid-3">
+          <div class="card">
+            <h3>Card 1</h3>
+            <p>Compact three-column display.</p>
+          </div>
+          <div class="card">
+            <h3>Card 2</h3>
+            <p>Great for smaller cards.</p>
+          </div>
+          <div class="card">
+            <h3>Card 3</h3>
+            <p>Shows more at once.</p>
+          </div>
+        </div>
+
+        <div class="demo-label">Stacked Layout (.stacked)</div>
+        <div class="stacked">
+          <div class="card">
+            <h3>Full Width Card 1</h3>
+            <p>Single column, full width layout for detailed content.</p>
+          </div>
+          <div class="card">
+            <h3>Full Width Card 2</h3>
+            <p>Each card gets maximum space.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- SPECIAL COMPONENTS -->
+      <div class="demo-section">
+        <h2>SPECIAL COMPONENTS</h2>
+        
+        <div class="demo-label">Path Box (.path-box)</div>
+        <div class="path-box">
+          <h3>Your Journey Forward</h3>
+          <ul>
+            <li>First step in the path</li>
+            <li>Second milestone to reach</li>
+            <li>Final destination ahead</li>
+          </ul>
+        </div>
+
+        <div class="demo-label">Advice List (.advice-list)</div>
+        <div class="advice-list">
+          <ul>
+            <li><strong>Trust your intuition.</strong> Your inner voice knows the way.</li>
+            <li><strong>Take small steps.</strong> Progress doesn't require giant leaps.</li>
+            <li><strong>Stay open.</strong> Opportunities appear in unexpected forms.</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- USAGE GUIDE -->
+      <div class="demo-section">
+        <h2>HOW TO USE</h2>
+        <div class="card">
+          <h3>Step 1: Link the Stylesheets</h3>
+          <p>Add these two lines to the <span class="component-name">&lt;head&gt;</span> of your reading HTML:</p>
+          <pre style="background: #f5f5f5; padding: 1rem; margin-top: 0.5rem; border-radius: 4px; overflow-x: auto;"><code>&lt;link rel="stylesheet" href="../shared/base-styles.css"&gt;
+&lt;link rel="stylesheet" href="../shared/components.css"&gt;</code></pre>
+        </div>
+
+        <div class="card">
+          <h3>Step 2: Remove Inline Styles</h3>
+          <p>Delete the <span class="component-name">&lt;style&gt;</span> block from your HTML (optional - only if you want to use the shared styles).</p>
+        </div>
+
+        <div class="card">
+          <h3>Step 3: Mix & Match Components</h3>
+          <p>Use different class names from this guide to create variety:</p>
+          <ul style="margin-top: 0.5rem; padding-left: 1.5rem;">
+            <li>Try <span class="component-name">.grid-3</span> instead of <span class="component-name">.grid-2</span></li>
+            <li>Use <span class="component-name">.card-floating</span> for a softer look</li>
+            <li>Switch to <span class="component-name">.card-minimal</span> for text-heavy readings</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- CTA -->
+      <div class="cta-section">
+        <p>Ready to create your next reading?</p>
+        <a href="https://www.etsy.com/shop/Sibylhaus" class="cta-button" target="_blank">Visit Sibylhaus</a>
+      </div>
+
+    </div>
+  </div>
+
+  <footer>
+    <p>© 2025 Sibylhaus. Style Guide for Private Readings.</p>
+  </footer>
+</body>
+</html>
