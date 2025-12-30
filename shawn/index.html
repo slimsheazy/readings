@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sibylhaus | Private Reading for Shawn</title>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #000000;
+            color: #FFFFFF;
+            line-height: 1.6;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem 2rem;
+            background-color: #000000;
+            border-bottom: 1px solid #333;
+        }
+
+        .logo {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            color: #FFFFFF;
+        }
+
+        .nav {
+            display: flex;
+            gap: 2rem;
+            font-size: 0.75rem;
+            letter-spacing: 0.05em;
+            font-weight: 600;
+        }
+
+        .nav a {
+            color: #D0D0D0;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .nav a:hover {
+            color: #FFFFFF;
+        }
+
+        .hero {
+            background-color: #000000;
+            padding: 4rem 2rem;
+            text-align: center;
+            min-height: 50vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .hero h1 {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 4rem;
+            font-weight: 700;
+            letter-spacing: 0.08em;
+            margin-bottom: 1rem;
+            line-height: 1.1;
+            text-transform: uppercase;
+        }
+
+        .hero h2 {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 2.5rem;
+            font-weight: 700;
+            letter-spacing: 0.08em;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+        }
+
+        .hero p {
+            font-size: 0.95rem;
+            color: #D0D0D0;
+            margin-bottom: 2rem;
+            max-width: 600px;
+        }
+
+        .audio-player-container {
+            background-color: #000000;
+            padding: 2rem;
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .audio-label {
+            font-size: 0.75rem;
+            letter-spacing: 0.08em;
+            font-weight: 700;
+            text-transform: uppercase;
+            margin-bottom: 1.5rem;
+            color: #D0D0D0;
+        }
+
+        audio {
+            width: 100%;
+            max-width: 400px;
+            height: 40px;
+        }
+
+        .content-area {
+            background-color: #F8F8F8;
+            color: #1a1a1a;
+            padding: 3rem 2rem;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        section {
+            margin-bottom: 3rem;
+        }
+
+        section h2 {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 3px solid #000;
+            display: inline-block;
+        }
+
+        .section-content {
+            margin-top: 1.5rem;
+        }
+
+        .grid-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin-top: 1.5rem;
+        }
+
+        .grid-3 {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 2rem;
+            margin-top: 1.5rem;
+        }
+
+        .card-with-image {
+            background-color: #FFFFFF;
+            padding: 2rem;
+            border-left: 4px solid #000;
+            margin-bottom: 2rem;
+        }
+
+        .card-with-image h3 {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 1.3rem;
+            font-weight: 700;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            margin-bottom: 1.5rem;
+            color: #000;
+        }
+
+        .card-image {
+            width: 100%;
+            max-width: 600px;
+            height: auto;
+            margin-bottom: 1.5rem;
+            display: block;
+            border-radius: 4px;
+        }
+
+        .card-audio {
+            background-color: #f5f5f5;
+            padding: 1rem;
+            border-radius: 8px;
+            margin-top: 1rem;
+        }
+
+        .card-audio label {
+            display: block;
+            font-size: 0.75rem;
+            letter-spacing: 0.05em;
+            font-weight: 600;
+            text-transform: uppercase;
+            color: #666;
+            margin-bottom: 0.75rem;
+        }
+
+        .card-audio audio {
+            width: 100%;
+            height: 32px;
+        }
+
+        .card-text {
+            font-size: 0.9rem;
+            line-height: 1.7;
+            color: #333;
+        }
+
+        .cta-section {
+            text-align: center;
+            padding: 2rem;
+            background-color: #FFFFFF;
+            margin-top: 2rem;
+        }
+
+        .cta-section p {
+            font-size: 0.9rem;
+            color: #666;
+            margin-bottom: 1.5rem;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background-color: #000;
+            color: #fff;
+            padding: 1rem 2rem;
+            font-family: 'Inter', sans-serif;
+            font-size: 0.9rem;
+            font-weight: 600;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .cta-button:hover {
+            background-color: #333;
+        }
+
+        footer {
+            background-color: #000000;
+            text-align: center;
+            padding: 2rem;
+            border-top: 1px solid #333;
+            font-size: 0.75rem;
+            color: #999;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero h2 {
+                font-size: 1.5rem;
+            }
+
+            .grid-2,
+            .grid-3 {
+                grid-template-columns: 1fr;
+            }
+
+            header {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .nav {
+                gap: 1rem;
+                font-size: 0.65rem;
+            }
+
+            .content-area {
+                padding: 2rem 1rem;
+            }
+
+            section h2 {
+                font-size: 1.3rem;
+            }
+
+            .card-image {
+                max-width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">SIBYLHAUS</div>
+        <nav class="nav">
+            <a href="/">HOME</a>
+            <a href="#">CART (0)</a>
+        </nav>
+    </header>
+
+    <div class="hero">
+        <h1>PRIVATE READING</h1>
+        <h2>Shawn</h2>
+        
+        <div class="audio-player-container">
+            <div class="audio-label">LISTEN FIRST</div>
+            <p style="font-size: 0.85rem; color: #D0D0D0; margin-bottom: 1.5rem;">Listen to the full reading, then explore each card and interpretation.</p>
+        </div>
+    </div>
+
+    <div class="content-area">
+        <div class="container">
+            <!-- IS Shawn OKAY -->
+            <section>
+                <h2>IS SHAWN OKAY?</h2>
+                <div class="section-content">
+                    <div class="card-with-image">
+                        <h3>The Star</h3>
+                        <p class="card-text"><strong>The Star:</strong> Hope, guidance, clarity. You are okay. There is light and direction in your path, even if it's not always visible.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- WHAT SHOULD Shawn TRUST -->
+            <section>
+                <h2>WHAT SHOULD SHAWN TRUST?</h2>
+                <div class="section-content">
+                    <div class="card-with-image">
+                        <h3>Ten of Disks</h3>
+                        <p class="card-text"><strong>Ten of Disks:</strong> Long-term legacy, family, generational wealth. In the long run, you're going to have a family and a legacy. Trust that this will come through, no matter how much you worry about it. It's already written in your future.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- WHAT SHOULD Shawn SUSPECT -->
+            <section>
+                <h2>WHAT SHOULD SHAWN SUSPECT?</h2>
+                <div class="section-content">
+                    <div class="card-with-image">
+                        <h3>Eight of Disks (Reversed)</h3>
+                        <p class="card-text"><strong>Eight of Disks Reversed:</strong> Stalled progress, uneven effort. Suspect that progress might not be moving as actively or as proactively as you'd hope. There's a lack of full-force momentum. The stability you need feels stalled sometimes—not moving at full capacity or with the urgency you feel is necessary.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SHAWN'S INTENTIONS & FEELINGS -->
+            <section>
+                <h2>SHEA'S INNER WORLD</h2>
+                <div class="grid-2 section-content">
+                    <div class="card-with-image">
+                        <h3>Shea's Intentions - Four of Disks</h3>
+                        <p class="card-text"><strong>Four of Disks:</strong> Stability, security, grounded foundation. Her intentions are grounded and stable. She have four legs—whatever she's building is secure and balanced. This is solid ground.</p>
+                    </div>
+                    <div class="card-with-image">
+                        <h3>Shea's Feelings - Wheel of Fortune (Reversed)</h3>
+                        <p class="card-text"><strong>Wheel of Fortune Reversed:</strong> Bad luck, stalled cycles, unachievable goals. It's like she won the lottery but can't cash it out. The wheel has stopped turning. She's stuck in a cycle where victory feels within reach but unreachable.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- OUTCOME WITHOUT CHANGES -->
+            <section>
+                <h2>OUTCOME WITHOUT CHANGES</h2>
+                <div class="section-content">
+                    <div class="card-with-image">
+                        <h3>Nine of Wands</h3>
+                        <p class="card-text"><strong>Nine of Wands:</strong> Defensive, paranoid, almost finished but stalled. This shows an infinite stalemate. You're almost there, but you're not there. You're paranoid and frazzled. No progress—just an endless, stalled loop. This is the path if nothing changes.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- CHANGES NEEDED -->
+            <section>
+                <h2>CHANGES NEEDED FOR DIFFERENT OUTCOME</h2>
+                <div class="grid-2 section-content">
+                    <div class="card-with-image">
+                        <h3>Change Shea Should Make - The Hierophant</h3>
+                        <p class="card-text"><strong>The Hierophant:</strong> Structure, tradition, spiritual foundation. She needs to lean more towards established structure and spiritual grounding. She should find stability through tradition, ritual, or foundational beliefs. This is the shift needed.</p>
+                    </div>
+                    <div class="card-with-image">
+                        <h3>Change You Should Make - Seven of Wands</h3>
+                        <p class="card-text"><strong>Seven of Wands:</strong> Standing your ground, having the upper hand, victory against opposition. Maybe it's realizing that you have the upper hand and not everybody's against you. You can stand firm. You have strength in this position.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- OUTCOME WITH CHANGES -->
+            <section>
+                <h2>OUTCOME WITH CHANGES</h2>
+                <div class="section-content">
+                    <div class="card-with-image">
+                        <h3>The Devil</h3>
+                        <p class="card-text"><strong>The Devil:</strong> Bondage, attachment, material focus, shadow self. If you make these changes, the outcome shows The Devil—a wake-up call about attachments and patterns you've been bound to. It's a catalyst for breaking free from what holds you back.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- CTA -->
+            <div class="cta-section">
+                <p>Need clarity on something else?</p>
+                <a href="https://www.etsy.com/shop/Sibylhaus" class="cta-button" target="_blank">Book Another Reading</a>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 Sibylhaus. Private reading. For Shawn.</p>
+    </footer>
+</body>
+</html>
