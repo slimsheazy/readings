@@ -1,10 +1,9 @@
 <!DOCTYPE html>
-
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Sibylhaus | Love Reading for Jade & Carl</title>
+    <title>Sibylhaus | 7 Day Forecast for Jade & Carl</title>
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;600;700&display=swap"
@@ -20,273 +19,332 @@
         box-sizing: border-box;
       }
 
-```
-  body {
-    font-family: "Inter", sans-serif;
-    background-color: #000000;
-    color: #ffffff;
-    line-height: 1.6;
-  }
+      body {
+        font-family: "Inter", sans-serif;
+        background-color: #000000;
+        color: #ffffff;
+        line-height: 1.6;
+      }
 
-  header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 1.5rem 2rem;
-    background-color: #000000;
-    border-bottom: 1px solid #333;
-  }
+      header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1.5rem 2rem;
+        background-color: #000000;
+        border-bottom: 1px solid #333;
+      }
 
-  .logo {
-    font-family: "Bebas Neue", sans-serif;
-    font-size: 1.5rem;
-    font-weight: 700;
-    letter-spacing: 0.1em;
-    color: #ffffff;
-  }
+      .logo {
+        font-family: "Bebas Neue", sans-serif;
+        font-size: 1.5rem;
+        font-weight: 700;
+        letter-spacing: 0.1em;
+        color: #ffffff;
+      }
 
-  .nav {
-    display: flex;
-    gap: 2rem;
-    font-size: 0.75rem;
-    letter-spacing: 0.05em;
-    font-weight: 600;
-  }
+      .nav {
+        display: flex;
+        gap: 2rem;
+        font-size: 0.75rem;
+        letter-spacing: 0.05em;
+        font-weight: 600;
+      }
 
-  .nav a {
-    color: #d0d0d0;
-    text-decoration: none;
-    transition: color 0.3s;
-  }
+      .nav a {
+        color: #d0d0d0;
+        text-decoration: none;
+        transition: color 0.3s;
+      }
 
-  .nav a:hover {
-    color: #ffffff;
-  }
+      .nav a:hover {
+        color: #ffffff;
+      }
 
-  .hero {
-    background-color: #000000;
-    padding: 4rem 2rem;
-    text-align: center;
-    min-height: 50vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-  }
+      .hero {
+        background-color: #000000;
+        padding: 4rem 2rem;
+        text-align: center;
+        min-height: 50vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      }
 
-  .hero h1 {
-    font-family: "Bebas Neue", sans-serif;
-    font-size: 4rem;
-    font-weight: 700;
-    letter-spacing: 0.08em;
-    margin-bottom: 1rem;
-    line-height: 1.1;
-    text-transform: uppercase;
-  }
+      .hero h1 {
+        font-family: "Bebas Neue", sans-serif;
+        font-size: 4rem;
+        font-weight: 700;
+        letter-spacing: 0.08em;
+        margin-bottom: 1rem;
+        line-height: 1.1;
+        text-transform: uppercase;
+      }
 
-  .hero h2 {
-    font-family: "Bebas Neue", sans-serif;
-    font-size: 2.5rem;
-    font-weight: 700;
-    letter-spacing: 0.08em;
-    margin-bottom: 1rem;
-    text-transform: uppercase;
-  }
+      .hero h2 {
+        font-family: "Bebas Neue", sans-serif;
+        font-size: 2.5rem;
+        font-weight: 700;
+        letter-spacing: 0.08em;
+        margin-bottom: 1rem;
+        text-transform: uppercase;
+      }
 
-  .hero p {
-    font-size: 0.95rem;
-    color: #d0d0d0;
-    margin-bottom: 2rem;
-    max-width: 600px;
-  }
+      .hero p {
+        font-size: 0.95rem;
+        color: #d0d0d0;
+        margin-bottom: 2rem;
+        max-width: 600px;
+      }
 
-  .content-area {
-    background-color: #f8f8f8;
-    color: #1a1a1a;
-    padding: 3rem 2rem;
-  }
+      .audio-player-container {
+        background-color: #000000;
+        padding: 2rem;
+        text-align: center;
+        margin-bottom: 2rem;
+      }
 
-  .container {
-    max-width: 1000px;
-    margin: 0 auto;
-  }
+      .audio-label {
+        font-size: 0.75rem;
+        letter-spacing: 0.08em;
+        font-weight: 700;
+        text-transform: uppercase;
+        margin-bottom: 1.5rem;
+        color: #d0d0d0;
+      }
 
-  section {
-    margin-bottom: 3rem;
-  }
+      audio {
+        width: 100%;
+        max-width: 400px;
+        height: 40px;
+      }
 
-  section h2 {
-    font-family: "Bebas Neue", sans-serif;
-    font-size: 1.8rem;
-    font-weight: 700;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    margin-bottom: 1rem;
-    padding-bottom: 0.5rem;
-    border-bottom: 3px solid #000;
-    display: inline-block;
-  }
+      .content-area {
+        background-color: #f8f8f8;
+        color: #1a1a1a;
+        padding: 3rem 2rem;
+      }
 
-  .section-content {
-    margin-top: 1.5rem;
-  }
+      .container {
+        max-width: 1000px;
+        margin: 0 auto;
+      }
 
-  .pattern-text {
-    font-size: 0.95rem;
-    line-height: 1.8;
-    margin-bottom: 1rem;
-    color: #333;
-  }
+      section {
+        margin-bottom: 3rem;
+      }
 
-  .pattern-text strong {
-    font-weight: 700;
-    color: #000;
-  }
+      section h2 {
+        font-family: "Bebas Neue", sans-serif;
+        font-size: 1.8rem;
+        font-weight: 700;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        margin-bottom: 1rem;
+        padding-bottom: 0.5rem;
+        border-bottom: 3px solid #000;
+        display: inline-block;
+      }
 
-  .card {
-    background-color: #ffffff;
-    padding: 1.5rem;
-    border-left: 4px solid #000;
-    margin-bottom: 1.5rem;
-  }
+      .section-content {
+        margin-top: 1.5rem;
+      }
 
-  .card h3 {
-    font-family: "Bebas Neue", sans-serif;
-    font-size: 1.1rem;
-    font-weight: 700;
-    letter-spacing: 0.05em;
-    text-transform: uppercase;
-    margin-bottom: 0.8rem;
-    color: #000;
-  }
+      .pattern-text {
+        font-size: 0.95rem;
+        line-height: 1.8;
+        margin-bottom: 1rem;
+        color: #333;
+      }
 
-  .card p {
-    font-size: 0.9rem;
-    line-height: 1.7;
-    color: #333;
-  }
+      .pattern-text strong {
+        font-weight: 700;
+        color: #000;
+      }
 
-  .day-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 1.5rem;
-    margin-top: 1.5rem;
-  }
+      .card {
+        background-color: #ffffff;
+        padding: 1.5rem;
+        border-left: 4px solid #000;
+        margin-bottom: 1.5rem;
+      }
 
-  .path-box {
-    background-color: #ffffff;
-    padding: 2rem;
-    border-top: 4px solid #000;
-  }
+      .card h3 {
+        font-family: "Bebas Neue", sans-serif;
+        font-size: 1.1rem;
+        font-weight: 700;
+        letter-spacing: 0.05em;
+        text-transform: uppercase;
+        margin-bottom: 0.8rem;
+        color: #000;
+      }
 
-  .path-box h3 {
-    font-family: "Bebas Neue", sans-serif;
-    font-size: 1.3rem;
-    font-weight: 700;
-    letter-spacing: 0.05em;
-    text-transform: uppercase;
-    margin-bottom: 1.2rem;
-    color: #000;
-  }
+      .card p {
+        font-size: 0.9rem;
+        line-height: 1.7;
+        color: #333;
+      }
 
-  .path-box ul {
-    list-style: none;
-    padding: 0;
-  }
+      .card-with-image {
+        background-color: #ffffff;
+        padding: 2rem;
+        border-left: 4px solid #000;
+        margin-bottom: 2rem;
+      }
 
-  .path-box li {
-    font-size: 0.9rem;
-    line-height: 1.7;
-    margin-bottom: 0.8rem;
-    padding-left: 1.5rem;
-    position: relative;
-    color: #333;
-  }
+      .card-with-image h3 {
+        font-family: "Bebas Neue", sans-serif;
+        font-size: 1.3rem;
+        font-weight: 700;
+        letter-spacing: 0.05em;
+        text-transform: uppercase;
+        margin-bottom: 1.5rem;
+        color: #000;
+      }
 
-  .path-box li:before {
-    content: "→";
-    position: absolute;
-    left: 0;
-    color: #666;
-    font-weight: 700;
-  }
+      .card-image {
+        width: var(--card-image-size);
+        height: var(--card-image-size);
+        display: block;
+        margin-bottom: 1.5rem;
+        border-radius: 8px;
+        object-fit: contain;
+        background-color: transparent;
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.45),
+          0 2px 6px rgba(0, 0, 0, 0.25);
+      }
 
-  .cta-section {
-    text-align: center;
-    padding: 2rem;
-    background-color: #ffffff;
-    margin-top: 2rem;
-  }
+      .card-text {
+        font-size: 0.9rem;
+        line-height: 1.7;
+        color: #333;
+      }
 
-  .cta-section p {
-    font-size: 0.9rem;
-    color: #666;
-    margin-bottom: 1.5rem;
-  }
+      .day-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 1.5rem;
+        margin-top: 1.5rem;
+      }
 
-  .cta-button {
-    display: inline-block;
-    background-color: #000;
-    color: #fff;
-    padding: 1rem 2rem;
-    font-family: "Inter", sans-serif;
-    font-size: 0.9rem;
-    font-weight: 600;
-    letter-spacing: 0.05em;
-    text-transform: uppercase;
-    text-decoration: none;
-    transition: all 0.3s ease;
-  }
+      .path-box {
+        background-color: #ffffff;
+        padding: 2rem;
+        border-top: 4px solid #000;
+      }
 
-  .cta-button:hover {
-    background-color: #333;
-  }
+      .path-box h3 {
+        font-family: "Bebas Neue", sans-serif;
+        font-size: 1.3rem;
+        font-weight: 700;
+        letter-spacing: 0.05em;
+        text-transform: uppercase;
+        margin-bottom: 1.2rem;
+        color: #000;
+      }
 
-  footer {
-    background-color: #000000;
-    text-align: center;
-    padding: 2rem;
-    border-top: 1px solid #333;
-    font-size: 0.75rem;
-    color: #999;
-    letter-spacing: 0.05em;
-    text-transform: uppercase;
-  }
+      .path-box ul {
+        list-style: none;
+        padding: 0;
+      }
 
-  @media (max-width: 768px) {
-    .hero h1 {
-      font-size: 2.5rem;
-    }
+      .path-box li {
+        font-size: 0.9rem;
+        line-height: 1.7;
+        margin-bottom: 0.8rem;
+        padding-left: 1.5rem;
+        position: relative;
+        color: #333;
+      }
 
-    .hero h2 {
-      font-size: 1.5rem;
-    }
+      .path-box li:before {
+        content: "→";
+        position: absolute;
+        left: 0;
+        color: #666;
+        font-weight: 700;
+      }
 
-    header {
-      flex-direction: column;
-      gap: 1rem;
-    }
+      .cta-section {
+        text-align: center;
+        padding: 2rem;
+        background-color: #ffffff;
+        margin-top: 2rem;
+      }
 
-    .nav {
-      gap: 1rem;
-      font-size: 0.65rem;
-    }
+      .cta-section p {
+        font-size: 0.9rem;
+        color: #666;
+        margin-bottom: 1.5rem;
+      }
 
-    .content-area {
-      padding: 2rem 1rem;
-    }
+      .cta-button {
+        display: inline-block;
+        background-color: #000;
+        color: #fff;
+        padding: 1rem 2rem;
+        font-family: "Inter", sans-serif;
+        font-size: 0.9rem;
+        font-weight: 600;
+        letter-spacing: 0.05em;
+        text-transform: uppercase;
+        text-decoration: none;
+        transition: all 0.3s ease;
+      }
 
-    section h2 {
-      font-size: 1.3rem;
-    }
+      .cta-button:hover {
+        background-color: #333;
+      }
 
-    .day-grid {
-      grid-template-columns: 1fr;
-    }
-  }
-</style>
-```
+      footer {
+        background-color: #000000;
+        text-align: center;
+        padding: 2rem;
+        border-top: 1px solid #333;
+        font-size: 0.75rem;
+        color: #999;
+        letter-spacing: 0.05em;
+        text-transform: uppercase;
+      }
 
+      @media (max-width: 768px) {
+        .hero h1 {
+          font-size: 2.5rem;
+        }
+
+        .hero h2 {
+          font-size: 1.5rem;
+        }
+
+        header {
+          flex-direction: column;
+          gap: 1rem;
+        }
+
+        .nav {
+          gap: 1rem;
+          font-size: 0.65rem;
+        }
+
+        .content-area {
+          padding: 2rem 1rem;
+        }
+
+        section h2 {
+          font-size: 1.3rem;
+        }
+
+        .day-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .card-image {
+          width: calc(var(--card-image-size) * 0.9);
+          height: calc(var(--card-image-size) * 0.9);
+        }
+      }
+    </style>
   </head>
   <body>
     <header>
@@ -297,134 +355,170 @@
       </nav>
     </header>
 
-```
-<div class="hero">
-  <h1>LOVE READING</h1>
-  <h2>JADE & CARL</h2>
-  <p>Your Seven-Day Journey Together</p>
-</div>
+    <div class="hero">
+      <h1>7 DAY FORECAST</h1>
+      <h2>JADE & CARL</h2>
 
-<main class="content-area">
-  <div class="container">
-    <!-- OVERVIEW -->
-    <section>
-      <h2>OVERVIEW</h2>
-      <div class="section-content">
-        <div class="card">
-          <h3>About This Reading</h3>
-          <p>
-            This reading covers the next seven days for Jade (Aries) and Carl (Taurus). The theme of your week centers around celebration and going out together. There may be a recent achievement to celebrate, or you might reconnect with someone from your past.
-          </p>
-        </div>
-        <div class="card">
-          <h3>Theme of the Week - Music & Celebration</h3>
-          <p>
-            <strong>Charm: Music</strong> - Your week is characterized by celebration, possibly going out together or marking a special occasion. This could involve a reunion or running into someone you used to know. The energy is social and joyful.
-          </p>
-        </div>
+      <div class="audio-player-container">
+        <div class="audio-label">LISTEN TO YOUR READING</div>
+        <p style="font-size: 0.85rem; color: #d0d0d0; margin-bottom: 1.5rem">
+          Start by listening to the full reading, then explore each day below.
+        </p>
+        <!-- AUDIO PLACEHOLDER: Replace "audio/jade_carl_full_reading.m4a" with your actual audio file path -->
+        <audio controls preload="metadata">
+          <source src="audio/jade_carl_full_reading.m4a" type="audio/mp4" />
+          Your browser does not support the audio element.
+        </audio>
       </div>
-    </section>
-
-    <!-- DAILY ENERGIES -->
-    <section>
-      <h2>DAILY ENERGIES</h2>
-      <div class="day-grid section-content">
-        <div class="card">
-          <h3>Tuesday - Today</h3>
-          <p>
-            Today might start off a bit wonky. There could be questioning about self-worth or how much you mean to each other. Alternatively, one of you may have been spending recklessly. The vibe isn't the greatest today, but it's temporary.
-          </p>
-        </div>
-
-        <div class="card">
-          <h3>Wednesday - Seven of Cups Reversed</h3>
-          <p>
-            A decision or choice needs to be made tomorrow, requiring discernment and careful consideration. The good news: the correct choice will be obvious. Trust your judgment and don't overthink it.
-          </p>
-        </div>
-
-        <div class="card">
-          <h3>Thursday - Passionate Day</h3>
-          <p>
-            Thursday brings passion and playfulness between you two. There's a high likelihood of intimacy. This is a day to look forward to—the energy is warm, romantic, and deeply connected.
-          </p>
-        </div>
-
-        <div class="card">
-          <h3>Friday - Little Dress</h3>
-          <p>
-            <strong>Charm: Little Dress</strong> - You're likely going out on Friday, possibly for a family event or special occasion. This could be a birthday, a late holiday celebration, or another type of gathering that calls for dressing up.
-          </p>
-        </div>
-
-        <div class="card">
-          <h3>Saturday - Communication Lacking</h3>
-          <p>
-            There will be some communication on Saturday, but it may feel insufficient. One of you might feel the connection is lacking or that something important isn't being said. Be mindful of each other's needs.
-          </p>
-        </div>
-
-        <div class="card">
-          <h3>Sunday - Wishy Washy Energy</h3>
-          <p>
-            Carl in particular may be moody or hard to read on Sunday. He could go back and forth emotionally, leaving you trying to untangle his vibe. Patience and understanding will help navigate this day.
-          </p>
-        </div>
-      </div>
-    </section>
-
-    <!-- ADVICE FOR THE WEEK -->
-    <section>
-      <h2>ADVICE FOR THE WEEK</h2>
-      <div class="section-content">
-        <div class="path-box">
-          <h3>The Tower & Rocking Horse</h3>
-          <p class="pattern-text">
-            <strong>Overall Advice: The Tower with Rocking Horse Charm</strong>
-          </p>
-          <ul>
-            <li>This will be a rocky week with emotionally varied days—each day brings different energy</li>
-            <li>The Tower suggests upheaval or transformation, but the Rocking Horse brings stability</li>
-            <li>You're rocking but staying in place—meaning despite turmoil, you're going steady together</li>
-            <li>There may be cleanup after an issue, or just a lot going on for one or both of you</li>
-            <li>Every day has highly different energy, so expect the unexpected</li>
-            <li>At the end of the day, you have stability—you two are solid</li>
-          </ul>
-        </div>
-
-        <div class="card" style="margin-top: 2rem;">
-          <h3>Reading Insights</h3>
-          <p>
-            <strong>Lots of Cups:</strong> The abundance of Cups cards shows love, compassion, and family energy—exactly what you want to see in a love reading. There's minimal mental anxiety (few Swords), suggesting you won't be overthinking things.
-          </p>
-          <p style="margin-top: 1rem;">
-            <strong>Transformation:</strong> There may be a transformation happening in your relationship or in how you show up for each other. This is a period of growth and evolution together.
-          </p>
-          <p style="margin-top: 1rem;">
-            <strong>Thursday Highlight:</strong> If you're going to be especially excited for any day, make it Thursday. The energy is particularly strong and positive.
-          </p>
-        </div>
-      </div>
-    </section>
-
-    <!-- CTA -->
-    <div class="cta-section">
-      <p>Want deeper insight into your relationship?</p>
-      <a
-        href="https://www.etsy.com/shop/Sibylhaus"
-        class="cta-button"
-        target="_blank"
-        rel="noopener noreferrer"
-        >Book Another Reading</a
-      >
     </div>
-  </div>
-</main>
 
-<footer>
-  <p>&copy; 2025 Sibylhaus. Private reading. For Jade & Carl.</p>
-</footer>
-```
+    <main class="content-area">
+      <div class="container">
+        <!-- OVERVIEW -->
+        <section>
+          <h2>OVERVIEW</h2>
+          <div class="section-content">
+            <div class="card">
+              <h3>About This Reading</h3>
+              <p>
+                This reading covers the next seven days for Jade (Aries) and Carl (Taurus). The theme of your week centers around celebration and going out together. There may be a recent achievement to celebrate, or you might reconnect with someone from your past.
+              </p>
+            </div>
+            
+            <!-- THEME CARD WITH IMAGE -->
+            <div class="card-with-image">
+              <h3>Theme of the Week - Music & Celebration</h3>
+              <!-- IMAGE PLACEHOLDER 1: Theme Card/Charm - Replace src with your image path -->
+              <img
+                src="images/theme_music_charm.jpg"
+                alt="Music Charm - Theme of the Week"
+                class="card-image"
+              />
+              <p class="card-text">
+                <strong>Charm: Music</strong> - Your week is characterized by celebration, possibly going out together or marking a special occasion. This could involve a reunion or running into someone you used to know. The energy is social and joyful.
+              </p>
+            </div>
+          </div>
+        </section>
 
+        <!-- DAILY ENERGIES -->
+        <section>
+          <h2>DAILY ENERGIES</h2>
+          <div class="day-grid section-content">
+            <div class="card">
+              <h3>Tuesday - Today</h3>
+              <p>
+                Today might start off a bit wonky. There could be questioning about self-worth or how much you mean to each other. Alternatively, one of you may have been spending recklessly. The vibe isn't the greatest today, but it's temporary.
+              </p>
+            </div>
+
+            <div class="card">
+              <h3>Wednesday - Seven of Cups Reversed</h3>
+              <p>
+                A decision or choice needs to be made tomorrow, requiring discernment and careful consideration. The good news: the correct choice will be obvious. Trust your judgment and don't overthink it.
+              </p>
+            </div>
+
+            <div class="card">
+              <h3>Thursday - Passionate Day</h3>
+              <p>
+                Thursday brings passion and playfulness between you two. There's a high likelihood of intimacy. This is a day to look forward to—the energy is warm, romantic, and deeply connected.
+              </p>
+            </div>
+          </div>
+
+          <!-- FRIDAY CARD WITH IMAGE -->
+          <div class="card-with-image" style="margin-top: 1.5rem;">
+            <h3>Friday - Little Dress</h3>
+            <!-- IMAGE PLACEHOLDER 2: Friday Card/Charm - Replace src with your image path -->
+            <img
+              src="images/friday_dress_charm.jpg"
+              alt="Little Dress Charm - Friday"
+              class="card-image"
+            />
+            <p class="card-text">
+              <strong>Charm: Little Dress</strong> - You're likely going out on Friday, possibly for a family event or special occasion. This could be a birthday, a late holiday celebration, or another type of gathering that calls for dressing up.
+            </p>
+          </div>
+
+          <div class="day-grid" style="margin-top: 1.5rem;">
+            <div class="card">
+              <h3>Saturday - Communication Lacking</h3>
+              <p>
+                There will be some communication on Saturday, but it may feel insufficient. One of you might feel the connection is lacking or that something important isn't being said. Be mindful of each other's needs.
+              </p>
+            </div>
+
+            <div class="card">
+              <h3>Sunday - Wishy Washy Energy</h3>
+              <p>
+                Carl in particular may be moody or hard to read on Sunday. He could go back and forth emotionally, leaving you trying to untangle his vibe. Patience and understanding will help navigate this day.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <!-- ADVICE FOR THE WEEK -->
+        <section>
+          <h2>ADVICE FOR THE WEEK</h2>
+          <div class="section-content">
+            <!-- ADVICE CARD WITH IMAGE -->
+            <div class="card-with-image">
+              <h3>The Tower & Rocking Horse</h3>
+              <!-- IMAGE PLACEHOLDER 3: Advice Card/Charm - Replace src with your image path -->
+              <img
+                src="images/advice_tower_rocking_horse.jpg"
+                alt="The Tower Card with Rocking Horse Charm"
+                class="card-image"
+              />
+              <p class="card-text">
+                <strong>Overall Advice: The Tower with Rocking Horse Charm</strong>
+              </p>
+            </div>
+
+            <div class="path-box">
+              <h3>Interpretation</h3>
+              <ul>
+                <li>This will be a rocky week with emotionally varied days—each day brings different energy</li>
+                <li>The Tower suggests upheaval or transformation, but the Rocking Horse brings stability</li>
+                <li>You're rocking but staying in place—meaning despite turmoil, you're going steady together</li>
+                <li>There may be cleanup after an issue, or just a lot going on for one or both of you</li>
+                <li>Every day has highly different energy, so expect the unexpected</li>
+                <li>At the end of the day, you have stability—you two are solid</li>
+              </ul>
+            </div>
+
+            <div class="card" style="margin-top: 2rem;">
+              <h3>Reading Insights</h3>
+              <p>
+                <strong>Lots of Cups:</strong> The abundance of Cups cards shows love, compassion, and family energy—exactly what you want to see in a love reading. There's minimal mental anxiety (few Swords), suggesting you won't be overthinking things.
+              </p>
+              <p style="margin-top: 1rem;">
+                <strong>Transformation:</strong> There may be a transformation happening in your relationship or in how you show up for each other. This is a period of growth and evolution together.
+              </p>
+              <p style="margin-top: 1rem;">
+                <strong>Thursday Highlight:</strong> If you're going to be especially excited for any day, make it Thursday. The energy is particularly strong and positive.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <!-- CTA -->
+        <div class="cta-section">
+          <p>Want deeper insight into your relationship?</p>
+          <a
+            href="https://www.etsy.com/shop/Sibylhaus"
+            class="cta-button"
+            target="_blank"
+            rel="noopener noreferrer"
+            >Book Another Reading</a
+          >
+        </div>
+      </div>
+    </main>
+
+    <footer>
+      <p>&copy; 2025 Sibylhaus. Private reading. For Jade & Carl.</p>
+    </footer>
   </body>
 </html>
