@@ -1,0 +1,608 @@
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sibylhaus | Mental Fog Assessment - Jade</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --card-image-size: 300px;
+      }
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+```
+  body {
+    font-family: "Inter", sans-serif;
+    background-color: #000000;
+    color: #ffffff;
+    line-height: 1.6;
+  }
+
+  header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem 2rem;
+    background-color: #000000;
+    border-bottom: 1px solid #333;
+  }
+
+  .logo {
+    font-family: "Bebas Neue", sans-serif;
+    font-size: 1.5rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    color: #ffffff;
+  }
+
+  .nav {
+    display: flex;
+    gap: 2rem;
+    font-size: 0.75rem;
+    letter-spacing: 0.05em;
+    font-weight: 600;
+  }
+
+  .nav a {
+    color: #d0d0d0;
+    text-decoration: none;
+    transition: color 0.3s;
+  }
+
+  .nav a:hover {
+    color: #ffffff;
+  }
+
+  .hero {
+    background-color: #000000;
+    padding: 4rem 2rem;
+    text-align: center;
+    min-height: 50vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .hero h1 {
+    font-family: "Bebas Neue", sans-serif;
+    font-size: 4rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    margin-bottom: 1rem;
+    line-height: 1.1;
+    text-transform: uppercase;
+  }
+
+  .hero h2 {
+    font-family: "Bebas Neue", sans-serif;
+    font-size: 2.5rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+  }
+
+  .hero p {
+    font-size: 0.95rem;
+    color: #d0d0d0;
+    margin-bottom: 2rem;
+    max-width: 600px;
+  }
+
+  .audio-player-container {
+    background-color: #000000;
+    padding: 2rem;
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+
+  .audio-label {
+    font-size: 0.75rem;
+    letter-spacing: 0.08em;
+    font-weight: 700;
+    text-transform: uppercase;
+    margin-bottom: 1.5rem;
+    color: #d0d0d0;
+  }
+
+  audio {
+    width: 100%;
+    max-width: 400px;
+    height: 40px;
+  }
+
+  .content-area {
+    background-color: #f8f8f8;
+    color: #1a1a1a;
+    padding: 3rem 2rem;
+  }
+
+  .container {
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+
+  section {
+    margin-bottom: 3rem;
+  }
+
+  section h2 {
+    font-family: "Bebas Neue", sans-serif;
+    font-size: 1.8rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 3px solid #000;
+    display: inline-block;
+  }
+
+  .section-content {
+    margin-top: 1.5rem;
+  }
+
+  .pattern-text {
+    font-size: 0.95rem;
+    line-height: 1.8;
+    margin-bottom: 1rem;
+    color: #333;
+  }
+
+  .pattern-text strong {
+    font-weight: 700;
+    color: #000;
+  }
+
+  .card {
+    background-color: #ffffff;
+    padding: 1.5rem;
+    border-left: 4px solid #000;
+    margin-bottom: 1.5rem;
+  }
+
+  .card h3 {
+    font-family: "Bebas Neue", sans-serif;
+    font-size: 1.1rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    margin-bottom: 0.8rem;
+    color: #000;
+  }
+
+  .card p {
+    font-size: 0.9rem;
+    line-height: 1.7;
+    color: #333;
+  }
+
+  .card-with-image {
+    background-color: #ffffff;
+    padding: 2rem;
+    border-left: 4px solid #000;
+    margin-bottom: 2rem;
+  }
+
+  .card-with-image h3 {
+    font-family: "Bebas Neue", sans-serif;
+    font-size: 1.3rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    margin-bottom: 1.5rem;
+    color: #000;
+  }
+
+  .card-image {
+    width: var(--card-image-size);
+    height: var(--card-image-size);
+    display: block;
+    margin-bottom: 1.5rem;
+    border-radius: 8px;
+    object-fit: contain;
+    background-color: transparent;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.45),
+      0 2px 6px rgba(0, 0, 0, 0.25);
+  }
+
+  .card-text {
+    font-size: 0.9rem;
+    line-height: 1.7;
+    color: #333;
+  }
+
+  .grid-2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    margin-top: 1.5rem;
+  }
+
+  .path-box {
+    background-color: #ffffff;
+    padding: 2rem;
+    border-top: 4px solid #000;
+  }
+
+  .path-box h3 {
+    font-family: "Bebas Neue", sans-serif;
+    font-size: 1.3rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    margin-bottom: 1.2rem;
+    color: #000;
+  }
+
+  .path-box ul {
+    list-style: none;
+    padding: 0;
+  }
+
+  .path-box li {
+    font-size: 0.9rem;
+    line-height: 1.7;
+    margin-bottom: 0.8rem;
+    padding-left: 1.5rem;
+    position: relative;
+    color: #333;
+  }
+
+  .path-box li:before {
+    content: "→";
+    position: absolute;
+    left: 0;
+    color: #666;
+    font-weight: 700;
+  }
+
+  .advice-list {
+    background-color: #ffffff;
+    padding: 2rem;
+    border-left: 4px solid #000;
+  }
+
+  .advice-list ul {
+    list-style: none;
+    padding: 0;
+  }
+
+  .advice-list li {
+    font-size: 0.9rem;
+    line-height: 1.8;
+    margin-bottom: 1rem;
+    padding-left: 1.5rem;
+    position: relative;
+    color: #333;
+  }
+
+  .advice-list li:before {
+    content: "•";
+    position: absolute;
+    left: 0;
+    color: #000;
+    font-weight: 700;
+  }
+
+  .advice-list li:last-child {
+    margin-bottom: 0;
+  }
+
+  .advice-list strong {
+    font-weight: 700;
+    color: #000;
+  }
+
+  .cta-section {
+    text-align: center;
+    padding: 2rem;
+    background-color: #ffffff;
+    margin-top: 2rem;
+  }
+
+  .cta-section p {
+    font-size: 0.9rem;
+    color: #666;
+    margin-bottom: 1.5rem;
+  }
+
+  .cta-button {
+    display: inline-block;
+    background-color: #000;
+    color: #fff;
+    padding: 1rem 2rem;
+    font-family: "Inter", sans-serif;
+    font-size: 0.9rem;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: all 0.3s ease;
+  }
+
+  .cta-button:hover {
+    background-color: #333;
+  }
+
+  footer {
+    background-color: #000000;
+    text-align: center;
+    padding: 2rem;
+    border-top: 1px solid #333;
+    font-size: 0.75rem;
+    color: #999;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+  }
+
+  @media (max-width: 768px) {
+    .hero h1 {
+      font-size: 2.5rem;
+    }
+
+    .hero h2 {
+      font-size: 1.5rem;
+    }
+
+    .grid-2 {
+      grid-template-columns: 1fr;
+    }
+
+    header {
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .nav {
+      gap: 1rem;
+      font-size: 0.65rem;
+    }
+
+    .content-area {
+      padding: 2rem 1rem;
+    }
+
+    section h2 {
+      font-size: 1.3rem;
+    }
+
+    .card-image {
+      width: calc(var(--card-image-size) * 0.9);
+      height: calc(var(--card-image-size) * 0.9);
+    }
+  }
+</style>
+```
+
+  </head>
+  <body>
+    <header>
+      <div class="logo">SIBYLHAUS</div>
+      <nav class="nav" aria-label="Main navigation">
+        <a href="/">HOME</a>
+        <a href="#">CART (0)</a>
+      </nav>
+    </header>
+
+```
+<div class="hero">
+  <h1>MENTAL FOG ASSESSMENT</h1>
+  <h2>JADE</h2>
+
+  <div class="audio-player-container">
+    <div class="audio-label">LISTEN TO YOUR READING</div>
+    <p style="font-size: 0.85rem; color: #d0d0d0; margin-bottom: 1.5rem">
+      Start by listening to understand the source and path through your mental fog.
+    </p>
+    <!-- AUDIO PLACEHOLDER: Replace "audio/jade_mental_fog_reading.m4a" with your actual audio file path -->
+    <audio controls preload="metadata">
+      <source src="audio/jade_1.5.26_mental-fog-assessment.mp3" type="audio/mp3" />
+      Your browser does not support the audio element.
+    </audio>
+  </div>
+</div>
+
+<main class="content-area">
+  <div class="container">
+    <!-- ORIGIN OF MENTAL FOG -->
+    <section>
+      <h2>ORIGIN OF YOUR MENTAL FOG</h2>
+      <div class="section-content">
+        <!-- IMAGE 1: Juggling Card -->
+        <div class="card-with-image">
+          <h3>What's Creating the Fog</h3>
+          <!-- IMAGE PLACEHOLDER 1: Juggling card - Replace src with your image path -->
+          <img
+            src="images/origin_juggling_card.jpg"
+            alt="Origin - Juggling Card"
+            class="card-image"
+          />
+          <p class="card-text">
+            <strong>You're juggling too much right now.</strong> There are two specific things that conflict in some way.. a good example would be work and home, or two different aspects of your life that are contrasting. You're trying to balance competing priorities and it's creating mental overwhelm.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- THOUGHT LOOPS -->
+    <section>
+      <h2>YOUR THOUGHT LOOPS</h2>
+      <div class="section-content">
+        <div class="card">
+          <h3>Recurring Mental Patterns</h3>
+          <p>
+            You aren't trusting your intuition as much as you could be. You're not out of touch with it, but you feel that you're in a stalled phase where you just have to wait. You feel stagnant, and that's how you're thinking about the situation.
+          </p>
+          <p style="margin-top: 1rem;">
+            <strong>Heavy Pentacles Energy:</strong> Almost exclusively Pentacles cards appeared, which indicates this mental fog is centered around money or work. There's a strong focus on obtaining something material or financial.
+          </p>
+        </div>
+
+        <div class="card">
+          <h3>The Gatekeeper Belief</h3>
+          <p>
+            You may believe there's somebody above you—perhaps at work—who won't let you advance, get promoted, or grow in the company. You perceive a gatekeeper standing between you and what you're after, whether that's money, a promotion, or career advancement.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- BLOCKS & INFLUENCES -->
+    <section>
+      <h2>INTERNAL BLOCKS & EXTERNAL INFLUENCES</h2>
+      <div class="grid-2 section-content">
+        <div class="card">
+          <h3>Your Internal Block</h3>
+          <p>
+            You feel there's a lack of opportunity for you, or that you missed an opportunity. You're stuck sitting in the same place, feeling like you're not going anywhere. This belief is keeping you frozen.
+          </p>
+        </div>
+
+        <div class="card">
+          <h3>External Influences - The Key</h3>
+          <p>
+            <strong>This is good news:</strong> There are others who can help you. The key charm appeared with a card representing teamwork. Getting together with others and putting your heads together could help you get further than going it alone.
+          </p>
+        </div>
+      </div>
+
+      <!-- IMAGE 2: External Influences Card -->
+      <div class="card-with-image" style="margin-top: 2rem;">
+        <h3>Outside Help Available</h3>
+        <!-- IMAGE PLACEHOLDER 2: External influences/teamwork card - Replace src with your image path -->
+        <img
+          src="images/external_influences_key.jpg"
+          alt="External Influences - Key and Teamwork"
+          class="card-image"
+        />
+        <p class="card-text">
+          The key charm with the teamwork card signals that collaboration is your way forward. You don't have to do this alone. Reaching out to others will unlock what feels blocked right now.
+        </p>
+      </div>
+    </section>
+
+    <!-- WHAT'S DRAINING YOUR ENERGY -->
+    <section>
+      <h2>WHAT'S DRAINING YOUR ENERGY</h2>
+      <div class="section-content">
+        <div class="card">
+          <h3>Scattered Fire</h3>
+          <p>
+            <strong>Too many tabs open:</strong> You get a spark with a bunch of different ideas and want to get started on them. You might begin these ideas but don't necessarily finish them. You're letting your energy go in a bunch of different directions, which is draining you.
+          </p>
+          <p style="margin-top: 1rem;">
+            <em>Note: Mental fog is energy waiting to be organized. Scattered energy prevents real progress.</em>
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- WHAT'S READY TO SHIFT -->
+    <section>
+      <h2>WHAT'S READY TO SHIFT</h2>
+      <div class="section-content">
+        <!-- IMAGE 3: Ready to Shift Card -->
+        <div class="card-with-image">
+          <h3>Your Breakthrough: Tuning In & Offering Support</h3>
+          <!-- IMAGE PLACEHOLDER 3: Ready to shift card (empathy/support) - Replace src with your image path -->
+          <img
+            src="images/ready_to_shift_empathy.jpg"
+            alt="What's Ready to Shift - Offering Empathy"
+            class="card-image"
+          />
+          <p class="card-text">
+            <strong>Reconnecting with intuition:</strong> Earlier it was mentioned you're not tuning into your intuition as much as would be helpful. What's ready to shift is exactly that. You will be tuned into those inner messages and vibes.
+          </p>
+        </div>
+
+        <div class="path-box">
+          <h3>Taking the Leadership Role in Support</h3>
+          <ul>
+            <li>You're likely to offer support to someone, probably in your workplace</li>
+            <li>You'll be taking a leadership role in offering compassion and empathy</li>
+            <li>Being a shoulder to cry on, providing a supportive presence</li>
+            <li>This supportive energy will be helpful and abundant for you</li>
+            <li>An Aquarius may be involved in this dynamic</li>
+            <li>This will be the key to getting where you need to be</li>
+          </ul>
+        </div>
+
+        <div class="card" style="margin-top: 2rem;">
+          <h3>Shift Your Energy</h3>
+          <p>
+            Instead of always being the one with new ideas or bursts of energy, shift into a more supportive role. Not a backup role, but a warm role. Approach the situation with a welcoming, approachable vibe. This shift in energy will open doors.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- NEXT STEPS -->
+    <section>
+      <h2>NEXT STEPS TO CLEAR THE FOG</h2>
+      <div class="section-content">
+        <div class="advice-list">
+          <h3 style="font-family: 'Bebas Neue', sans-serif; font-size: 1.3rem; letter-spacing: 0.05em; margin-bottom: 1rem;">Action Plan</h3>
+          <ul>
+            <li>
+              <strong>Pick a lane and stick to it:</strong> You have too many tabs open, too many projects started at once. Focus your energy on ONE thing to progress far more than on several things.
+            </li>
+            <li>
+              <strong>Sort through your ideas:</strong> Pick the one that's most fun, most potentially lucrative. Choose a favorite.
+            </li>
+            <li>
+              <strong>Start accumulating:</strong> Once focused, you'll be able to accumulate what you're after, likely a side gig or secondary source of income.
+            </li>
+            <li>
+              <strong>Be calculated:</strong> Don't be messy about your approach. Be strategic and intentional with your chosen path.
+            </li>
+            <li>
+              <strong>Major Pentacles energy:</strong> The abundance of Pentacles indicates money is coming in for you. Pentacles historically represent wealth and material success.
+            </li>
+          </ul>
+        </div>
+
+        <div class="card" style="margin-top: 2rem;">
+          <h3>The Bottom Line</h3>
+          <p>
+            Your mental fog stems from juggling too much while feeling stuck. The way through is to focus your scattered energy, trust your intuition, step into a supportive leadership role, and collaborate with others. The Pentacles energy promises financial reward when you commit to a focused path.
+          </p>
+          <p style="margin-top: 1rem;">
+            <strong>Money is coming.</strong> Pick your lane, trust the process, and abundance will flow in.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <div class="cta-section">
+      <p>Need more guidance clearing your path?</p>
+      <a
+        href="https://sibylhaus.com"
+        class="cta-button"
+        target="_blank"
+        rel="noopener noreferrer"
+        >Book Another Reading</a
+      >
+    </div>
+  </div>
+</main>
+
+<footer>
+  <p>&copy; 2026 Sibylhaus. Private reading for Jade.</p>
+</footer>
+```
+
+  </body>
+</html>
