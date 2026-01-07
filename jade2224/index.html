@@ -1,0 +1,579 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sibylhaus | What's Your Next Move? - Jade</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --card-image-size: 300px;
+      }
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Inter", sans-serif;
+        background-color: #000000;
+        color: #ffffff;
+        line-height: 1.6;
+      }
+
+      header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1.5rem 2rem;
+        background-color: #000000;
+        border-bottom: 1px solid #333;
+      }
+
+      .logo {
+        font-family: "Bebas Neue", sans-serif;
+        font-size: 1.5rem;
+        font-weight: 700;
+        letter-spacing: 0.1em;
+        color: #ffffff;
+      }
+
+      .nav {
+        display: flex;
+        gap: 2rem;
+        font-size: 0.75rem;
+        letter-spacing: 0.05em;
+        font-weight: 600;
+      }
+
+      .nav a {
+        color: #d0d0d0;
+        text-decoration: none;
+        transition: color 0.3s;
+      }
+
+      .nav a:hover {
+        color: #ffffff;
+      }
+
+      .hero {
+        background-color: #000000;
+        padding: 4rem 2rem;
+        text-align: center;
+        min-height: 50vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .hero h1 {
+        font-family: "Bebas Neue", sans-serif;
+        font-size: 4rem;
+        font-weight: 700;
+        letter-spacing: 0.08em;
+        margin-bottom: 1rem;
+        line-height: 1.1;
+        text-transform: uppercase;
+      }
+
+      .hero h2 {
+        font-family: "Bebas Neue", sans-serif;
+        font-size: 2.5rem;
+        font-weight: 700;
+        letter-spacing: 0.08em;
+        margin-bottom: 1rem;
+        text-transform: uppercase;
+      }
+
+      .hero p {
+        font-size: 0.95rem;
+        color: #d0d0d0;
+        margin-bottom: 2rem;
+        max-width: 600px;
+      }
+
+      .audio-player-container {
+        background-color: #000000;
+        padding: 2rem;
+        text-align: center;
+        margin-bottom: 2rem;
+      }
+
+      .audio-label {
+        font-size: 0.75rem;
+        letter-spacing: 0.08em;
+        font-weight: 700;
+        text-transform: uppercase;
+        margin-bottom: 1.5rem;
+        color: #d0d0d0;
+      }
+
+      audio {
+        width: 100%;
+        max-width: 400px;
+        height: 40px;
+      }
+
+      .content-area {
+        background-color: #f8f8f8;
+        color: #1a1a1a;
+        padding: 3rem 2rem;
+      }
+
+      .container {
+        max-width: 1000px;
+        margin: 0 auto;
+      }
+
+      section {
+        margin-bottom: 3rem;
+      }
+
+      section h2 {
+        font-family: "Bebas Neue", sans-serif;
+        font-size: 1.8rem;
+        font-weight: 700;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        margin-bottom: 1rem;
+        padding-bottom: 0.5rem;
+        border-bottom: 3px solid #000;
+        display: inline-block;
+      }
+
+      .section-content {
+        margin-top: 1.5rem;
+      }
+
+      .pattern-text {
+        font-size: 0.95rem;
+        line-height: 1.8;
+        margin-bottom: 1rem;
+        color: #333;
+      }
+
+      .pattern-text strong {
+        font-weight: 700;
+        color: #000;
+      }
+
+      .card {
+        background-color: #ffffff;
+        padding: 1.5rem;
+        border-left: 4px solid #000;
+        margin-bottom: 1.5rem;
+      }
+
+      .card h3 {
+        font-family: "Bebas Neue", sans-serif;
+        font-size: 1.1rem;
+        font-weight: 700;
+        letter-spacing: 0.05em;
+        text-transform: uppercase;
+        margin-bottom: 0.8rem;
+        color: #000;
+      }
+
+      .card p {
+        font-size: 0.9rem;
+        line-height: 1.7;
+        color: #333;
+      }
+
+      .card-with-image {
+        background-color: #ffffff;
+        padding: 2rem;
+        border-left: 4px solid #000;
+        margin-bottom: 2rem;
+      }
+
+      .card-with-image h3 {
+        font-family: "Bebas Neue", sans-serif;
+        font-size: 1.3rem;
+        font-weight: 700;
+        letter-spacing: 0.05em;
+        text-transform: uppercase;
+        margin-bottom: 1.5rem;
+        color: #000;
+      }
+
+      .card-image {
+        width: var(--card-image-size);
+        height: var(--card-image-size);
+        display: block;
+        margin-bottom: 1.5rem;
+        border-radius: 8px;
+        object-fit: contain;
+        background-color: transparent;
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.45),
+          0 2px 6px rgba(0, 0, 0, 0.25);
+      }
+
+      .card-image.round {
+        border-radius: 50%;
+        width: 250px;
+        height: 250px;
+        margin: 1.5rem auto;
+      }
+
+      .card-text {
+        font-size: 0.9rem;
+        line-height: 1.7;
+        color: #333;
+      }
+
+      .grid-2 {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 2rem;
+        margin-top: 1.5rem;
+      }
+
+      .path-box {
+        background-color: #ffffff;
+        padding: 2rem;
+        border-top: 4px solid #000;
+      }
+
+      .path-box h3 {
+        font-family: "Bebas Neue", sans-serif;
+        font-size: 1.3rem;
+        font-weight: 700;
+        letter-spacing: 0.05em;
+        text-transform: uppercase;
+        margin-bottom: 1.2rem;
+        color: #000;
+      }
+
+      .path-box ul {
+        list-style: none;
+        padding: 0;
+      }
+
+      .path-box li {
+        font-size: 0.9rem;
+        line-height: 1.7;
+        margin-bottom: 0.8rem;
+        padding-left: 1.5rem;
+        position: relative;
+        color: #333;
+      }
+
+      .path-box li:before {
+        content: "→";
+        position: absolute;
+        left: 0;
+        color: #666;
+        font-weight: 700;
+      }
+
+      .advice-list {
+        background-color: #ffffff;
+        padding: 2rem;
+        border-left: 4px solid #000;
+      }
+
+      .advice-list ul {
+        list-style: none;
+        padding: 0;
+      }
+
+      .advice-list li {
+        font-size: 0.9rem;
+        line-height: 1.8;
+        margin-bottom: 1rem;
+        padding-left: 1.5rem;
+        position: relative;
+        color: #333;
+      }
+
+      .advice-list li:before {
+        content: "•";
+        position: absolute;
+        left: 0;
+        color: #000;
+        font-weight: 700;
+      }
+
+      .advice-list li:last-child {
+        margin-bottom: 0;
+      }
+
+      .advice-list strong {
+        font-weight: 700;
+        color: #000;
+      }
+
+      .cta-section {
+        text-align: center;
+        padding: 2rem;
+        background-color: #ffffff;
+        margin-top: 2rem;
+      }
+
+      .cta-section p {
+        font-size: 0.9rem;
+        color: #666;
+        margin-bottom: 1.5rem;
+      }
+
+      .cta-button {
+        display: inline-block;
+        background-color: #000;
+        color: #fff;
+        padding: 1rem 2rem;
+        font-family: "Inter", sans-serif;
+        font-size: 0.9rem;
+        font-weight: 600;
+        letter-spacing: 0.05em;
+        text-transform: uppercase;
+        text-decoration: none;
+        transition: all 0.3s ease;
+      }
+
+      .cta-button:hover {
+        background-color: #333;
+      }
+
+      footer {
+        background-color: #000000;
+        text-align: center;
+        padding: 2rem;
+        border-top: 1px solid #333;
+        font-size: 0.75rem;
+        color: #999;
+        letter-spacing: 0.05em;
+        text-transform: uppercase;
+      }
+
+      @media (max-width: 768px) {
+        .hero h1 {
+          font-size: 2.5rem;
+        }
+
+        .hero h2 {
+          font-size: 1.5rem;
+        }
+
+        .grid-2 {
+          grid-template-columns: 1fr;
+        }
+
+        header {
+          flex-direction: column;
+          gap: 1rem;
+        }
+
+        .nav {
+          gap: 1rem;
+          font-size: 0.65rem;
+        }
+
+        .content-area {
+          padding: 2rem 1rem;
+        }
+
+        section h2 {
+          font-size: 1.3rem;
+        }
+
+        .card-image {
+          width: calc(var(--card-image-size) * 0.9);
+          height: calc(var(--card-image-size) * 0.9);
+        }
+
+        .card-image.round {
+          width: 200px;
+          height: 200px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="logo">SIBYLHAUS</div>
+      <nav class="nav" aria-label="Main navigation">
+        <a href="/">HOME</a>
+        <a href="#">CART (0)</a>
+      </nav>
+    </header>
+
+    <div class="hero">
+      <h1>WHAT'S YOUR NEXT MOVE?</h1>
+      <h2>JADE</h2>
+
+      <div class="audio-player-container">
+        <div class="audio-label">LISTEN TO YOUR READING</div>
+        <p style="font-size: 0.85rem; color: #d0d0d0; margin-bottom: 1.5rem">
+          Start by listening to the full reading to understand your paths forward.
+        </p>
+        <!-- AUDIO PLACEHOLDER: Replace "audio/jade_next_move_reading.m4a" with your actual audio file path -->
+        <audio controls preload="metadata">
+          <source src="audio/jade_1.5.26_next-move.mp3" type="audio/mp3" />
+          Your browser does not support the audio element.
+        </audio>
+      </div>
+    </div>
+
+    <main class="content-area">
+      <div class="container">
+        <!-- WHERE YOU'RE STUCK -->
+        <section>
+          <h2>WHERE YOU'RE STUCK</h2>
+          <div class="section-content">
+            <div class="card">
+              <h3>Current Block</h3>
+              <p>
+                You're stuck in relation to creativity, passion, or ambition. You may be wanting to start something new but feel you lack direction or don't have the support you need to begin. There's uncertainty about which path to take.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <!-- WHAT'S BLOCKING YOU -->
+        <section>
+          <h2>WHAT'S BLOCKING YOU</h2>
+          <div class="section-content">
+            <div class="card">
+              <h3>The Real Obstacle</h3>
+              <p>
+                You don't feel you have the authority or credentials to move forward. There's an element of imposter syndrome—questioning "who am I to start this, do this, or create this?" You're doubting whether you have the right to claim this space or venture.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <!-- THE TWO PATHS -->
+        <section>
+          <h2>YOUR TWO PATHS FORWARD</h2>
+          <div class="grid-2 section-content">
+            <div class="card">
+              <h3>Path A - The Familiar Route</h3>
+              <p class="pattern-text">
+                <strong>Traditional & Family-Connected</strong>
+              </p>
+              <p>
+                This path is more traditional, possibly connected to your family or something you're already quite familiar with. It might not be your first choice—this feels like the backup plan, something you'd do if something else didn't work out.
+              </p>
+              <p style="margin-top: 1rem;">
+                There's an element of returning to something that used to be familiar to you, along with an ending or closure (represented by a broken heart charm). This could mean returning to a way things used to be, potentially even with Carl if you've known each other a long time.
+              </p>
+            </div>
+
+            <div class="card">
+              <h3>Path B - The Leap of Faith</h3>
+              <p class="pattern-text">
+                <strong>Brand New & Collaborative</strong>
+              </p>
+              <p>
+                This path is a leap of faith—something completely new. It involves collaboration with other people, including at least one other woman. The person(s) you collaborate with could be an Earth sign (Capricorn, Virgo, Taurus), Water sign (Cancer, Scorpio, Pisces), or Air sign (Libra, Aquarius, Gemini).
+              </p>
+              <p style="margin-top: 1rem;">
+                You'd likely be collaborating with three other people total. This path involves a cycle or something people can do over and over. There's an exchange happening—if these people aren't directly collaborating with you, you'll be exchanging something with them. This may also involve a gift, either an ability you have or a gift you're given.
+              </p>
+            </div>
+          </div>
+
+          <!-- PATH B CARD LINEUP IMAGE -->
+          <div class="card-with-image" style="margin-top: 2rem;">
+            <h3>Path B Card Lineup</h3>
+            <!-- IMAGE PLACEHOLDER 1: Path B Cards - Replace src with your image path -->
+            <img
+              src="images/path_b_card_lineup.jpg"
+              alt="Path B Card Lineup"
+              class="card-image"
+            />
+            <p class="card-text">
+              The cards reveal Path B's collaborative nature and cyclical energy. This is the path of new beginnings and working with others toward a shared vision.
+            </p>
+          </div>
+        </section>
+
+        <!-- ADVICE FOR CHOOSING -->
+        <section>
+          <h2>ADVICE FOR CHOOSING YOUR PATH</h2>
+          <div class="section-content">
+            <div class="advice-list">
+              <ul>
+                <li>
+                  <strong>Don't overthink it:</strong> You might be feeling unclear right now, but you won't need to consciously decide. The path will choose you.
+                </li>
+                <li>
+                  <strong>Release control:</strong> Things will fall into place without you having to direct everything or be in control of everything. It'll come to you naturally.
+                </li>
+                <li>
+                  <strong>Birth of something new:</strong> This reading is fundamentally about the birth of a new idea or project. Trust that the right opportunity will reveal itself.
+                </li>
+                <li>
+                  <strong>Take your time:</strong> The Knight of Pentacles on the bottom of the deck suggests taking your time and not rushing. Things will start happening soon.
+                </li>
+              </ul>
+            </div>
+
+            <!-- CHARMS: SHOE & UMBRELLA -->
+            <div class="card-with-image" style="margin-top: 2rem;">
+              <h3>Charms for Guidance - Shoe & Umbrella</h3>
+              <!-- IMAGE PLACEHOLDER 2: Round image of shoe and umbrella charms - Replace src with your image path -->
+              <img
+                src="images/shoe_umbrella_charms.jpg"
+                alt="Shoe and Umbrella Charms"
+                class="card-image round"
+              />
+              <p class="card-text">
+                The shoe and umbrella charms appeared as guidance for choosing your path. These symbols bring to mind the song "But I Do Love You" by LeAnn Rimes—there may be insight for you in those lyrics. The umbrella suggests protection during uncertainty, while the shoe represents the journey forward.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <!-- ADDITIONAL INSIGHTS -->
+        <section>
+          <h2>ADDITIONAL INSIGHTS</h2>
+          <div class="section-content">
+            <div class="path-box">
+              <h3>Bottom of the Deck</h3>
+              <ul>
+                <li>Knight of Pentacles: Take your time with this decision</li>
+                <li>Don't rush into anything—patience is key</li>
+                <li>Things will start happening soon, but let them unfold naturally</li>
+                <li>This is about steady, grounded progress rather than impulsive action</li>
+              </ul>
+            </div>
+
+            <div class="card" style="margin-top: 2rem;">
+              <h3>Key Takeaways</h3>
+              <p>
+                You're at a crossroads between the familiar and the unknown. Path A offers safety and tradition, while Path B offers growth and collaboration. The imposter syndrome you're experiencing is normal when standing at the edge of something new.
+              </p>
+              <p style="margin-top: 1rem;">
+                Trust that you don't need to force a decision. The universe will guide you to the right path. Your job is to stay open, release the need for control, and trust your intuition when the opportunity presents itself.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <!-- CTA -->
+        <div class="cta-section">
+          <p>Need more clarity on your path?</p>
+          <a
+            href="https://www.etsy.com/shop/Sibylhaus"
+            class="cta-button"
+            target="_blank"
+            rel="noopener noreferrer"
+            >Book Another Reading</a
+          >
+        </div>
+      </div>
+    </main>
+
+    <footer>
+      <p>&copy; 2025 Sibylhaus. Private reading. For Jade.</p>
+    </footer>
+  </body>
+</html>
