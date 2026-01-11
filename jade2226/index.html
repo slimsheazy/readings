@@ -1,0 +1,574 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sibylhaus | 7 Day Forecast for Jade</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --card-image-size: 300px;
+      }
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Inter", sans-serif;
+        background-color: #000000;
+        color: #ffffff;
+        line-height: 1.6;
+      }
+
+      header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1.5rem 2rem;
+        background-color: #000000;
+        border-bottom: 1px solid #333;
+      }
+
+      .logo {
+        font-family: "Bebas Neue", sans-serif;
+        font-size: 1.5rem;
+        font-weight: 700;
+        letter-spacing: 0.1em;
+        color: #ffffff;
+      }
+
+      .nav {
+        display: flex;
+        gap: 2rem;
+        font-size: 0.75rem;
+        letter-spacing: 0.05em;
+        font-weight: 600;
+      }
+
+      .nav a {
+        color: #d0d0d0;
+        text-decoration: none;
+        transition: color 0.3s;
+      }
+
+      .nav a:hover {
+        color: #ffffff;
+      }
+
+      .hero {
+        background-color: #000000;
+        padding: 4rem 2rem;
+        text-align: center;
+        min-height: 50vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .hero h1 {
+        font-family: "Bebas Neue", sans-serif;
+        font-size: 4rem;
+        font-weight: 700;
+        letter-spacing: 0.08em;
+        margin-bottom: 1rem;
+        line-height: 1.1;
+        text-transform: uppercase;
+      }
+
+      .hero h2 {
+        font-family: "Bebas Neue", sans-serif;
+        font-size: 2.5rem;
+        font-weight: 700;
+        letter-spacing: 0.08em;
+        margin-bottom: 1rem;
+        text-transform: uppercase;
+      }
+
+      .hero p {
+        font-size: 0.95rem;
+        color: #d0d0d0;
+        margin-bottom: 2rem;
+        max-width: 600px;
+      }
+
+      .audio-player-container {
+        background-color: #000000;
+        padding: 2rem;
+        text-align: center;
+        margin-bottom: 2rem;
+      }
+
+      .audio-label {
+        font-size: 0.75rem;
+        letter-spacing: 0.08em;
+        font-weight: 700;
+        text-transform: uppercase;
+        margin-bottom: 1.5rem;
+        color: #d0d0d0;
+      }
+
+      audio {
+        width: 100%;
+        max-width: 400px;
+        height: 40px;
+      }
+
+      .content-area {
+        background-color: #f8f8f8;
+        color: #1a1a1a;
+        padding: 3rem 2rem;
+      }
+
+      .container {
+        max-width: 1000px;
+        margin: 0 auto;
+      }
+
+      section {
+        margin-bottom: 3rem;
+      }
+
+      section h2 {
+        font-family: "Bebas Neue", sans-serif;
+        font-size: 1.8rem;
+        font-weight: 700;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        margin-bottom: 1rem;
+        padding-bottom: 0.5rem;
+        border-bottom: 3px solid #000;
+        display: inline-block;
+      }
+
+      .section-content {
+        margin-top: 1.5rem;
+      }
+
+      .pattern-text {
+        font-size: 0.95rem;
+        line-height: 1.8;
+        margin-bottom: 1rem;
+        color: #333;
+      }
+
+      .pattern-text strong {
+        font-weight: 700;
+        color: #000;
+      }
+
+      .card {
+        background-color: #ffffff;
+        padding: 1.5rem;
+        border-left: 4px solid #000;
+        margin-bottom: 1.5rem;
+      }
+
+      .card h3 {
+        font-family: "Bebas Neue", sans-serif;
+        font-size: 1.1rem;
+        font-weight: 700;
+        letter-spacing: 0.05em;
+        text-transform: uppercase;
+        margin-bottom: 0.8rem;
+        color: #000;
+      }
+
+      .card p {
+        font-size: 0.9rem;
+        line-height: 1.7;
+        color: #333;
+      }
+
+      .card-with-image {
+        background-color: #ffffff;
+        padding: 2rem;
+        border-left: 4px solid #000;
+        margin-bottom: 2rem;
+      }
+
+      .card-with-image h3 {
+        font-family: "Bebas Neue", sans-serif;
+        font-size: 1.3rem;
+        font-weight: 700;
+        letter-spacing: 0.05em;
+        text-transform: uppercase;
+        margin-bottom: 1.5rem;
+        color: #000;
+      }
+
+      .card-image {
+        width: var(--card-image-size);
+        height: var(--card-image-size);
+        display: block;
+        margin-bottom: 1.5rem;
+        border-radius: 8px;
+        object-fit: contain;
+        background-color: transparent;
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.45),
+          0 2px 6px rgba(0, 0, 0, 0.25);
+      }
+
+      .card-text {
+        font-size: 0.9rem;
+        line-height: 1.7;
+        color: #333;
+      }
+
+      .day-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 1.5rem;
+        margin-top: 1.5rem;
+      }
+
+      .path-box {
+        background-color: #ffffff;
+        padding: 2rem;
+        border-top: 4px solid #000;
+      }
+
+      .path-box h3 {
+        font-family: "Bebas Neue", sans-serif;
+        font-size: 1.3rem;
+        font-weight: 700;
+        letter-spacing: 0.05em;
+        text-transform: uppercase;
+        margin-bottom: 1.2rem;
+        color: #000;
+      }
+
+      .path-box ul {
+        list-style: none;
+        padding: 0;
+      }
+
+      .path-box li {
+        font-size: 0.9rem;
+        line-height: 1.7;
+        margin-bottom: 0.8rem;
+        padding-left: 1.5rem;
+        position: relative;
+        color: #333;
+      }
+
+      .path-box li:before {
+        content: "→";
+        position: absolute;
+        left: 0;
+        color: #666;
+        font-weight: 700;
+      }
+
+      .cta-section {
+        text-align: center;
+        padding: 2rem;
+        background-color: #ffffff;
+        margin-top: 2rem;
+      }
+
+      .cta-section p {
+        font-size: 0.9rem;
+        color: #666;
+        margin-bottom: 1.5rem;
+      }
+
+      .cta-button {
+        display: inline-block;
+        background-color: #000;
+        color: #fff;
+        padding: 1rem 2rem;
+        font-family: "Inter", sans-serif;
+        font-size: 0.9rem;
+        font-weight: 600;
+        letter-spacing: 0.05em;
+        text-transform: uppercase;
+        text-decoration: none;
+        transition: all 0.3s ease;
+      }
+
+      .cta-button:hover {
+        background-color: #333;
+      }
+
+      footer {
+        background-color: #000000;
+        text-align: center;
+        padding: 2rem;
+        border-top: 1px solid #333;
+        font-size: 0.75rem;
+        color: #999;
+        letter-spacing: 0.05em;
+        text-transform: uppercase;
+      }
+
+      @media (max-width: 768px) {
+        .hero h1 {
+          font-size: 2.5rem;
+        }
+
+        .hero h2 {
+          font-size: 1.5rem;
+        }
+
+        header {
+          flex-direction: column;
+          gap: 1rem;
+        }
+
+        .nav {
+          gap: 1rem;
+          font-size: 0.65rem;
+        }
+
+        .content-area {
+          padding: 2rem 1rem;
+        }
+
+        section h2 {
+          font-size: 1.3rem;
+        }
+
+        .day-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .card-image {
+          width: calc(var(--card-image-size) * 0.9);
+          height: calc(var(--card-image-size) * 0.9);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="logo">SIBYLHAUS</div>
+      <nav class="nav" aria-label="Main navigation">
+        <a href="/">HOME</a>
+        <a href="#">CART (0)</a>
+      </nav>
+    </header>
+
+    <div class="hero">
+      <h1>7 DAY FORECAST</h1>
+      <h2>JADE</h2>
+
+      <div class="audio-player-container">
+        <div class="audio-label">LISTEN TO YOUR READING</div>
+        <p style="font-size: 0.85rem; color: #d0d0d0; margin-bottom: 1.5rem">
+          Start by listening to the full reading, then explore each day below.
+        </p>
+        <audio controls preload="metadata">
+          <source src="Jade_1.10.26_7-days.mp3" type="audio/mpeg" />
+          Your browser does not support the audio element.
+        </audio>
+      </div>
+    </div>
+
+    <main class="content-area">
+      <div class="container">
+        <!-- OVERVIEW -->
+        <section>
+          <h2>OVERVIEW</h2>
+          <div class="section-content">
+            <div class="card">
+              <h3>About This Reading</h3>
+              <p>
+                This reading covers the next seven days for you and Carl, starting Monday, January 10th, 2026. The theme of your week centers around undistracted quality time, pillow talk vibes, and being more present with one another. Strong emphasis on stability, security, and home energy—with lots of fours pointing to something being set in stone between you two.
+              </p>
+            </div>
+            
+            <!-- THEME CARD WITH IMAGE -->
+            <div class="card-with-image">
+              <h3>Theme of the Week - Quality Time & Stability</h3>
+              <img
+                src="jade-1-10-26-444.jpg"
+                alt="444 Oracle Card - Stability and Foundation"
+                class="card-image"
+              />
+              <p class="card-text">
+                <strong>444 Energy - Stability, Security & Foundations</strong> - Your week is characterized by deepening connection, quality time together, and a sense of things becoming more solid and grounded between you. The 444 message speaks to foundations being set, stability, and something permanent taking shape in your relationship.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <!-- DAILY ENERGIES -->
+        <section>
+          <h2>DAILY ENERGIES</h2>
+          <div class="day-grid section-content">
+            <div class="card">
+              <h3>Monday - Conventional & Mundane</h3>
+              <p>
+                Monday feels pretty normal and conventional—just an average day with nothing chaotic or dramatic going on. Routines hold steady. Nothing bad here, just steady ground.
+              </p>
+            </div>
+
+            <div class="card">
+              <h3>Tuesday - Choose Wisely</h3>
+              <p>
+                Tuesday brings a "choose wisely" energy where you might debate staying in versus going out. There's a little FOMO but also a pull toward comfort and peace. Either choice is fine—you won't die based on your decision. Honor what you actually feel that day.
+              </p>
+            </div>
+
+            <div class="card">
+              <h3>Wednesday - Timing & Patience</h3>
+              <p>
+                Wednesday highlights timing and patience around something you two have been waiting for. It's more like a process maturing than a single event—something that's required patience. You'll know what this is when it shows up.
+              </p>
+            </div>
+          </div>
+
+          <!-- THURSDAY CARD WITH IMAGE -->
+          <div class="card-with-image" style="margin-top: 1.5rem;">
+            <h3>Thursday - Stability, Security & Setting It In Stone</h3>
+            <img
+              src="jade-1-10-26-four-of-wands.jpg"
+              alt="Four of Wands - Celebration and Home"
+              class="card-image"
+            />
+            <p class="card-text">
+              <strong>Four of Wands Energy</strong> - Thursday shows strong four energy tied to home, stability, or having conversations about house, wedding, or "let us set this in stone" type plans. There's a sense of celebration and something becoming more permanent or official between you two. This is a powerful day for deepening commitment.
+            </p>
+          </div>
+
+          <div class="day-grid" style="margin-top: 1.5rem;">
+            <div class="card">
+              <h3>Friday - Rest & Relaxation</h3>
+              <p>
+                Friday shows another four, this time linked to rest, chilling, and low-key plans. You and Carl are gonna have a great week. This is about staying in to recharge together rather than pushing your social battery. Cozy vibes.
+              </p>
+            </div>
+
+            <div class="card">
+              <h3>Saturday - Exhaustion & Release</h3>
+              <p>
+                The weekend shows someone (probably Carl) feeling worn out from the week. But the good news is you both are able to relax and decompress in a way that feels safe, grounded, and restorative. Same relaxed energy as Friday.
+              </p>
+            </div>
+          </div>
+
+          <!-- FOUR OF SWORDS CALLOUT -->
+          <div class="card-with-image" style="margin-top: 1.5rem;">
+            <h3>Friday Night - Four of Swords Rest</h3>
+            <img
+              src="jade-1-10-26-four-of-swords.jpg"
+              alt="Four of Swords - Rest and Recovery"
+              class="card-image"
+            />
+            <p class="card-text">
+              <strong>Four of Swords</strong> - Rest, recovery, and low-key vibes are the theme for Friday night into the weekend. Think less social calendar, more staying home, movies, and being present with each other. This card encourages you to slow down and recharge.
+            </p>
+          </div>
+        </section>
+
+        <!-- ORACLE GUIDANCE -->
+        <section>
+          <h2>ORACLE GUIDANCE</h2>
+          <div class="section-content">
+            <!-- YOU'LL SEE CARD WITH IMAGE -->
+            <div class="card-with-image">
+              <h3>"You'll See" - Surprise & Something to Look Forward To</h3>
+              <img
+                src="jade-1-10-26-youll-see.jpg"
+                alt="You'll See Oracle Card"
+                class="card-image"
+              />
+              <p class="card-text">
+                <strong>"You'll See" Message</strong> - There's a little surprise or something to look forward to coming in the week. The oracle also pulled 42 and 444, speaking to destiny, divine timing, and foundations being laid. You'll know what this is when it appears.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <!-- CARL SECTION -->
+        <section>
+          <h2>CARL'S FEELINGS & INTENTIONS</h2>
+          <div class="section-content">
+            <div class="card">
+              <h3>His Feelings - The World</h3>
+              <p>
+                Carl's feelings come through as very strong; The World suggests he sees you as a major part of his life and feels deeply connected to you. You're his whole world.
+              </p>
+            </div>
+
+            <div class="card">
+              <h3>His Intentions - Sun & Ten of Pentacles</h3>
+              <p>
+                His intentions show up as the Sun and Ten of Pentacles, pointing toward joy, long-term legacy, and a desire to actually build something lasting with you. He's thinking about the future—together.
+              </p>
+            </div>
+
+            <div class="card">
+              <h3>What's Next - Ace of Pentacles</h3>
+              <p>
+                The Ace of Pentacles hints at some kind of tangible offer or gesture coming from him. This could be paying for something nice, another grounded step forward, or a concrete way of showing he's serious and committed.
+              </p>
+            </div>
+
+            <div class="card" style="margin-top: 1.5rem;">
+              <h3>Overall Vibe</h3>
+              <p>
+                <strong>Carl has big feelings for you, and he's very serious about building something real.</strong> You likely already know this, but the cards confirm it strongly. If you're into him, the cards say this is gonna work out great.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <!-- ADVICE FOR THE WEEK -->
+        <section>
+          <h2>ADVICE FOR THE WEEK</h2>
+          <div class="section-content">
+            <div class="path-box">
+              <h3>Core Message</h3>
+              <ul>
+                <li>If disagreements come up, choose peace over being right</li>
+                <li>There's no point arguing if the topic isn't truly important</li>
+                <li>The overall energy is steady, affectionate, and supportive</li>
+                <li>What you're building together is on solid ground</li>
+                <li>Focus on quality time and being present with each other</li>
+                <li>Honor the rest and relaxation when it comes (Friday/weekend)</li>
+                <li>Stay open to the surprise or gift the week is bringing</li>
+              </ul>
+            </div>
+
+            <div class="card" style="margin-top: 2rem;">
+              <h3>Reading Insights</h3>
+              <p>
+                <strong>Strong Four Energy:</strong> Multiple fours throughout this reading point to stability, security, foundations, and something becoming more permanent or "set in stone." This is positive energy around your relationship solidifying.
+              </p>
+              <p style="margin-top: 1rem;">
+                <strong>Undistracted Quality Time:</strong> The theme is about being more present with one another—pillow talk vibes, less outside chaos, more intimacy and connection.
+              </p>
+              <p style="margin-top: 1rem;">
+                <strong>Overall Vibe:</strong> This week is good. Nothing bad is coming. The energy is grounded, loving, and supportive. Expect a week of deepening connection and stability in your relationship with Carl.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <!-- CTA -->
+        <div class="cta-section">
+          <p>Want deeper insight into your relationship or future?</p>
+          <a
+            href="https://www.etsy.com/shop/Sibylhaus"
+            class="cta-button"
+            target="_blank"
+            rel="noopener noreferrer"
+            >Book Another Reading</a
+          >
+        </div>
+      </div>
+    </main>
+
+    <footer>
+      <p>&copy; 2026 Sibylhaus. Private reading for Jade. | Recorded January 10, 2026.</p>
+    </footer>
+  </body>
+</html>
