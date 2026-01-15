@@ -1,0 +1,825 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sibylhaus | [your name]'s Tarot Reading</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --card-image-size: 300px;
+      }
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      :root {
+        --text-secondary: #888;
+      }
+
+      body {
+        font-family: "Inter", sans-serif;
+        background: #f0f0f0;
+        color: #ffffff;
+        line-height: 1.6;
+      }
+
+       header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1.5rem 2rem;
+        background-color: #000000;
+        border-bottom: 1px solid #333;
+      }
+
+      .logo {
+        font-family: "Bebas Neue", sans-serif;
+        font-size: 1.5rem;
+        font-weight: 700;
+        letter-spacing: 0.1em;
+        color: #ffffff;
+      }
+
+     .nav {
+        display: flex;
+        gap: 2rem;
+        font-size: 0.75rem;
+        letter-spacing: 0.05em;
+        font-weight: 600;
+      }
+
+      .nav a {
+        color: #d0d0d0;
+        text-decoration: none;
+        transition: color 0.3s;
+      }
+
+     .nav a:hover {
+        color: #ffffff;
+      }
+
+      .hero {
+        background-color: #000000;
+        padding: 4rem 2rem;
+        text-align: center;
+        min-height: 50vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .hero h1 {
+        font-family: "Bebas Neue", sans-serif;
+        font-size: 4rem;
+        font-weight: 700;
+        letter-spacing: 0.08em;
+        margin-bottom: 1rem;
+        line-height: 1.1;
+        text-transform: uppercase;
+      }
+
+      .hero h2 {
+        font-family: "Bebas Neue", sans-serif;
+        font-size: 2.5rem;
+        font-weight: 700;
+        letter-spacing: 0.08em;
+        margin-bottom: 1rem;
+        text-transform: uppercase;
+      }
+
+      .hero p {
+        font-size: 0.95rem;
+        color: #d0d0d0;
+        margin-bottom: 2rem;
+        max-width: 600px;
+      }
+
+
+       .audio-player-container {
+        background-color: #000000;
+        padding: 2rem;
+        text-align: center;
+        margin-bottom: 2rem;
+      }
+
+       .audio-label {
+        font-size: 0.75rem;
+        letter-spacing: 0.08em;
+        font-weight: 700;
+        text-transform: uppercase;
+        margin-bottom: 1.5rem;
+        color: #d0d0d0;
+      }
+      
+       audio {
+        width: 100%;
+        max-width: 400px;
+        height: 40px;
+      }
+
+      .reading-meta {
+        display: flex;
+        justify-content: center;
+        gap: 2rem;
+        flex-wrap: wrap;
+      }
+
+      .meta-item {
+        text-align: center;
+      }
+
+      .meta-label {
+        font-size: 0.75rem;
+        color: #999;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+      }
+
+      .meta-value {
+        font-size: 1.1rem;
+        color: #1a1a1a;
+        font-weight: 600;
+      }
+
+      .reading-section {
+        background: white;
+        padding: 2rem;
+        margin-bottom: 2rem;
+        border-radius: 8px;
+        border-top: 3px solid #1a1a1a;
+      }
+
+      .section-title {
+        font-family: "Bebas Neue", sans-serif;
+        font-size: 1.8rem;
+        color: #1a1a1a;
+        margin-bottom: 1.5rem;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+      }
+
+      .content-text {
+        color: #555;
+        margin-bottom: 1rem;
+        line-height: 1.8;
+      }
+
+      .content-text strong {
+        color: #1a1a1a;
+      }
+
+      .highlight {
+        background: #f9f9f9;
+        padding: 1rem;
+        border-left: 3px solid #1a1a1a;
+        margin: 1.5rem 0;
+        font-style: italic;
+        color: #333;
+      }
+
+      .spread-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+        gap: 1rem;
+        margin: 2rem 0;
+      }
+
+      .card {
+        background: #fafafa;
+        border: 1px solid #ddd;
+        border-radius: 6px;
+        padding: 1rem;
+        text-align: center;
+        transition: all 0.3s;
+      }
+
+      .card:hover {
+        border-color: #1a1a1a;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      }
+
+      .card-position {
+        font-size: 0.75rem;
+        color: #999;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        margin-bottom: 0.5rem;
+      }
+
+      .card-name {
+        font-size: 0.95rem;
+        color: #1a1a1a;
+        font-weight: 600;
+      }
+
+      .numbers-section {
+        background: #f9f9f9;
+        padding: 1.5rem;
+        border-radius: 8px;
+        margin: 1.5rem 0;
+      }
+
+      .numbers-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+        gap: 1rem;
+        margin-top: 1rem;
+      }
+
+      .number-item {
+        background: white;
+        padding: 1rem;
+        border-radius: 6px;
+        text-align: center;
+        border: 1px solid #ddd;
+        transition: transform 0.3s;
+      }
+
+      .number {
+        font-size: 1.8rem;
+        font-weight: bold;
+        color: #1a1a1a;
+      }
+
+      .number-context {
+        font-size: 0.8rem;
+        color: #999;
+        margin-top: 0.5rem;
+      }
+
+      .cta-section {
+        background: #1a1a1a;
+        color: white;
+        padding: 3rem 2rem;
+        border-radius: 8px;
+        text-align: center;
+        margin: 3rem 0;
+      }
+
+      .cta-section h3 {
+        font-family: "Bebas Neue", sans-serif;
+        font-size: 1.8rem;
+        margin-bottom: 1rem;
+        letter-spacing: 1px;
+      }
+
+      .cta-section p {
+        color: #aaa;
+        margin-bottom: 1rem;
+      }
+
+      .cta-section ul {
+        list-style: none;
+        text-align: left;
+        max-width: 600px;
+        margin: 1.5rem auto;
+      }
+
+      .cta-section li {
+        margin: 0.8rem 0;
+        color: #aaa;
+      }
+
+      .cta-button {
+        display: inline-block;
+        background: white;
+        color: #1a1a1a;
+        padding: 0.8rem 2rem;
+        border: none;
+        border-radius: 4px;
+        font-size: 0.9rem;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.3s;
+        text-decoration: none;
+      }
+
+      .cta-button:hover {
+        background: #f0f0f0;
+        transform: translateY(-2px);
+      }
+
+      footer {
+        background: #1a1a1a;
+        color: #aaa;
+        text-align: center;
+        padding: 2rem;
+        margin-top: 3rem;
+        border-top: 1px solid #333;
+      }
+
+      footer p {
+        margin: 0.5rem 0;
+        font-size: 0.85rem;
+      }
+
+      .sibylhaus-name {
+        color: white;
+        font-weight: 600;
+        letter-spacing: 1px;
+      }
+
+      @keyframes slideUp {
+        from {
+          opacity: 0;
+          transform: translateY(8px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      @media (max-width: 768px) {
+        header {
+          padding: 1rem;
+        }
+
+        .hero h1 {
+          font-size: 2.5rem;
+        }
+
+        .hero h2 {
+          font-size: 1.8rem;
+        }
+
+        .recipient-name {
+          font-size: 2rem;
+        }
+
+        .spread-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+
+        nav {
+          gap: 1rem;
+        }
+
+        nav a {
+          font-size: 0.8rem;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .container {
+          padding: 1rem;
+        }
+
+        .reading-section {
+          padding: 1rem;
+        }
+
+        .spread-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="logo">SIBYLHAUS</div>
+      <nav>
+        <a href="#reading">HOME</a>
+        <a href="#guidance">CART (0)</a>
+      </nav>
+    </header>
+
+    <div class="container">
+      <div class="hero">
+        <h1>7 DAY FORECAST</h1>
+        <h2>CLIENT NAME</h2>
+
+        <div class="audio-player-container">
+          <div class="audio-label">LISTEN TO YOUR READING</div>
+          <p style="font-size: 0.85rem; color: #888; margin-bottom: 1.5rem">
+            Begin with the full audio, then scroll down to explore a breakdown.
+          </p>
+          <audio controls preload="metadata" style="width: 100%; max-width: 400px">
+            <source src="audio/sample.mp3" type="audio/mpeg" />
+            Your browser does not support the audio element.
+          </audio>
+        </div>
+      </div>
+
+      <!-- Spread Overview -->
+      <section class="reading-section" id="reading">
+        <h3 class="section-title">Spread Overview</h3>
+        <p class="content-text">
+          With so many Major Arcana cards showing up, the reading highlights a turning point in your situationship. The energy here is substantial, signaling a phase of deep importance and transformation.
+        </p>
+
+        <div class="highlight">
+          ✦ <strong>Key Message:</strong> This connection has roots that go far beyond simple attraction. You've known each other for some time, though it may have taken a while for the depth of it to fully come into focus.
+        </div>
+
+        <div class="spread-grid">
+          <div class="card">
+            <div class="card-position">Position 1</div>
+            <div class="card-name">Person A's Feelings</div>
+            <p style="font-size: 0.9rem; color: var(--text-secondary)">
+              Grief & Aftermath
+            </p>
+          </div>
+          <div class="card">
+            <div class="card-position">Position 2</div>
+            <div class="card-name">Person A's Thoughts</div>
+            <p style="font-size: 0.9rem; color: var(--text-secondary)">
+              Focused on Person B
+            </p>
+          </div>
+          <div class="card">
+            <div class="card-position">Position 3</div>
+            <div class="card-name">Person B's Feelings</div>
+            <p style="font-size: 0.9rem; color: var(--text-secondary)">
+              Commitment & Resolve
+            </p>
+          </div>
+          <div class="card">
+            <div class="card-position">Position 4</div>
+            <div class="card-name">Person B's Thoughts</div>
+            <p style="font-size: 0.9rem; color: var(--text-secondary)">
+              Willing & Aligned
+            </p>
+          </div>
+          <div class="card">
+            <div class="card-position">Position 5</div>
+            <div class="card-name">Foundation</div>
+            <p style="font-size: 0.9rem; color: var(--text-secondary)">
+              Hidden Potential
+            </p>
+          </div>
+          <div class="card">
+            <div class="card-position">Position 6</div>
+            <div class="card-name">Advice</div>
+            <p style="font-size: 0.9rem; color: var(--text-secondary)">
+              Guiding Card Message
+            </p>
+          </div>
+          <div class="card">
+            <div class="card-position">Position 7</div>
+            <div class="card-name">Outcome</div>
+            <p style="font-size: 0.9rem; color: var(--text-secondary)">
+              Deeper Insight
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Detailed Reading -->
+      <section class="reading-section" id="guidance">
+        <h3 class="section-title">Guidance</h3>
+
+        <h4
+          style="
+            color: #1a1a1a;
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+            font-weight: 600;
+          "
+        >
+          Understanding the Positions
+        </h4>
+
+        <div
+          style="
+            margin-bottom: 2rem;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            align-items: flex-start;
+          "
+        >
+          <div>
+            <h5 style="color: #1a1a1a; margin-bottom: 0.8rem; font-weight: 600">
+              📍 Person A
+            </h5>
+            <p class="content-text">
+              <strong>Current Emotions:</strong> Your energy shows a cycle that has finally run its course. You're beginning to move past what once held you in place, redirecting your mental and emotional focus toward healing and renewal.
+            </p>
+            <p class="content-text">
+              <strong>Your Thoughts:</strong> Your focus is turning toward what you can build rather than what you've lost. You have the inner resources to manifest real change, and your energy is aligning with the steps needed to move forward.
+            </p>
+          </div>
+          <div style="text-align: center">
+            <img
+              src="images/sample.png"
+              alt="Person A"
+              style="
+                max-width: 100%;
+                border-radius: 6px;
+                border: 1px solid #ddd;
+              "
+            />
+            <p style="font-size: 0.8rem; color: #999; margin-top: 0.5rem">
+              Revealed Energetic Influence
+            </p>
+          </div>
+        </div>
+
+        <div
+          style="
+            margin-bottom: 2rem;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            align-items: flex-start;
+          "
+        >
+          <div>
+            <h5 style="color: #1a1a1a; margin-bottom: 0.8rem; font-weight: 600">
+              📍 Person B
+            </h5>
+            <p class="content-text">
+              <strong>Their Feelings:</strong> Person B is oriented toward building this relationship. They've thought through their approach, and they feel assured in the plan they've created. Their confidence in moving things forward is solid.
+            </p>
+            <p class="content-text">
+              <strong>Their Thoughts:</strong> Person B is aware that the situation has become uneven. They don't want to keep juggling or maintaining an imbalance, and they're thinking seriously about how to correct it and bring things back into order.
+            </p>
+          </div>
+          <div style="text-align: center">
+            <img
+              src="images/sample2.png"
+              alt="The Tower - Person B"
+              style="
+                max-width: 100%;
+                border-radius: 6px;
+                border: 1px solid #ddd;
+              "
+            />
+            <p style="font-size: 0.8rem; color: #999; margin-top: 0.5rem">
+              The Connection
+            </p>
+          </div>
+        </div>
+
+        <div
+          style="
+            margin-bottom: 2rem;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            align-items: flex-start;
+          "
+        >
+          <div>
+            <h5 style="color: #1a1a1a; margin-bottom: 0.8rem; font-weight: 600">
+              🌍 The Foundation
+            </h5>
+            <p class="content-text">
+              The dynamic here reflects someone who spent a lot of time overthinking before making their move. An apology or acknowledgment may have been necessary, and they approached the situation slowly rather than impulsively. The foundation rests on thoughtful consideration and a desire to move forward the right way.
+            </p>
+          </div>
+          <div style="text-align: center">
+            <img
+              src="images/sample3.png"
+              alt="Guidance"
+              style="
+                max-width: 100%;
+                border-radius: 6px;
+                border: 1px solid #ddd;
+              "
+            />
+            <p style="font-size: 0.8rem; color: #999; margin-top: 0.5rem">
+              Groundwork
+            </p>
+          </div>
+        </div>
+
+        <div
+          style="
+            margin-bottom: 2rem;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            align-items: flex-start;
+          "
+        >
+          <div>
+            <h5 style="color: #1a1a1a; margin-bottom: 0.8rem; font-weight: 600">
+              ☀️ The Advice
+            </h5>
+            <p class="content-text">
+              This guidance tells you that
+              <strong>clarity is coming</strong>. Things that have been in
+              shadow will be illuminated. You will gain more understanding as
+              time moves forward. The universe is saying that more light
+              will be shed on this situation with time.
+            </p>
+          </div>
+          <div style="text-align: center">
+            <img
+              src="images/sample4.png"
+              alt="The Card"
+              style="
+                max-width: 100%;
+                border-radius: 6px;
+                border: 1px solid #ddd;
+              "
+            />
+            <p style="font-size: 0.8rem; color: #999; margin-top: 0.5rem">
+              Your Card
+            </p>
+          </div>
+        </div>
+
+        <div class="highlight">
+          <strong>♈ Aries Affirmation:</strong> Your anger is a gift.
+        </div>
+
+        <div style="margin-bottom: 2rem">
+          <h5 style="color: #1a1a1a; margin-bottom: 0.8rem; font-weight: 600">
+            ✨ The Outcome
+          </h5>
+          <p class="content-text">
+            The outcome indicates someone finally seeing the value of this connection that they hadn't fully acknowledged. That recognition creates space for mutual understanding, and the next steps involve both of you putting in the effort to strengthen and refine the relationship.
+          </p>
+        </div>
+
+        <h4
+          style="
+            color: #1a1a1a;
+            margin-top: 2.5rem;
+            margin-bottom: 1rem;
+            font-weight: 600;
+          "
+        >
+          💫 The Key Message
+        </h4>
+        <p class="content-text">
+          The cards emphasize one crucial piece of guidance:
+          <strong>Stop letting this drag out; make the call.</strong>
+          This could be:
+        </p>
+        <ul
+          style="
+            margin-left: 2rem;
+            margin-bottom: 1.5rem;
+            color: var(--text-secondary);
+          "
+        >
+          <li>You keep replaying a conversation in your head instead of just asking the person directly.</li>
+          <li>You're waiting for "the right moment," but nothing changes because you're not moving.</li>
+          <li>You're waiting for a sign when the only thing missing is action.</li>
+        </ul>
+        <p class="content-text">
+          The cards show Person B gearing up to approach you directly. It could happen through mutual friends or in a setting that feels familiar. Bottom line: they're coming forward. The key is:
+          <strong>they've made up their mind about you.</strong>
+        </p>
+
+        <h4
+          style="
+            color: #1a1a1a;
+            margin-top: 2.5rem;
+            margin-bottom: 1rem;
+            font-weight: 600;
+          "
+        >
+          🕯️ Ritual & Connection
+        </h4>
+        <p class="content-text">
+          The cards show there's something about the two of you having your own little ritual, your version of 'tea time,' where you settle in and actually meet each other.
+        </p>
+      </section>
+
+      <!-- Significant Numbers -->
+      <section class="reading-section" id="numbers">
+        <h3 class="section-title">Significant Numbers</h3>
+        <p class="content-text" style="margin-bottom: 2rem">
+          These numbers likely resonate with you or your situation:
+        </p>
+
+        <div class="numbers-section">
+          <div class="numbers-grid">
+            <div class="number-item">
+              <div class="number">26</div>
+              <div class="number-context">
+                A potential sign that you're on the right
+                track if you see it.
+              </div>
+            </div>
+            <div class="number-item">
+              <div class="number">38</div>
+              <div class="number-context">
+                Important age, number or days or significance
+              </div>
+            </div>
+            <div class="number-item">
+              <div class="number">31</div>
+              <div class="number-context">
+                Important date, age, or other significance
+              </div>
+            </div>
+            <div class="number-item">
+              <div class="number">27</div>
+              <div class="number-context">Clarity over confusion</div>
+            </div>
+          </div>
+        </div>
+
+        <p class="content-text" style="margin-top: 2rem">
+          Number 27 is about seeing the truth you've been avoiding.
+        </p>
+
+        <h4
+          style="
+            color: #1a1a1a;
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+            font-weight: 600;
+          "
+        >
+          🏃 Coming Forward
+        </h4>
+        <p class="content-text">
+          The oracle cards indicate something about <strong>coming forward</strong>. It looks like someone is finally ready to stop sitting on their thoughts and actually take action.
+        </p>
+      </section>
+
+      <!-- Additional Reading Info -->
+      <section class="reading-section">
+        <h3 class="section-title">Final Thoughts</h3>
+        <p class="content-text">
+          [your name], the cards show that both you and Person B want the same
+          outcome.
+        </p>
+        <p class="content-text">
+          While you may feel confused now,
+          remember that this is temporary.
+        </p>
+        <p class="content-text">
+          Surrender.
+        </p>
+
+        <div class="highlight">
+          ✦ <strong>Remember:</strong> You are an Aries; A sign of courage,
+          boldness, and action. Channel that. The universe has
+          already chosen the outcome; it's your job to show up for it. ✦
+        </div>
+      </section>
+
+      <!-- CTA -->
+      <div class="cta-section">
+        <p>Want deeper insight into your relationship or future?</p>
+        <a
+          href="https://www.etsy.com/shop/Sibylhaus"
+          class="cta-button"
+          target="_blank"
+          rel="noopener noreferrer"
+          >Book Another Reading</a
+        >
+      </div>
+    </div>
+
+    <footer>
+      <p><span class="sibylhaus-name">~ SIBYLHAUS ~</span></p>
+      <p>✦ Tarot Readings • Oracle Guidance • Spiritual Clarity ✦</p>
+      <p style="margin-top: 1rem; font-size: 0.85rem; color: #bba890">
+        For entertainment and spiritual guidance purposes. Always trust your own
+        intuition alongside any reading.
+      </p>
+      <p style="margin-top: 1rem">&copy; 2026 Sibylhaus. Private reading for [your name]</p>
+    </footer>
+
+    <script>
+      // Smooth scroll behavior for navigation
+      document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+        anchor.addEventListener("click", function (e) {
+          e.preventDefault();
+          const target = document.querySelector(this.getAttribute("href"));
+          if (target) {
+            target.scrollIntoView({
+              behavior: "smooth",
+              block: "start",
+            });
+          }
+        });
+      });
+
+      // Add stagger animation to cards
+      const cards = document.querySelectorAll(".card");
+      cards.forEach((card, index) => {
+        card.style.animationDelay = `${index * 0.1}s`;
+        card.style.animation = "slideUp 0.6s ease-out backwards";
+      });
+
+      // Interactive number reveal
+      const numberItems = document.querySelectorAll(".number-item");
+      numberItems.forEach((item) => {
+        item.addEventListener("mouseenter", function () {
+          this.style.transform = "scale(1.05)";
+        });
+        item.addEventListener("mouseleave", function () {
+          this.style.transform = "scale(1)";
+        });
+      });
+    </script>
+  </body>
+</html>
