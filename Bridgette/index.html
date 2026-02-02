@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sibylhaus | Reading for Bridgette</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --card-image-size: 300px;
+      }
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Inter", sans-serif;
+        background-color: #000000;
+        color: #ffffff;
+        line-height: 1.6;
+      }
+
+      header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1.5rem 2rem;
+        background-color: #000000;
+        border-bottom: 1px solid #333;
+      }
+
+      .logo {
+        font-family: "Bebas Neue", sans-serif;
+        font-size: 1.5rem;
+        font-weight: 700;
+        letter-spacing: 0.1em;
+        color: #ffffff;
+      }
+
+      .nav {
+        display: flex;
+        gap: 2rem;
+        font-size: 0.75rem;
+        letter-spacing: 0.05em;
+        font-weight: 600;
+      }
+
+      .nav a {
+        color: #d0d0d0;
+        text-decoration: none;
+        transition: color 0.3s;
+      }
+
+      .nav a:hover {
+        color: #ffffff;
+      }
+
+      .hero {
+        background-color: #000000;
+        padding: 4rem 2rem;
+        text-align: center;
+        min-height: 50vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .hero h1 {
+        font-family: "Bebas Neue", sans-serif;
+        font-size: 4rem;
+        font-weight: 700;
+        letter-spacing: 0.08em;
+        margin-bottom: 1rem;
+        line-height: 1.1;
+        text-transform: uppercase;
+      }
+
+      .hero h2 {
+        font-family: "Bebas Neue", sans-serif;
+        font-size: 2.5rem;
+        font-weight: 700;
+        letter-spacing: 0.08em;
+        margin-bottom: 1rem;
+        text-transform: uppercase;
+      }
+
+      .hero p {
+        font-size: 0.95rem;
+        color: #d0d0d0;
+        margin-bottom: 2rem;
+        max-width: 600px;
+      }
+
+      .audio-player-container {
+        background-color: #000000;
+        padding: 2rem;
+        text-align: center;
+        margin-bottom: 2rem;
+      }
+
+      .audio-label {
+        font-size: 0.75rem;
+        letter-spacing: 0.08em;
+        font-weight: 700;
+        text-transform: uppercase;
+        margin-bottom: 1.5rem;
+        color: #d0d0d0;
+      }
+
+      audio {
+        width: 100%;
+        max-width: 400px;
+        height: 40px;
+      }
+
+      .content-area {
+        background-color: #f8f8f8;
+        color: #1a1a1a;
+        padding: 3rem 2rem;
+      }
+
+      .container {
+        max-width: 1000px;
+        margin: 0 auto;
+      }
+
+      section {
+        margin-bottom: 3rem;
+      }
+
+      section h2 {
+        font-family: "Bebas Neue", sans-serif;
+        font-size: 1.8rem;
+        font-weight: 700;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        margin-bottom: 1rem;
+        padding-bottom: 0.5rem;
+        border-bottom: 3px solid #000;
+        display: inline-block;
+      }
+
+      .section-content {
+        margin-top: 1.5rem;
+      }
+
+      .card {
+        background-color: #ffffff;
+        padding: 1.5rem;
+        border-left: 4px solid #000;
+        margin-bottom: 1.5rem;
+      }
+
+      .card h3 {
+        font-family: "Bebas Neue", sans-serif;
+        font-size: 1.1rem;
+        font-weight: 700;
+        letter-spacing: 0.05em;
+        text-transform: uppercase;
+        margin-bottom: 0.8rem;
+        color: #000;
+      }
+
+      .card p {
+        font-size: 0.9rem;
+        line-height: 1.7;
+        color: #333;
+        margin-bottom: 0.8rem;
+      }
+
+      .card p:last-child {
+        margin-bottom: 0;
+      }
+
+      .card-with-image {
+        background-color: #ffffff;
+        padding: 2rem;
+        border-left: 4px solid #000;
+        margin-bottom: 2rem;
+      }
+
+      .card-with-image h3 {
+        font-family: "Bebas Neue", sans-serif;
+        font-size: 1.3rem;
+        font-weight: 700;
+        letter-spacing: 0.05em;
+        text-transform: uppercase;
+        margin-bottom: 1.5rem;
+        color: #000;
+      }
+
+      .card-image {
+        width: var(--card-image-size);
+        height: var(--card-image-size);
+        display: block;
+        margin-bottom: 1.5rem;
+        border-radius: 8px;
+        object-fit: contain;
+        background-color: transparent;
+      }
+
+      .card-text {
+        font-size: 0.9rem;
+        line-height: 1.7;
+        color: #333;
+      }
+
+      .path-box {
+        background-color: #ffffff;
+        padding: 2rem;
+        border-top: 4px solid #000;
+      }
+
+      .path-box h3 {
+        font-family: "Bebas Neue", sans-serif;
+        font-size: 1.3rem;
+        font-weight: 700;
+        letter-spacing: 0.05em;
+        text-transform: uppercase;
+        margin-bottom: 1.2rem;
+        color: #000;
+      }
+
+      .path-box ul {
+        list-style: none;
+        padding: 0;
+      }
+
+      .path-box li {
+        font-size: 0.9rem;
+        line-height: 1.7;
+        margin-bottom: 0.8rem;
+        padding-left: 1.5rem;
+        position: relative;
+        color: #333;
+      }
+
+      .path-box li:before {
+        content: "→";
+        position: absolute;
+        left: 0;
+        color: #666;
+        font-weight: 700;
+      }
+
+      .cta-section {
+        text-align: center;
+        padding: 2rem;
+        background-color: #ffffff;
+        margin-top: 2rem;
+      }
+
+      .cta-section p {
+        font-size: 0.9rem;
+        color: #666;
+        margin-bottom: 1.5rem;
+      }
+
+      .cta-button {
+        display: inline-block;
+        background-color: #000;
+        color: #fff;
+        padding: 1rem 2rem;
+        font-family: "Inter", sans-serif;
+        font-size: 0.9rem;
+        font-weight: 600;
+        letter-spacing: 0.05em;
+        text-transform: uppercase;
+        text-decoration: none;
+        transition: all 0.3s ease;
+      }
+
+      .cta-button:hover {
+        background-color: #333;
+      }
+
+      footer {
+        background-color: #000000;
+        text-align: center;
+        padding: 2rem;
+        border-top: 1px solid #333;
+        font-size: 0.75rem;
+        color: #999;
+        letter-spacing: 0.05em;
+        text-transform: uppercase;
+      }
+
+      @media (max-width: 768px) {
+        .hero h1 {
+          font-size: 2.5rem;
+        }
+
+        .hero h2 {
+          font-size: 1.5rem;
+        }
+
+        header {
+          flex-direction: column;
+          gap: 1rem;
+        }
+
+        .nav {
+          gap: 1rem;
+          font-size: 0.65rem;
+        }
+
+        .content-area {
+          padding: 2rem 1rem;
+        }
+
+        section h2 {
+          font-size: 1.3rem;
+        }
+
+        .card-image {
+          width: calc(var(--card-image-size) * 0.9);
+          height: calc(var(--card-image-size) * 0.9);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="logo">SIBYLHAUS</div>
+      <nav class="nav" aria-label="Main navigation">
+        <a href="/">HOME</a>
+        <a href="#">CART (0)</a>
+      </nav>
+    </header>
+
+    <div class="hero">
+      <h1>READING</h1>
+      <h2>BRIDGETTE</h2>
+      
+      <div class="audio-player-container">
+        <div class="audio-label">LISTEN TO YOUR READING</div>
+        <p style="font-size: 0.85rem; color: #d0d0d0; margin-bottom: 1.5rem">
+          Full audio reading with all the details.
+        </p>
+        <audio controls preload="metadata">
+          <source src="B.mp3" type="audio/mpeg" />
+          Your browser does not support the audio element.
+        </audio>
+      </div>
+    </div>
+
+    <main class="content-area">
+      <div class="container">
+        <!-- LOVE LIFE -->
+        <section>
+          <h2>LOVE LIFE</h2>
+          <div class="section-content">
+            <div class="card">
+              <h3>You're Not Going to Be Alone</h3>
+              <p>
+                Even though Ivan is gone, you're still healing. It still hurts. But you're not going to be alone.
+              </p>
+              <p>
+                Past, present, & future all show different varieties of Mr. Right Now. The Chariot is in your past (maybe a Cancer?), Page of Swords in your present (Air sign and/or somebody you knew before), and future person is likely younger, possibly a Fire sign.
+              </p>
+              <p>
+                Lots of options. People flocking to you. But some of those cups have snakes in them. Use discernment.
+              </p>
+            </div>
+
+            <div class="card">
+              <h3>The Real Work</h3>
+              <p>
+                The vibe is less about relationships, more about focusing on yourself.
+              </p>
+            </div>
+
+            <div class="card">
+              <h3>Bottom Line</h3>
+              <p>
+                Options aren't your problem. Trust your gut on who's real and who's a snake.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <!-- CAREER -->
+        <section>
+          <h2>SUPERVISOR OR TEAM LEAD</h2>
+          <div class="section-content">
+            <div class="card">
+              <h3>Should You Apply?</h3>
+              <p>
+                Yes. Both are a yes.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <section>
+          <h2>SUPERVISOR POSITION</h2>
+          <div class="section-content">
+            <div class="card-with-image">
+              <h3>Strength - You Have What It Takes</h3>
+              <img
+                src="https://agi-prod-file-upload-public-main-use1.s3.amazonaws.com/d50089d9-e4d8-4a85-8a54-dc61fb03f375"
+                alt="Strength Card"
+                class="card-image"
+              />
+              <p class="card-text">
+                Strength card for Supervisor. Absolutely apply. You have way more capacity for this than you think.
+              </p>
+              <p class="card-text" style="margin-top: 1rem;">
+                But it's going to be more isolating and more chaotic. More responsibility, more stress. You won't always get to be the good guy.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <section>
+          <h2>TEAM LEAD POSITION</h2>
+          <div class="section-content">
+            <div class="card-with-image">
+              <h3>Six of Pentacles - Balance</h3>
+              <img
+                src="https://agi-prod-file-upload-public-main-use1.s3.amazonaws.com/5bf301c7-b31f-47fb-80b7-100ed9acbf25"
+                alt="Six of Pentacles Card"
+                class="card-image"
+              />
+              <p class="card-text">
+                Six of Pentacles for Team Lead. Still a yes, different energy. Balance, fairness, support.
+              </p>
+              <p class="card-text" style="margin-top: 1rem;">
+                Easier path. Less isolation, less chaos. You lead without carrying everything. Softer step up.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <section>
+          <h2>HEADS UP</h2>
+          <div class="section-content">
+            <div class="card">
+              <h3>Don't Expect a Ton of Feedback</h3>
+              <p>
+                If you apply, you might not hear much feedback during the process. That doesn't mean it's not happening. Don't let that freak you out.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <section>
+          <h2>THE SHADOW SIDE</h2>
+          <div class="section-content">
+            <div class="card">
+              <h3>The Devil + Page of Cups</h3>
+              <p>
+                The Devil came out as final advice. It's about the temptation to be the good guy all the time. You won't always get to be nice. Everything's got its good and bad parts.
+              </p>
+              <p>
+                You don't have to be a monster. Just be fair.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <section>
+          <h2>BOTTOM LINE</h2>
+          <div class="section-content">
+            <div class="card">
+              <h3>What Should You Do?</h3>
+              <p>
+                Both are a yes. Supervisor: more isolation, more chaos, big growth. Team Lead: easier, balanced, still leadership.
+              </p>
+              <p>
+                It depends what you want. The challenge or the softer step?
+              </p>
+              <p>
+                Don't expect constant updates. You'll have to make unpopular calls sometimes. You can handle it.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <!-- CTA -->
+        <div class="cta-section">
+          <p>Need more guidance on your next move?</p>
+          <a
+            href="https://www.etsy.com/shop/Sibylhaus"
+            class="cta-button"
+            target="_blank"
+            rel="noopener noreferrer"
+            >Book Another Reading</a
+          >
+        </div>
+      </div>
+    </main>
+
+    <footer>
+      <p>&copy; 2026 Sibylhaus. Private reading for Bridgette. | Recorded January 30, 2026.</p>
+    </footer>
+  </body>
+</html>
+
