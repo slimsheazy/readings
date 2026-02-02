@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sibylhaus | Reading for Joy</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --card-image-size: 300px;
+      }
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Inter", sans-serif;
+        background-color: #000000;
+        color: #ffffff;
+        line-height: 1.6;
+      }
+
+      header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1.5rem 2rem;
+        background-color: #000000;
+        border-bottom: 1px solid #333;
+      }
+
+      .logo {
+        font-family: "Bebas Neue", sans-serif;
+        font-size: 1.5rem;
+        font-weight: 700;
+        letter-spacing: 0.1em;
+        color: #ffffff;
+      }
+
+      .nav {
+        display: flex;
+        gap: 2rem;
+        font-size: 0.75rem;
+        letter-spacing: 0.05em;
+        font-weight: 600;
+      }
+
+      .nav a {
+        color: #d0d0d0;
+        text-decoration: none;
+        transition: color 0.3s;
+      }
+
+      .nav a:hover {
+        color: #ffffff;
+      }
+
+      .hero {
+        background-color: #000000;
+        padding: 4rem 2rem;
+        text-align: center;
+        min-height: 50vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .hero h1 {
+        font-family: "Bebas Neue", sans-serif;
+        font-size: 4rem;
+        font-weight: 700;
+        letter-spacing: 0.08em;
+        margin-bottom: 1rem;
+        line-height: 1.1;
+        text-transform: uppercase;
+      }
+
+      .hero h2 {
+        font-family: "Bebas Neue", sans-serif;
+        font-size: 2.5rem;
+        font-weight: 700;
+        letter-spacing: 0.08em;
+        margin-bottom: 1rem;
+        text-transform: uppercase;
+      }
+
+      .audio-player-container {
+        background-color: #000000;
+        padding: 2rem;
+        text-align: center;
+        margin-bottom: 2rem;
+      }
+
+      .audio-label {
+        font-size: 0.75rem;
+        letter-spacing: 0.08em;
+        font-weight: 700;
+        text-transform: uppercase;
+        margin-bottom: 1.5rem;
+        color: #d0d0d0;
+      }
+
+      audio {
+        width: 100%;
+        max-width: 400px;
+        height: 40px;
+      }
+
+      .content-area {
+        background-color: #f8f8f8;
+        color: #1a1a1a;
+        padding: 3rem 2rem;
+      }
+
+      .container {
+        max-width: 1000px;
+        margin: 0 auto;
+      }
+
+      section {
+        margin-bottom: 3rem;
+      }
+
+      section h2 {
+        font-family: "Bebas Neue", sans-serif;
+        font-size: 1.8rem;
+        font-weight: 700;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        margin-bottom: 1rem;
+        padding-bottom: 0.5rem;
+        border-bottom: 3px solid #000;
+        display: inline-block;
+      }
+
+      .section-content {
+        margin-top: 1.5rem;
+      }
+
+      .card {
+        background-color: #ffffff;
+        padding: 1.5rem;
+        border-left: 4px solid #000;
+        margin-bottom: 1.5rem;
+      }
+
+      .card h3 {
+        font-family: "Bebas Neue", sans-serif;
+        font-size: 1.1rem;
+        font-weight: 700;
+        letter-spacing: 0.05em;
+        text-transform: uppercase;
+        margin-bottom: 0.8rem;
+        color: #000;
+      }
+
+      .card p {
+        font-size: 0.9rem;
+        line-height: 1.7;
+        color: #333;
+        margin-bottom: 0.8rem;
+      }
+
+      .card p:last-child {
+        margin-bottom: 0;
+      }
+
+      .card-image {
+        width: var(--card-image-size);
+        height: var(--card-image-size);
+        display: block;
+        margin-bottom: 1.5rem;
+        border-radius: 8px;
+        object-fit: contain;
+        background-color: transparent;
+      }
+
+      .card-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 1.5rem;
+        margin-top: 1.5rem;
+      }
+
+      .cta-section {
+        text-align: center;
+        padding: 2rem;
+        background-color: #ffffff;
+        margin-top: 2rem;
+      }
+
+      .cta-section p {
+        font-size: 0.9rem;
+        color: #666;
+        margin-bottom: 1.5rem;
+      }
+
+      .cta-button {
+        display: inline-block;
+        background-color: #000;
+        color: #fff;
+        padding: 1rem 2rem;
+        font-family: "Inter", sans-serif;
+        font-size: 0.9rem;
+        font-weight: 600;
+        letter-spacing: 0.05em;
+        text-transform: uppercase;
+        text-decoration: none;
+        transition: all 0.3s ease;
+      }
+
+      .cta-button:hover {
+        background-color: #333;
+      }
+
+      footer {
+        background-color: #000000;
+        text-align: center;
+        padding: 2rem;
+        border-top: 1px solid #333;
+        font-size: 0.75rem;
+        color: #999;
+        letter-spacing: 0.05em;
+        text-transform: uppercase;
+      }
+
+      @media (max-width: 768px) {
+        .hero h1 {
+          font-size: 2.5rem;
+        }
+
+        .hero h2 {
+          font-size: 1.5rem;
+        }
+
+        header {
+          flex-direction: column;
+          gap: 1rem;
+        }
+
+        .nav {
+          gap: 1rem;
+          font-size: 0.65rem;
+        }
+
+        .content-area {
+          padding: 2rem 1rem;
+        }
+
+        section h2 {
+          font-size: 1.3rem;
+        }
+
+        .card-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .card-image {
+          width: calc(var(--card-image-size) * 0.9);
+          height: calc(var(--card-image-size) * 0.9);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="logo">SIBYLHAUS</div>
+      <nav class="nav" aria-label="Main navigation">
+        <a href="/">HOME</a>
+        <a href="#">CART (0)</a>
+      </nav>
+    </header>
+
+    <div class="hero">
+      <h1>READING</h1>
+      <h2>JOY</h2>
+      
+      <div class="audio-player-container">
+        <div class="audio-label">LISTEN TO YOUR READING</div>
+        <p style="font-size: 0.85rem; color: #d0d0d0; margin-bottom: 1.5rem">
+          Full audio reading with all the details.
+        </p>
+        <audio controls preload="metadata">
+          <source src="Joy2126.mp3" type="audio/mpeg" />
+          Your browser does not support the audio element.
+        </audio>
+      </div>
+    </div>
+
+    <main class="content-area">
+      <div class="container">
+        
+        <section>
+          <h2>DANTE'S SITUATION</h2>
+          <div class="section-content">
+            <div class="card">
+              <h3>He's Hiding Money</h3>
+              <p>
+                Dante might be hiding something valuable, likely money. If he's saying he's broke, he's not. For whatever reason, he's not telling you about the funds he has or came into recently.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <section>
+          <h2>IS THIS THE END?</h2>
+          <div class="section-content">
+            <div class="card">
+              <h3>Off Again For Now</h3>
+              <p>
+                It's not the end forever, but it's the end for now. Somebody's doing something shady or sneaky. The Seven of Swords came out, which is about lying or being deceptive. You're off again right now.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <section>
+          <h2>WHO'S COMING TOWARDS YOU</h2>
+          <div class="section-content">
+            <div class="card">
+              <h3>It's Probably Still Dante</h3>
+              <p>
+                The person coming towards you could be a Leo or another Aries. They're a hard worker or working towards you. They show up as new energy at first, but then the cards kept repeating the same patterns from Dante's section.
+              </p>
+              <p>
+                They might be in your circle of friends, somebody you already know about. You may have already picked up on this energy from them. If that's the case, they don't care about the Dante situation and aren't loyal to him in that way.
+              </p>
+            </div>
+
+            <div class="card">
+              <h3>How You Feel</h3>
+              <p>
+                You might not want to give them the time of day right now. For some reason, you're wanting them to work for it.
+              </p>
+            </div>
+
+            <div class="card">
+              <h3>What They're Hiding</h3>
+              <p>
+                Recent heartbreak. They're all up in their head about something, worried. This really seems like Dante coming through with different energy.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <section>
+          <h2>HOW TO HANDLE IT</h2>
+          <div class="section-content">
+            <div class="card">
+              <h3>Use Discernment</h3>
+              <p>
+                If you guys are on again, off again, you know how he is. You know his tricks. When he's talking to you, you know what's sincere and genuine and what's not. Trust yourself with that.
+              </p>
+              <p>
+                He seems clever or smooth. He's coming through like someone who says the right things.
+              </p>
+            </div>
+
+            <div class="card">
+              <h3>He Puts You On A Pedestal</h3>
+              <p>
+                Dante thinks highly of you. He sees you as the most important person, even though he's not being the best. He still thinks you're something special. He's determined to keep it going as it is, at all costs energy, even with the on again, off again pattern.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <section>
+          <h2>IS IT WORTH IT?</h2>
+          <div class="section-content">
+            <div class="card">
+              <h3>Yes</h3>
+              <p>
+                The Magician and Strength came out. Yes, this is worth your time in the end. The negatives don't outweigh the positives.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <section>
+          <h2>SIGNIFICANT CARDS</h2>
+          <div class="section-content">
+            <div class="card-grid">
+              <div class="card">
+                <img
+                  src="7.png"
+                  alt="Seven of Swords"
+                  class="card-image"
+                />
+                <h3>Seven of Swords</h3>
+                <p>Deception, sneaking around, someone being shady. This came up multiple times about the current off-again energy.</p>
+              </div>
+
+              <div class="card">
+                <img
+                  src="Empress.png"
+                  alt="The Empress"
+                  class="card-image"
+                />
+                <h3>The Empress</h3>
+                <p>You being put on a pedestal. Dante sees you as the most important, the one worth fighting for.</p>
+              </div>
+
+              <div class="card">
+                <img
+                  src="MagicianStrength.png"
+                  alt="Strength"
+                  class="card-image"
+                />
+                <h3>Strength</h3>
+                <p>Inner power and resilience. Part of the answer to whether this is worth it in the end.</p>
+              </div>
+
+              <div class="card">
+                <img
+                  src="MagicianStrength.png"
+                  alt="The Magician"
+                  class="card-image"
+                />
+                <h3>The Magician</h3>
+                <p>Manifestation and skill. This came out as confirmation that the relationship is worth your time.</p>
+              </div>
+
+              <div class="card">
+                <img
+                  src="3swords.png"
+                  alt="Three of Swords"
+                  class="card-image"
+                />
+                <h3>Three of Swords</h3>
+                <p>Heartbreak and emotional pain. What he's hiding, what he's carrying.</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <div class="cta-section">
+          <p>Need more guidance on your situation?</p>
+          <a
+            href="https://www.etsy.com/shop/Sibylhaus"
+            class="cta-button"
+            target="_blank"
+            rel="noopener noreferrer"
+            >Book Another Reading</a
+          >
+        </div>
+      </div>
+    </main>
+
+    <footer>
+      <p>&copy; 2026 Sibylhaus. Private reading for Joy. | Recorded February 1, 2026.</p>
+    </footer>
+  </body>
+</html>
