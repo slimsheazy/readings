@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sibylhaus | Reading for Joy</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --card-image-size: 300px;
+      }
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Inter", sans-serif;
+        background-color: #000000;
+        color: #ffffff;
+        line-height: 1.6;
+      }
+
+      header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1.5rem 2rem;
+        background-color: #000000;
+        border-bottom: 1px solid #333;
+      }
+
+      .logo {
+        font-family: "Bebas Neue", sans-serif;
+        font-size: 1.5rem;
+        font-weight: 700;
+        letter-spacing: 0.1em;
+        color: #ffffff;
+      }
+
+      .nav {
+        display: flex;
+        gap: 2rem;
+        font-size: 0.75rem;
+        letter-spacing: 0.05em;
+        font-weight: 600;
+      }
+
+      .nav a {
+        color: #d0d0d0;
+        text-decoration: none;
+        transition: color 0.3s;
+      }
+
+      .nav a:hover {
+        color: #ffffff;
+      }
+
+      .hero {
+        background-color: #000000;
+        padding: 4rem 2rem;
+        text-align: center;
+        min-height: 50vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .hero h1 {
+        font-family: "Bebas Neue", sans-serif;
+        font-size: 4rem;
+        font-weight: 700;
+        letter-spacing: 0.08em;
+        margin-bottom: 1rem;
+        line-height: 1.1;
+        text-transform: uppercase;
+      }
+
+      .hero h2 {
+        font-family: "Bebas Neue", sans-serif;
+        font-size: 2.5rem;
+        font-weight: 700;
+        letter-spacing: 0.08em;
+        margin-bottom: 1rem;
+        text-transform: uppercase;
+      }
+
+      .audio-player-container {
+        background-color: #000000;
+        padding: 2rem;
+        text-align: center;
+        margin-bottom: 2rem;
+      }
+
+      .audio-label {
+        font-size: 0.75rem;
+        letter-spacing: 0.08em;
+        font-weight: 700;
+        text-transform: uppercase;
+        margin-bottom: 1.5rem;
+        color: #d0d0d0;
+      }
+
+      audio {
+        width: 100%;
+        max-width: 400px;
+        height: 40px;
+      }
+
+      .content-area {
+        background-color: #f8f8f8;
+        color: #1a1a1a;
+        padding: 3rem 2rem;
+      }
+
+      .container {
+        max-width: 1000px;
+        margin: 0 auto;
+      }
+
+      section {
+        margin-bottom: 3rem;
+      }
+
+      section h2 {
+        font-family: "Bebas Neue", sans-serif;
+        font-size: 1.8rem;
+        font-weight: 700;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        margin-bottom: 1rem;
+        padding-bottom: 0.5rem;
+        border-bottom: 3px solid #000;
+        display: inline-block;
+      }
+
+      .section-content {
+        margin-top: 1.5rem;
+      }
+
+      .card {
+        background-color: #ffffff;
+        padding: 1.5rem;
+        border-left: 4px solid #000;
+        margin-bottom: 1.5rem;
+      }
+
+      .card h3 {
+        font-family: "Bebas Neue", sans-serif;
+        font-size: 1.1rem;
+        font-weight: 700;
+        letter-spacing: 0.05em;
+        text-transform: uppercase;
+        margin-bottom: 0.8rem;
+        color: #000;
+      }
+
+      .card p {
+        font-size: 0.9rem;
+        line-height: 1.7;
+        color: #333;
+        margin-bottom: 0.8rem;
+      }
+
+      .card p:last-child {
+        margin-bottom: 0;
+      }
+
+      .card-image {
+        width: var(--card-image-size);
+        height: var(--card-image-size);
+        display: block;
+        margin-bottom: 1.5rem;
+        border-radius: 8px;
+        object-fit: contain;
+        background-color: transparent;
+      }
+
+      .card-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 1.5rem;
+        margin-top: 1.5rem;
+      }
+
+      .cta-section {
+        text-align: center;
+        padding: 2rem;
+        background-color: #ffffff;
+        margin-top: 2rem;
+      }
+
+      .cta-section p {
+        font-size: 0.9rem;
+        color: #666;
+        margin-bottom: 1.5rem;
+      }
+
+      .cta-button {
+        display: inline-block;
+        background-color: #000;
+        color: #fff;
+        padding: 1rem 2rem;
+        font-family: "Inter", sans-serif;
+        font-size: 0.9rem;
+        font-weight: 600;
+        letter-spacing: 0.05em;
+        text-transform: uppercase;
+        text-decoration: none;
+        transition: all 0.3s ease;
+      }
+
+      .cta-button:hover {
+        background-color: #333;
+      }
+
+      footer {
+        background-color: #000000;
+        text-align: center;
+        padding: 2rem;
+        border-top: 1px solid #333;
+        font-size: 0.75rem;
+        color: #999;
+        letter-spacing: 0.05em;
+        text-transform: uppercase;
+      }
+
+      @media (max-width: 768px) {
+        .hero h1 {
+          font-size: 2.5rem;
+        }
+
+        .hero h2 {
+          font-size: 1.5rem;
+        }
+
+        header {
+          flex-direction: column;
+          gap: 1rem;
+        }
+
+        .nav {
+          gap: 1rem;
+          font-size: 0.65rem;
+        }
+
+        .content-area {
+          padding: 2rem 1rem;
+        }
+
+        section h2 {
+          font-size: 1.3rem;
+        }
+
+        .card-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .card-image {
+          width: calc(var(--card-image-size) * 0.9);
+          height: calc(var(--card-image-size) * 0.9);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="logo">SIBYLHAUS</div>
+      <nav class="nav" aria-label="Main navigation">
+        <a href="/">HOME</a>
+        <a href="#">CART (0)</a>
+      </nav>
+    </header>
+
+    <div class="hero">
+      <h1>READING</h1>
+      <h2>JOY</h2>
+      
+      <div class="audio-player-container">
+        <div class="audio-label">LISTEN TO YOUR READING</div>
+        <p style="font-size: 0.85rem; color: #d0d0d0; margin-bottom: 1.5rem">
+          Full audio reading with all the details.
+        </p>
+        <audio controls preload="metadata">
+          <source src="/audio/Joy.2.6.26.mp3" type="audio/mpeg" />
+          Your browser does not support the audio element.
+        </audio>
+      </div>
+    </div>
+
+    <main class="content-area">
+      <div class="container">
+        
+        <section>
+          <h2>WHEN WILL DANTE RETURN</h2>
+          <div class="section-content">
+            <div class="card">
+              <h3>Happening Now</h3>
+              <p>
+                When all the cards fell on the floor, the one that was face up was Happening Now. He might already be scheming on it. This is active energy.
+              </p>
+            </div>
+
+            <div class="card">
+              <h3>A Few Days</h3>
+              <p>
+                The next card says a few days. Expect Dante at any time. Between now and the next few days, he's going to make his move.
+              </p>
+            </div>
+
+            <div class="card">
+              <h3>Sooner Than Expected</h3>
+              <p>
+                This card was underneath the others and came out as well. This confirms the timing is soon, possibly even sooner than you're anticipating.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <section>
+          <h2>WHY HE'S COMING BACK</h2>
+          <div class="section-content">
+            <div class="card">
+              <h3>He's Impatient</h3>
+              <p>
+                Dante seems like an impatient guy. Multiple cards came out indicating his impatience. He can't sit still with this situation.
+              </p>
+            </div>
+
+            <div class="card">
+              <h3>He Loves You</h3>
+              <p>
+                The card came out clearly: he loves you. That's the bottom line reason he's coming back.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <section>
+          <h2>YOU'RE HIS MAIN FOCUS</h2>
+          <div class="section-content">
+            <div class="card">
+              <h3>He's Sad and Missing You</h3>
+              <p>
+                He's deeply sad and struggling with being apart from you, though he doesn't openly express it. The disappointment card came out, which in this context means he misses you intensely. He loves you and can't handle not being with you. He's completely sprung, and missing you is what's going to change how he's been acting.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <section>
+          <h2>SIGNIFICANT CARDS</h2>
+          <div class="section-content">
+            <div class="card-grid">
+              <div class="card">
+                <img
+                  src="/images/JoyTiming.jpg"
+                  alt="Three oracle cards showing timing and messages"
+                  class="card-image"
+                />
+                <h3>The Three Cards</h3>
+                <p>Happening Now (center), A Few Days (right), and Sooner Than Expected (left, which was hidden underneath). All three point to imminent timing.</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <div class="cta-section">
+          <p>Need more guidance on your situation?</p>
+          <a
+            href="https://www.etsy.com/shop/Sibylhaus"
+            class="cta-button"
+            target="_blank"
+            rel="noopener noreferrer"
+            >Book Another Reading</a
+          >
+        </div>
+      </div>
+    </main>
+
+    <footer>
+      <p>&copy; 2026 Sibylhaus. Private reading for Joy. | Recorded February 6, 2026.</p>
+    </footer>
+  </body>
+</html>
