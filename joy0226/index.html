@@ -1,432 +1,432 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Sibylhaus | Private Reading for Joy</title>
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet" />
-    <style>
-        :root {
-            --card-image-size: 300px;
-        }
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Sibylhaus | Private Reading for Joy</title>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet" />
+<style>
+:root {
+--card-image-size: 300px;
+}
+* {
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+}
 
-        body {
-            font-family: "Inter", sans-serif;
-            background-color: #000000;
-            color: #ffffff;
-            line-height: 1.6;
-        }
+body {
+font-family: "Inter", sans-serif;
+background-color: #000000;
+color: #ffffff;
+line-height: 1.6;
+}
 
-        header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 1.5rem 2rem;
-            background-color: #000000;
-            border-bottom: 1px solid #333;
-        }
+header {
+display: flex;
+justify-content: space-between;
+align-items: center;
+padding: 1.5rem 2rem;
+background-color: #000000;
+border-bottom: 1px solid #333;
+}
 
-        .logo {
-            font-family: "Bebas Neue", sans-serif;
-            font-size: 1.5rem;
-            font-weight: 700;
-            letter-spacing: 0.1em;
-            color: #ffffff;
-            text-decoration: none;
-        }
+.logo {
+font-family: "Bebas Neue", sans-serif;
+font-size: 1.5rem;
+font-weight: 700;
+letter-spacing: 0.1em;
+color: #ffffff;
+text-decoration: none;
+}
 
-        .nav {
-            display: flex;
-            gap: 2rem;
-            font-size: 0.75rem;
-            letter-spacing: 0.05em;
-            font-weight: 600;
-        }
+.nav {
+display: flex;
+gap: 2rem;
+font-size: 0.75rem;
+letter-spacing: 0.05em;
+font-weight: 600;
+}
 
-        .nav a {
-            color: #d0d0d0;
-            text-decoration: none;
-            transition: color 0.3s;
-        }
+.nav a {
+color: #d0d0d0;
+text-decoration: none;
+transition: color 0.3s;
+}
 
-        .nav a:hover {
-            color: #ffffff;
-        }
+.nav a:hover {
+color: #ffffff;
+}
 
-        .hero {
-            background-color: #000000;
-            padding: 4rem 2rem;
-            text-align: center;
-            min-height: 50vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-        }
+.hero {
+background-color: #000000;
+padding: 4rem 2rem;
+text-align: center;
+min-height: 50vh;
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+}
 
-        .hero h1 {
-            font-family: "Bebas Neue", sans-serif;
-            font-size: 4rem;
-            font-weight: 700;
-            letter-spacing: 0.08em;
-            margin-bottom: 1rem;
-            line-height: 1.1;
-            text-transform: uppercase;
-        }
+.hero h1 {
+font-family: "Bebas Neue", sans-serif;
+font-size: 4rem;
+font-weight: 700;
+letter-spacing: 0.08em;
+margin-bottom: 1rem;
+line-height: 1.1;
+text-transform: uppercase;
+}
 
-        .hero h2 {
-            font-family: "Bebas Neue", sans-serif;
-            font-size: 2.5rem;
-            font-weight: 700;
-            letter-spacing: 0.08em;
-            margin-bottom: 1rem;
-            text-transform: uppercase;
-            color: #666;
-        }
+.hero h2 {
+font-family: "Bebas Neue", sans-serif;
+font-size: 2.5rem;
+font-weight: 700;
+letter-spacing: 0.08em;
+margin-bottom: 1rem;
+text-transform: uppercase;
+color: #666;
+}
 
-        .video-container {
-            max-width: 450px;
-            width: 100%;
-            margin: 2rem auto;
-            background: #111;
-            padding: 1rem;
-            border: 1px solid #333;
-        }
+.video-container {
+max-width: 450px;
+width: 100%;
+margin: 2rem auto;
+background: #111;
+padding: 1rem;
+border: 1px solid #333;
+}
 
-        .video-wrapper {
-            position: relative;
-            padding-bottom: 177.78%;
-            height: 0;
-        }
+.video-wrapper {
+position: relative;
+padding-bottom: 177.78%;
+height: 0;
+}
 
-        .video-wrapper iframe {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            border: none;
-        }
+.video-wrapper iframe {
+position: absolute;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+border: none;
+}
 
-        .content-area {
-            background-color: #f8f8f8;
-            color: #1a1a1a;
-            padding: 3rem 2rem;
-        }
+.content-area {
+background-color: #f8f8f8;
+color: #1a1a1a;
+padding: 3rem 2rem;
+}
 
-        .container {
-            max-width: 1000px;
-            margin: 0 auto;
-        }
+.container {
+max-width: 1000px;
+margin: 0 auto;
+}
 
-        section {
-            margin-bottom: 3.5rem;
-        }
+section {
+margin-bottom: 3.5rem;
+}
 
-        section h2 {
-            font-family: "Bebas Neue", sans-serif;
-            font-size: 1.8rem;
-            font-weight: 700;
-            letter-spacing: 0.08em;
-            text-transform: uppercase;
-            margin-bottom: 1rem;
-            padding-bottom: 0.5rem;
-            border-bottom: 3px solid #000;
-            display: inline-block;
-        }
+section h2 {
+font-family: "Bebas Neue", sans-serif;
+font-size: 1.8rem;
+font-weight: 700;
+letter-spacing: 0.08em;
+text-transform: uppercase;
+margin-bottom: 1rem;
+padding-bottom: 0.5rem;
+border-bottom: 3px solid #000;
+display: inline-block;
+}
 
-        .card {
-            background-color: #ffffff;
-            padding: 1.5rem;
-            border-left: 4px solid #000;
-            margin-bottom: 1.5rem;
-        }
+.card {
+background-color: #ffffff;
+padding: 1.5rem;
+border-left: 4px solid #000;
+margin-bottom: 1.5rem;
+}
 
-        .card h3 {
-            font-family: "Bebas Neue", sans-serif;
-            font-size: 1.1rem;
-            font-weight: 700;
-            letter-spacing: 0.05em;
-            text-transform: uppercase;
-            margin-bottom: 0.8rem;
-            color: #000;
-        }
+.card h3 {
+font-family: "Bebas Neue", sans-serif;
+font-size: 1.1rem;
+font-weight: 700;
+letter-spacing: 0.05em;
+text-transform: uppercase;
+margin-bottom: 0.8rem;
+color: #000;
+}
 
-        .card p {
-            font-size: 0.9rem;
-            line-height: 1.7;
-            color: #333;
-        }
+.card p {
+font-size: 0.9rem;
+line-height: 1.7;
+color: #333;
+}
 
-        /* Styling for the Dice Photo */
-        .dice-image-container {
-            text-align: center;
-            margin-bottom: 2rem;
-            width: 100%;
-        }
+/* Styling for the Dice Photo */
+.dice-image-container {
+text-align: center;
+margin-bottom: 2rem;
+width: 100%;
+}
 
-        .dice-image {
-            width: 300px;
-            height: auto;
-            border: 1px solid #ddd;
-            padding: 8px;
-            background: #fff;
-            border-radius: 4px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-        }
+.dice-image {
+width: 300px;
+height: auto;
+border: 1px solid #ddd;
+padding: 8px;
+background: #fff;
+border-radius: 4px;
+box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
 
-        .card-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 1.5rem;
-            margin-top: 1.5rem;
-        }
+.card-grid {
+display: grid;
+grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+gap: 1.5rem;
+margin-top: 1.5rem;
+}
 
-        /* Email Signup Section */
-        .email-capture {
-            background-color: #000;
-            color: #fff;
-            padding: 4rem 2rem;
-            text-align: center;
-            margin-top: 2rem;
-        }
+/* Email Signup Section */
+.email-capture {
+background-color: #000;
+color: #fff;
+padding: 4rem 2rem;
+text-align: center;
+margin-top: 2rem;
+}
 
-        .email-capture h2 {
-            font-family: "Bebas Neue", sans-serif;
-            font-size: 2.5rem;
-            margin-bottom: 0.5rem;
-            letter-spacing: 0.05em;
-        }
+.email-capture h2 {
+font-family: "Bebas Neue", sans-serif;
+font-size: 2.5rem;
+margin-bottom: 0.5rem;
+letter-spacing: 0.05em;
+}
 
-        .email-capture > .container > p {
-            font-size: 1rem;
-            color: #d0d0d0;
-            margin-bottom: 2rem;
-            font-weight: 300;
-        }
+.email-capture > .container > p {
+font-size: 1rem;
+color: #d0d0d0;
+margin-bottom: 2rem;
+font-weight: 300;
+}
 
-        .email-signup {
-            max-width: 400px;
-            font-family: "Inter", sans-serif;
-            text-align: center;
-            padding: 20px;
-            margin: 0 auto;
-        }
+.email-signup {
+max-width: 400px;
+font-family: "Inter", sans-serif;
+text-align: center;
+padding: 20px;
+margin: 0 auto;
+}
 
-        .email-signup input {
-            width: 100%;
-            padding: 12px;
-            margin-bottom: 10px;
-            border: 1px solid #555;
-            border-radius: 4px;
-            box-sizing: border-box;
-            background-color: #1a1a1a;
-            color: #fff;
-            font-family: "Inter", sans-serif;
-            font-size: 0.9rem;
-        }
+.email-signup input {
+width: 100%;
+padding: 12px;
+margin-bottom: 10px;
+border: 1px solid #555;
+border-radius: 4px;
+box-sizing: border-box;
+background-color: #1a1a1a;
+color: #fff;
+font-family: "Inter", sans-serif;
+font-size: 0.9rem;
+}
 
-        .email-signup input::placeholder {
-            color: #999;
-        }
+.email-signup input::placeholder {
+color: #999;
+}
 
-        .email-signup button {
-            width: 100%;
-            padding: 12px;
-            background-color: #fff;
-            color: #000;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-            font-weight: bold;
-            font-family: "Inter", sans-serif;
-            font-size: 0.9rem;
-            letter-spacing: 0.08em;
-            text-transform: uppercase;
-            transition: opacity 0.3s;
-        }
+.email-signup button {
+width: 100%;
+padding: 12px;
+background-color: #fff;
+color: #000;
+border: none;
+border-radius: 4px;
+cursor: pointer;
+font-weight: bold;
+font-family: "Inter", sans-serif;
+font-size: 0.9rem;
+letter-spacing: 0.08em;
+text-transform: uppercase;
+transition: opacity 0.3s;
+}
 
-        .email-signup button:hover {
-            opacity: 0.8;
-        }
+.email-signup button:hover {
+opacity: 0.8;
+}
 
-        .cta-section {
-            text-align: center;
-            padding: 3rem 2rem;
-            background-color: #ffffff;
-            color: #000;
-        }
+.cta-section {
+text-align: center;
+padding: 3rem 2rem;
+background-color: #ffffff;
+color: #000;
+}
 
-        .cta-button {
-            display: inline-block;
-            background-color: #000;
-            color: #fff;
-            padding: 1rem 2rem;
-            font-family: "Inter", sans-serif;
-            font-size: 0.9rem;
-            font-weight: 600;
-            letter-spacing: 0.05em;
-            text-transform: uppercase;
-            text-decoration: none;
-            transition: all 0.3s ease;
-            cursor: pointer;
-            border: none;
-        }
+.cta-button {
+display: inline-block;
+background-color: #000;
+color: #fff;
+padding: 1rem 2rem;
+font-family: "Inter", sans-serif;
+font-size: 0.9rem;
+font-weight: 600;
+letter-spacing: 0.05em;
+text-transform: uppercase;
+text-decoration: none;
+transition: all 0.3s ease;
+cursor: pointer;
+border: none;
+}
 
-        .cta-button:hover {
-            background-color: #333;
-        }
+.cta-button:hover {
+background-color: #333;
+}
 
-        footer {
-            background-color: #000000;
-            text-align: center;
-            padding: 2.5rem;
-            border-top: 1px solid #333;
-            font-size: 0.75rem;
-            color: #999;
-            letter-spacing: 0.05em;
-            text-transform: uppercase;
-        }
+footer {
+background-color: #000000;
+text-align: center;
+padding: 2.5rem;
+border-top: 1px solid #333;
+font-size: 0.75rem;
+color: #999;
+letter-spacing: 0.05em;
+text-transform: uppercase;
+}
 
-        @media (max-width: 768px) {
-            .hero h1 { font-size: 2.5rem; }
-            header { flex-direction: column; gap: 1rem; }
-            .card-grid { grid-template-columns: 1fr; }
-            iframe { width: 100% !important; }
-        }
-    </style>
+@media (max-width: 768px) {
+.hero h1 { font-size: 2.5rem; }
+header { flex-direction: column; gap: 1rem; }
+.card-grid { grid-template-columns: 1fr; }
+iframe { width: 100% !important; }
+}
+</style>
 </head>
 <body>
-    <header>
-        <a href="/" class="logo">SIBYLHAUS</a>
-        <nav class="nav">
-            <a href="/">HOME</a>
-            <a href="https://www.etsy.com/shop/Sibylhaus">SHOP</a>
-        </nav>
-    </header>
+<header>
+<a href="/" class="logo">SIBYLHAUS</a>
+<nav class="nav">
+<a href="/">HOME</a>
+<a href="https://sibylhaus.etsy.com">SHOP</a>
+</nav>
+</header>
 
-    <div class="hero">
-        <h1>PRIVATE READING</h1>
-        <h2>JOY</h2>
-        
-        <div class="video-container">
-            <div class="video-wrapper">
-                <iframe src="https://drive.google.com/file/d/1E4plIJIhSWxu_q-PnjWSEFYcAErN7Hg1/preview" allow="autoplay" allowfullscreen></iframe>
-            </div>
-        </div>
-    </div>
+<div class="hero">
+<h1>PRIVATE READING</h1>
+<h2>JOY</h2>
 
-    <main class="content-area">
-        <div class="container">
-            
-            <section>
-                <h2>KEY INSIGHTS</h2>
-                <div class="card-grid">
-                    <div class="card">
-                        <h3>Encouragement & Growth</h3>
-                        <p>Joe sees you as a vital space for growth. The 'Tree' and 'Stars' cards reveal he views this connection as a wish come true and is eager to see where it leads.</p>
-                    </div>
-                    <div class="card">
-                        <h3>Cycles & Commitment</h3>
-                        <p>A new romantic cycle is beginning. While the energy is positive, your commitment is being tested—this is a call to put in active effort and dedication.</p>
-                    </div>
-                    <div class="card">
-                        <h3>Action & Chemistry</h3>
-                        <p>The Lenorman cards point to an incoming visitor breaking isolation. Expect intense chemistry, but know that building this into reality will require a practical plan.</p>
-                    </div>
-                    <div class="card">
-                        <h3>Pendulum Confirmation</h3>
-                        <p>The pendulum gave a clear 'Yes'—Joe is worth your investment. Spirit encourages you to lean in, while always trusting your own intuitive boundaries.</p>
-                    </div>
-                </div>
-            </section>
+<div class="video-container">
+<div class="video-wrapper">
+<iframe src="https://drive.google.com/file/d/1E4plIJIhSWxu_q-PnjWSEFYcAErN7Hg1/preview" allow="autoplay" allowfullscreen></iframe>
+</div>
+</div>
+</div>
 
-            <!-- Word Dice Image -->
-            <div class="dice-image-container">
-                <img src="./images/word_dice.jpg" alt="Clover and Letter Cards" class="dice-image">
-            </div>
+<main class="content-area">
+<div class="container">
 
-            <section>
-                <h2>WORD DICE ORACLE</h2>
-                <div class="card-grid">
-                    <div class="card">
-                        <h3>Declarative</h3>
-                        <p>They felt big. They ran. They walk. They want us.</p>
-                    </div>
-                    <div class="card">
-                        <h3>Identity</h3>
-                        <p>Some girl ran. Some girl felt big. Its leg felt hot. What felt big?</p>
-                    </div>
-                    <div class="card">
-                        <h3>Action</h3>
-                        <p>Some part felt hot. They felt some part. The black girl ran. They ran to us.</p>
-                    </div>
-                    <div class="card">
-                        <h3>Complexity</h3>
-                        <p>It is as old as... They felt as big as us. What can they want? When they walk, they ran. Some girl felt as old as us.</p>
-                    </div>
-                </div>
-            </section>
+<section>
+<h2>KEY INSIGHTS</h2>
+<div class="card-grid">
+<div class="card">
+<h3>Encouragement & Growth</h3>
+<p>Joe sees you as a vital space for growth. The 'Tree' and 'Stars' cards reveal he views this connection as a wish come true and is eager to see where it leads.</p>
+</div>
+<div class="card">
+<h3>Cycles & Commitment</h3>
+<p>A new romantic cycle is beginning. While the energy is positive, your commitment is being tested—this is a call to decide whether you are interested in trying to make it work when you aren't used to his type or if you don't see the same spark as you are used to and prefer to disconnect.</p>
+</div>
+<div class="card">
+<h3>Action & Chemistry</h3>
+<p>The Lenormand cards point to a speedy, short-lived relationship that could be based on sexual undertones solely. This could also signify one of you disconnecting from the relationship due to a lack of emotional depth.</p>
+</div>
+<div class="card">
+<h3>Pendulum Confirmation</h3>
+<p>The pendulum gave a clear 'Yes'—Joe is worth your investment; IF this feels right to you. Basically, he is willing but don't settle.</p>
+</div>
+</div>
+</section>
 
-        </div>
-    </main>
+<!-- Word Dice Image -->
+<div class="dice-image-container">
+<img src="./images/word_dice.jpg" alt="Clover and Letter Cards" class="dice-image">
+</div>
 
-    <div class="email-capture">
-        <div class="container">
-            <h2>JOIN MY EMAIL LIST</h2>
-            <p>Let's stay connected. I see free perks, plus discounts, in your future.</p>
-            <div class="email-signup">
-                <form action="https://formsubmit.co/e67dc1f204a664daa64ce95b18fa98eb" method="POST">
-                    <input type="hidden" name="_next" value="https://slimsheazy.github.io/readings/thanks.html">
-                    <input type="hidden" name="_subject" value="New Subscriber: Sibyl Haus">
-                    <input type="hidden" name="_captcha" value="false">
-                    <input type="email" name="email" placeholder="Your Email Address" required>
-                    <button type="submit">JOIN</button>
-                </form>
-            </div>
-        </div>
-    </div>
+<section>
+<h2>WORD DICE ORACLE</h2>
+<div class="card-grid">
+<div class="card">
+<h3>Declarative</h3>
+<p>They felt big. They ran. They walk. They want us.</p>
+</div>
+<div class="card">
+<h3>Identity</h3>
+<p>Some girl ran. Some girl felt big. Its leg felt hot. What felt big?</p>
+</div>
+<div class="card">
+<h3>Action</h3>
+<p>Some part felt hot. They felt some part. The black girl ran. They ran to us.</p>
+</div>
+<div class="card">
+<h3>Complexity</h3>
+<p>It is as old as... They felt as big as us. What can they want? When they walk, they ran. Some girl felt as old as us.</p>
+</div>
+</div>
+</section>
 
-    <div class="cta-section">
-        <div class="container">
-            <h2>NEXT STEPS</h2>
-            <div style="display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap; margin-top: 1.5rem;">
-                <a href="https://sibylhaus.etsy.com" class="cta-button" target="_blank">Book Another Reading</a>
-                <button class="cta-button" id="shareBtn">Share This Page</button>
-            </div>
-        </div>
-    </div>
+</div>
+</main>
 
-    <footer>
-        <p>&copy; 2026 SIBYLHAUS. PRIVATE READING FOR JOY.</p>
-    </footer>
+<div class="email-capture">
+<div class="container">
+<h2>JOIN MY EMAIL LIST</h2>
+<p>Let's stay connected. I see free perks, plus discounts, in your future.</p>
+<div class="email-signup">
+<form action="https://formsubmit.co/e67dc1f204a664daa64ce95b18fa98eb" method="POST">
+<input type="hidden" name="_next" value="https://slimsheazy.github.io/readings/thanks.html">
+<input type="hidden" name="_subject" value="New Subscriber: Sibyl Haus">
+<input type="hidden" name="_captcha" value="false">
+<input type="email" name="email" placeholder="Your Email Address" required>
+<button type="submit">JOIN</button>
+</form>
+</div>
+</div>
+</div>
 
-    <script>
-        document.getElementById('shareBtn').addEventListener('click', async () => {
-            if (navigator.share) {
-                try {
-                    await navigator.share({
-                        title: 'Sibylhaus Reading',
-                        text: 'Check out my private reading from Sibylhaus!',
-                        url: window.location.href,
-                    });
-                } catch (err) { console.log('Error sharing:', err); }
-            } else {
-                const el = document.createElement('textarea');
-                el.value = window.location.href;
-                document.body.appendChild(el);
-                el.select();
-                document.execCommand('copy');
-                document.body.removeChild(el);
-                alert('Link copied to clipboard!');
-            }
-        });
-    </script>
+<div class="cta-section">
+<div class="container">
+<h2>NEXT STEPS</h2>
+<div style="display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap; margin-top: 1.5rem;">
+<a href="https://sibylhaus.etsy.com" class="cta-button" target="_blank">Book Another Reading</a>
+<button class="cta-button" id="shareBtn">Share This Page</button>
+</div>
+</div>
+</div>
+
+<footer>
+<p>&copy; 2026 SIBYLHAUS. PRIVATE READING FOR JOY.</p>
+</footer>
+
+<script>
+document.getElementById('shareBtn').addEventListener('click', async () => {
+if (navigator.share) {
+try {
+await navigator.share({
+title: 'Sibylhaus Reading',
+text: 'Check out my private reading from Sibylhaus!',
+url: window.location.href,
+});
+} catch (err) { console.log('Error sharing:', err); }
+} else {
+const el = document.createElement('textarea');
+el.value = window.location.href;
+document.body.appendChild(el);
+el.select();
+document.execCommand('copy');
+document.body.removeChild(el);
+alert('Link copied to clipboard!');
+}
+});
+</script>
 </body>
 </html>
