@@ -257,6 +257,11 @@
     <div class="content-area">
       <div class="container">
         <section>
+          <h3>KEY INSIGHTS</h3>
+          <p style="margin-bottom: 2rem;">The energy of this reading centered on a significant shift from feeling weighed down to finding your stride. We looked at how past "heavy" situations are now giving way to rapid movement. The core message is one of empowerment: you are moving from a place of observation into active participation. Trust the speed at which things are unfolding—you have the strength to keep pace.</p>
+        </section>
+
+        <section>
           <h3>WORD DICE ORACLE</h3>
           <p style="margin-bottom: 2rem; font-style: italic;">The messages revealed through the throwing of the word dice at the conclusion of your reading.</p>
           
@@ -320,7 +325,7 @@
           <input type="email" name="email" placeholder="YOUR EMAIL ADDRESS" required />
           <button type="submit" class="cta-button">GET THE GUIDE</button>
         </form>
-        <p style="font-size: 0.7rem; margin-top: 1rem; color: #444;">*Placeholder: Please update form ID in GitHub</p>
+        <p style="font-size: 0.7rem; margin-top: 1rem; color: #444;">*Placeholder: Update your Formspree ID to receive submissions</p>
       </div>
     </div>
 
@@ -329,9 +334,33 @@
         <h3>NEXT STEPS</h3>
         <p style="margin-bottom: 2rem;">Ready for a deeper dive or have a specific question? Explore more options below.</p>
         <div class="cta-links">
-          <a href="https://www.etsy.com/shop/Sibylhaus" class="cta-link-btn" target="_blank">BOOK ON ETSY</a>
+          <a href="https://www.etsy.com/shop/Sibylhaus" class="cta-link-btn" target="_blank">BOOK ANOTHER READING</a>
+          <button class="cta-link-btn" id="shareBtn" style="border:none; cursor:pointer;">SHARE THIS PAGE</button>
           <a href="/" class="cta-link-btn">HOME</a>
         </div>
+        <script>
+          document.getElementById('shareBtn').addEventListener('click', async () => {
+            if (navigator.share) {
+              try {
+                await navigator.share({
+                  title: 'Sibylhaus Reading',
+                  text: 'Check out my private reading from Sibylhaus!',
+                  url: window.location.href,
+                });
+              } catch (err) {
+                console.log('Error sharing:', err);
+              }
+            } else {
+              const el = document.createElement('textarea');
+              el.value = window.location.href;
+              document.body.appendChild(el);
+              el.select();
+              document.execCommand('copy');
+              document.body.removeChild(el);
+              alert('Link copied to clipboard!');
+            }
+          });
+        </script>
       </div>
     </div>
 
