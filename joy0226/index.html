@@ -6,347 +6,347 @@
     <title>Sibylhaus Private Reading for Joy</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Bebas+Neue&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet" />
     <style>
         :root {
-            [cite_start]--primary-black: #000000; [cite: 16]
-            [cite_start]--off-white: #f8f8f8; [cite: 17]
-            [cite_start]--accent-grey: #666666; [cite: 18]
-            [cite_start]--soft-white: #ffffff; [cite: 19, 20]
+            --primary-black: #000000;
+            --off-white: #f8f8f8;
+            --accent-grey: #666666;
+            --soft-white: #ffffff;
         }
 
         * {
-            [cite_start]margin: 0; [cite: 23]
-            [cite_start]padding: 0; [cite: 24]
-            [cite_start]box-sizing: border-box; [cite: 25]
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
 
         body {
-            [cite_start]font-family: "Inter", sans-serif; [cite: 27]
-            [cite_start]background-color: var(--primary-black); [cite: 28]
-            [cite_start]color: var(--soft-white); [cite: 29]
-            [cite_start]line-height: 1.6; [cite: 30]
+            font-family: "Inter", sans-serif;
+            background-color: var(--primary-black);
+            color: var(--soft-white);
+            line-height: 1.6;
         }
 
         header {
-            [cite_start]padding: 2rem; [cite: 33]
-            [cite_start]text-align: center; [cite: 34]
-            [cite_start]border-bottom: 1px solid #333; [cite: 35]
+            padding: 2rem;
+            text-align: center;
+            border-bottom: 1px solid #333;
         }
 
         .logo {
-            font-family: "Bebas Neue", sans-serif; [cite_start]/* Replaced Cinzel with Bebas Neue [cite: 37] */
-            [cite_start]font-size: 2rem; [cite: 38]
-            [cite_start]letter-spacing: 0.3rem; [cite: 39]
-            [cite_start]color: var(--soft-white); [cite: 40]
-            [cite_start]text-decoration: none; [cite: 41]
+            font-family: "Cinzel", serif;
+            font-size: 2rem;
+            letter-spacing: 0.3rem;
+            color: var(--soft-white);
+            text-decoration: none;
         }
 
         .hero {
-            [cite_start]padding: 4rem 2rem; [cite: 44]
-            [cite_start]text-align: center; [cite: 45]
-            [cite_start]background-color: var(--primary-black); [cite: 46]
+            padding: 4rem 2rem;
+            text-align: center;
+            background-color: var(--primary-black);
         }
 
         .hero h1 {
-            [cite_start]font-family: "Bebas Neue", sans-serif; [cite: 48]
-            [cite_start]font-size: 5rem; [cite: 48]
-            [cite_start]letter-spacing: 0.5rem; [cite: 49]
-            [cite_start]margin-bottom: 1rem; [cite: 50]
+            font-family: "Bebas Neue", sans-serif;
+            font-size: 5rem;
+            letter-spacing: 0.5rem;
+            margin-bottom: 1rem;
         }
 
         .hero h2 {
-            font-family: "Bebas Neue", sans-serif; [cite_start]/* Replaced Cinzel with Bebas Neue [cite: 53] */
-            [cite_start]font-size: 1.5rem; [cite: 54]
-            [cite_start]font-weight: 400; [cite: 55]
-            [cite_start]letter-spacing: 0.2rem; [cite: 56]
-            [cite_start]color: var(--accent-grey); [cite: 57]
+            font-family: "Cinzel", serif;
+            font-size: 1.5rem;
+            font-weight: 400;
+            letter-spacing: 0.2rem;
+            color: var(--accent-grey);
         }
 
         .video-container {
-            [cite_start]max-width: 450px; [cite: 59]
-            [cite_start]margin: 2rem auto; [cite: 60]
-            [cite_start]background: #111; [cite: 61]
-            [cite_start]padding: 1rem; [cite: 62]
-            [cite_start]border: 1px solid #333; [cite: 63]
+            max-width: 450px;
+            margin: 2rem auto;
+            background: #111;
+            padding: 1rem;
+            border: 1px solid #333;
         }
 
         .video-wrapper {
-            [cite_start]position: relative; [cite: 67]
-            [cite_start]padding-bottom: 177.78%; [cite: 68]
-            [cite_start]height: 0; [cite: 68]
+            position: relative;
+            padding-bottom: 177.78%; /* 9:16 Aspect Ratio */
+            height: 0;
         }
 
         .video-wrapper iframe {
-            [cite_start]position: absolute; [cite: 70]
-            [cite_start]top: 0; [cite: 71]
-            [cite_start]left: 0; [cite: 72]
-            [cite_start]width: 100%; [cite: 73]
-            [cite_start]height: 100%; [cite: 74]
-            [cite_start]border: none; [cite: 75]
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
         }
 
         .content-area {
-            [cite_start]background-color: var(--off-white); [cite: 78]
-            [cite_start]color: var(--primary-black); [cite: 79]
-            [cite_start]padding: 4rem 2rem; [cite: 80]
+            background-color: var(--off-white);
+            color: var(--primary-black);
+            padding: 4rem 2rem;
         }
 
         .container {
-            [cite_start]max-width: 900px; [cite: 83]
-            [cite_start]margin: 0 auto; [cite: 84]
+            max-width: 900px;
+            margin: 0 auto;
         }
 
         section {
-            [cite_start]margin-bottom: 4rem; [cite: 87]
+            margin-bottom: 4rem;
         }
 
         h3 {
-            [cite_start]font-family: "Bebas Neue", sans-serif; [cite: 90]
-            [cite_start]font-size: 2.5rem; [cite: 91]
-            [cite_start]letter-spacing: 0.2rem; [cite: 92]
-            [cite_start]margin-bottom: 2rem; [cite: 93]
-            [cite_start]border-bottom: 2px solid var(--primary-black); [cite: 94]
-            [cite_start]display: inline-block; [cite: 95]
+            font-family: "Bebas Neue", sans-serif;
+            font-size: 2.5rem;
+            letter-spacing: 0.2rem;
+            margin-bottom: 2rem;
+            border-bottom: 2px solid var(--primary-black);
+            display: inline-block;
         }
 
         .synopsis-grid {
-            [cite_start]display: grid; [cite: 97]
-            [cite_start]grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); [cite: 98]
-            [cite_start]gap: 2rem; [cite: 98]
-            [cite_start]margin-bottom: 2rem; [cite: 99]
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
         }
 
         .synopsis-card {
-            [cite_start]background: white; [cite: 102]
-            [cite_start]padding: 2rem; [cite: 103]
-            [cite_start]border-bottom: 4px solid var(--primary-black); [cite: 104]
+            background: white;
+            padding: 2rem;
+            border-bottom: 4px solid var(--primary-black);
         }
 
         .synopsis-card h4 {
-            [cite_start]font-family: "Bebas Neue", sans-serif; [cite: 106]
-            [cite_start]font-size: 1.4rem; [cite: 107]
-            [cite_start]margin-bottom: 1rem; [cite: 108]
+            font-family: "Bebas Neue", sans-serif;
+            font-size: 1.4rem;
+            margin-bottom: 1rem;
         }
 
         .dice-image {
-            [cite_start]max-width: 100%; [cite: 111]
-            [cite_start]height: auto; [cite: 112]
-            [cite_start]margin-bottom: 2rem; [cite: 113]
-            [cite_start]border: 1px solid #ddd; [cite: 114]
-            [cite_start]padding: 10px; [cite: 115]
-            [cite_start]background: #fff; [cite: 116]
+            max-width: 100%;
+            height: auto;
+            margin-bottom: 2rem;
+            border: 1px solid #ddd;
+            padding: 10px;
+            background: #fff;
         }
 
         .dice-grid {
-            [cite_start]display: grid; [cite: 119]
-            [cite_start]grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); [cite: 120]
-            [cite_start]gap: 1.5rem; [cite: 120]
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 1.5rem;
         }
 
         .dice-card {
-            [cite_start]background: white; [cite: 123]
-            [cite_start]padding: 1.5rem; [cite: 124]
-            [cite_start]border-left: 4px solid var(--primary-black); [cite: 125]
+            background: white;
+            padding: 1.5rem;
+            border-left: 4px solid var(--primary-black);
         }
 
         .dice-card h4 {
-            [cite_start]font-family: "Bebas Neue", sans-serif; [cite: 127]
-            [cite_start]font-size: 1.2rem; [cite: 128]
-            [cite_start]margin-bottom: 0.5rem; [cite: 129]
-            [cite_start]color: var(--accent-grey); [cite: 130]
+            font-family: "Bebas Neue", sans-serif;
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+            color: var(--accent-grey);
         }
 
         .dice-card ul {
-            [cite_start]list-style: none; [cite: 133]
+            list-style: none;
         }
 
         .dice-card li {
-            [cite_start]margin-bottom: 0.5rem; [cite: 135]
-            [cite_start]font-weight: 600; [cite: 136]
+            margin-bottom: 0.5rem;
+            font-weight: 600;
         }
 
         .email-capture {
-            [cite_start]background-color: var(--primary-black); [cite: 139]
-            [cite_start]color: white; [cite: 140]
-            [cite_start]padding: 4rem 2rem; [cite: 141]
-            [cite_start]text-align: center; [cite: 142]
+            background-color: var(--primary-black);
+            color: white;
+            padding: 4rem 2rem;
+            text-align: center;
         }
 
         .email-capture h3 {
-            [cite_start]border-bottom-color: white; [cite: 144]
-            [cite_start]color: white; [cite: 145]
+            border-bottom-color: white;
+            color: white;
         }
 
         form {
-            [cite_start]display: flex; [cite: 149]
-            [cite_start]flex-direction: column; [cite: 150]
-            [cite_start]max-width: 400px; [cite: 151]
-            [cite_start]margin: 2rem auto; [cite: 152]
-            [cite_start]gap: 1rem; [cite: 153]
+            display: flex;
+            flex-direction: column;
+            max-width: 400px;
+            margin: 2rem auto;
+            gap: 1rem;
         }
 
         input[type="email"] {
-            [cite_start]padding: 1rem; [cite: 156]
-            [cite_start]border: 1px solid #333; [cite: 157]
-            [cite_start]background: #111; [cite: 158]
-            [cite_start]color: white; [cite: 159]
-            [cite_start]font-family: "Inter", sans-serif; [cite: 160]
-            [cite_start]text-align: center; [cite: 161]
+            padding: 1rem;
+            border: 1px solid #333;
+            background: #111;
+            color: white;
+            font-family: "Inter", sans-serif;
+            text-align: center;
         }
 
         .cta-button {
-            [cite_start]display: inline-block; [cite: 163]
-            [cite_start]background-color: white; [cite: 164]
-            [cite_start]color: black; [cite: 165]
-            [cite_start]padding: 1rem 2rem; [cite: 166]
-            [cite_start]text-decoration: none; [cite: 167]
-            [cite_start]font-family: "Bebas Neue", sans-serif; [cite: 168]
-            [cite_start]font-size: 1.2rem; [cite: 169]
-            [cite_start]letter-spacing: 0.1rem; [cite: 170]
-            [cite_start]transition: all 0.3s ease; [cite: 171]
-            [cite_start]border: none; [cite: 172]
-            [cite_start]cursor: pointer; [cite: 173]
+            display: inline-block;
+            background-color: white;
+            color: black;
+            padding: 1rem 2rem;
+            text-decoration: none;
+            font-family: "Bebas Neue", sans-serif;
+            font-size: 1.2rem;
+            letter-spacing: 0.1rem;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
         }
 
         .cta-button:hover {
-            [cite_start]background-color: var(--accent-grey); [cite: 175]
-            [cite_start]color: white; [cite: 176]
+            background-color: var(--accent-grey);
+            color: white;
         }
 
         .cta-section {
-            [cite_start]padding: 4rem 2rem; [cite: 179]
-            [cite_start]text-align: center; [cite: 180]
-            [cite_start]background-color: var(--off-white); [cite: 181]
-            [cite_start]color: black; [cite: 183]
+            padding: 4rem 2rem;
+            text-align: center;
+            background-color: var(--off-white);
+            color: black;
         }
 
         .cta-links {
-            [cite_start]display: flex; [cite: 185]
-            [cite_start]justify-content: center; [cite: 186]
-            [cite_start]gap: 2rem; [cite: 187]
-            [cite_start]flex-wrap: wrap; [cite: 188]
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
         }
 
         .cta-link-btn {
-            [cite_start]background: black; [cite: 191]
-            [cite_start]color: white; [cite: 192]
-            [cite_start]padding: 1rem 2.5rem; [cite: 193]
-            [cite_start]text-decoration: none; [cite: 194]
-            [cite_start]font-family: "Bebas Neue", sans-serif; [cite: 195]
-            [cite_start]font-size: 1.3rem; [cite: 196]
-            [cite_start]letter-spacing: 0.1rem; [cite: 197]
-            [cite_start]transition: 0.3s; [cite: 198]
-            [cite_start]border: none; [cite: 199]
-            [cite_start]cursor: pointer; [cite: 200]
+            background: black;
+            color: white;
+            padding: 1rem 2.5rem;
+            text-decoration: none;
+            font-family: "Bebas Neue", sans-serif;
+            font-size: 1.3rem;
+            letter-spacing: 0.1rem;
+            transition: 0.3s;
+            border: none;
+            cursor: pointer;
         }
 
         .cta-link-btn:hover {
-            [cite_start]opacity: 0.8; [cite: 202]
+            opacity: 0.8;
         }
 
         footer {
-            [cite_start]padding: 2rem; [cite: 206]
-            [cite_start]text-align: center; [cite: 207]
-            [cite_start]background: black; [cite: 208]
-            [cite_start]color: #444; [cite: 209]
-            [cite_start]font-size: 0.8rem; [cite: 210]
-            [cite_start]letter-spacing: 0.1rem; [cite: 211]
+            padding: 2rem;
+            text-align: center;
+            background: black;
+            color: #444;
+            font-size: 0.8rem;
+            letter-spacing: 0.1rem;
         }
     </style>
 </head>
 <body>
     <header>
-        [cite_start]<a href="/" class="logo">SIBYLHAUS</a> [cite: 216]
+        <a href="/" class="logo">SIBYLHAUS</a> [cite: 216]
     </header>
 
     <div class="hero">
-        [cite_start]<h1>PRIVATE READING</h1> [cite: 219]
-        [cite_start]<h2>JOY</h2> [cite: 220]
-        [cite_start]<div class="video-container"> [cite: 221]
-            [cite_start]<div class="video-wrapper"> [cite: 222]
-                [cite_start]<iframe src="https://drive.google.com/file/d/1E4plIJIhSWxu_q-PnjWSEFYcAErN7Hg1/preview" allow="autoplay" allowfullscreen></iframe> [cite: 223, 224, 225]
+        <h1>PRIVATE READING</h1> [cite: 219]
+        <h2>JOY</h2> [cite: 220]
+        <div class="video-container">
+            <div class="video-wrapper">
+                <iframe src="https://drive.google.com/file/d/1E4plIJIhSWxu_q-PnjWSEFYcAErN7Hg1/preview" allow="autoplay" allowfullscreen></iframe> [cite: 224, 225]
             </div>
         </div>
     </div>
 
-    [cite_start]<div class="content-area"> [cite: 230]
-        [cite_start]<div class="container"> [cite: 231]
-            [cite_start]<section> [cite: 232]
-                [cite_start]<h3>KEY INSIGHTS</h3> [cite: 233]
-                [cite_start]<div class="synopsis-grid"> [cite: 234]
-                    [cite_start]<div class="synopsis-card"> [cite: 235]
-                        [cite_start]<h4>Encouragement & Growth</h4> [cite: 236]
-                        <p>Joe sees you as a vital space for growth. [cite_start]The 'Tree' and 'Stars' cards reveal he views this connection as a wish come true and is eager to see where it leads.</p> [cite: 237, 238]
+    <div class="content-area">
+        <div class="container">
+            <section>
+                <h3>KEY INSIGHTS</h3> [cite: 233]
+                <div class="synopsis-grid">
+                    <div class="synopsis-card">
+                        <h4>Encouragement & Growth</h4> [cite: 236]
+                        <p>Joe sees you as a vital space for growth. [cite: 237] The 'Tree' and 'Stars' cards reveal he views this connection as a wish come true and is eager to see where it leads.</p> [cite: 237, 238]
                     </div>
-                    [cite_start]<div class="synopsis-card"> [cite: 241]
-                        [cite_start]<h4>Cycles & Commitment</h4> [cite: 242]
-                        <p>A new romantic cycle is beginning. [cite_start]While the energy is positive, your commitment is being tested—this is a call to put in active effort and dedication.</p> [cite: 243]
+                    <div class="synopsis-card">
+                        <h4>Cycles & Commitment</h4> [cite: 242]
+                        <p>A new romantic cycle is beginning. [cite: 243] While the energy is positive, your commitment is being tested—this is a call to put in active effort and dedication.</p> [cite: 243]
                     </div>
-                    [cite_start]<div class="synopsis-card"> [cite: 245]
-                        [cite_start]<h4>Action & Chemistry</h4> [cite: 246]
-                        <p>The Lenorman cards point to an incoming visitor breaking isolation. [cite_start]Expect intense chemistry, but know that building this into reality will require a practical plan.</p> [cite: 247, 248]
+                    <div class="synopsis-card">
+                        <h4>Action & Chemistry</h4> [cite: 246]
+                        <p>The Lenorman cards point to an incoming visitor breaking isolation. [cite: 247] Expect intense chemistry, but know that building this into reality will require a practical plan.</p> [cite: 247, 248]
                     </div>
-                    [cite_start]<div class="synopsis-card"> [cite: 250]
-                        [cite_start]<h4>Pendulum Confirmation</h4> [cite: 251]
-                        <p>The pendulum gave a clear 'Yes'—Joe is worth your investment. [cite_start]Spirit encourages you to lean in, while always trusting your own intuitive boundaries.</p> [cite: 252, 253]
+                    <div class="synopsis-card">
+                        <h4>Pendulum Confirmation</h4> [cite: 251]
+                        <p>The pendulum gave a clear 'Yes'—Joe is worth your investment. [cite: 252] Spirit encourages you to lean in, while always trusting your own intuitive boundaries.</p> [cite: 252, 253]
                     </div>
                 </div>
             </section>
 
-            [cite_start]<section> [cite: 257]
-                [cite_start]<h3>WORD DICE ORACLE</h3> [cite: 258]
-                [cite_start]<p style="margin-bottom: 2rem; font-style: italic;">The physical manifestation of your reading's conclusion.</p> [cite: 259]
+            <section>
+                <h3>WORD DICE ORACLE</h3> [cite: 258]
+                <p style="margin-bottom: 2rem; font-style: italic;">The physical manifestation of your reading's conclusion.</p> [cite: 259]
                 
-                [cite_start]<div style="text-align: center;"> [cite: 260]
-                    <img src="images/word_dice.jpg" alt="Word Dice Result" class="dice-image" onerror="this.style.display='none'" />
+                <div style="text-align: center;">
+                    <img src="images/word_dice.jpg" alt="Word Dice Result" class="dice-image" onerror="this.style.display='none'" /> [cite: 261, 262]
                 </div>
 
-                [cite_start]<div class="dice-grid"> [cite: 264]
-                    [cite_start]<div class="dice-card"> [cite: 266]
-                        [cite_start]<h4>Declarative</h4> [cite: 267]
-                        [cite_start]<ul> [cite: 268]
-                            <li>They felt big.</li>
-                            <li>They ran.</li>
-                            <li>They walk.</li>
-                            <li>They want us.</li>
+                <div class="dice-grid">
+                    <div class="dice-card">
+                        <h4>Declarative</h4> [cite: 267]
+                        <ul>
+                            <li>They felt big.</li> [cite: 268]
+                            <li>They ran.</li> [cite: 268]
+                            <li>They walk.</li> [cite: 268]
+                            <li>They want us.</li> [cite: 268]
                         </ul>
                     </div>
-                    [cite_start]<div class="dice-card"> [cite: 270]
-                        [cite_start]<h4>Identity</h4> [cite: 271]
-                        [cite_start]<ul> [cite: 272, 273]
-                            <li>Some girl ran.</li>
-                            <li>Some girl felt big.</li>
-                            <li>Its leg felt hot.</li>
-                            <li>What felt big?</li>
+                    <div class="dice-card">
+                        <h4>Identity</h4> [cite: 271]
+                        <ul>
+                            <li>Some girl ran.</li> [cite: 272]
+                            <li>Some girl felt big.</li> [cite: 272]
+                            <li>Its leg felt hot.</li> [cite: 272]
+                            <li>What felt big?</li> [cite: 273]
                         </ul>
                     </div>
-                    [cite_start]<div class="dice-card"> [cite: 275]
-                        [cite_start]<h4>Action</h4> [cite: 276]
-                        [cite_start]<ul> [cite: 277, 278]
-                            <li>Some part felt hot.</li>
-                            <li>They felt some part.</li>
-                            <li>The black girl ran.</li>
-                            <li>They ran to us.</li>
+                    <div class="dice-card">
+                        <h4>Action</h4> [cite: 276]
+                        <ul>
+                            <li>Some part felt hot.</li> [cite: 277]
+                            <li>They felt some part.</li> [cite: 277]
+                            <li>The black girl ran.</li> [cite: 277]
+                            <li>They ran to us.</li> [cite: 278]
                         </ul>
                     </div>
-                    [cite_start]<div class="dice-card"> [cite: 280]
-                        [cite_start]<h4>Possibility</h4> [cite: 281]
-                        [cite_start]<ul> [cite: 282, 283]
-                            <li>They walk to us.</li>
-                            <li>They can walk.</li>
-                            <li>They can felt.</li>
-                            <li>They want some.</li>
+                    <div class="dice-card">
+                        <h4>Possibility</h4> [cite: 281]
+                        <ul>
+                            <li>They walk to us.</li> [cite: 282]
+                            <li>They can walk.</li> [cite: 282]
+                            <li>They can felt.</li> [cite: 282]
+                            <li>They want some.</li> [cite: 282, 283]
                         </ul>
                     </div>
-                    [cite_start]<div class="dice-card"> [cite: 285]
-                        [cite_start]<h4>Complexity</h4> [cite: 286]
-                        [cite_start]<ul> [cite: 287, 288]
-                            <li>It is as old as...</li>
-                            <li>They felt as big as us.</li>
-                            <li>What can they want?</li>
-                            <li>When they walk, they ran.</li>
-                            <li>Some girl felt as old as us.</li>
+                    <div class="dice-card">
+                        <h4>Complexity</h4> [cite: 286]
+                        <ul>
+                            <li>It is as old as...</li> [cite: 287]
+                            <li>They felt as big as us.</li> [cite: 287]
+                            <li>What can they want?</li> [cite: 287, 288]
+                            <li>When they walk, they ran.</li> [cite: 288]
+                            <li>Some girl felt as old as us.</li> [cite: 288]
                         </ul>
                     </div>
                 </div>
@@ -354,51 +354,51 @@
         </div>
     </div>
 
-    [cite_start]<div class="email-capture"> [cite: 294]
-        [cite_start]<div class="container"> [cite: 295]
-            [cite_start]<h3>CLAIM YOUR FREE GIFT</h3> [cite: 296]
-            <p>I'd love to stay connected. [cite_start]Sign up below to receive a special free gift from Sibylhaus directly in your inbox.</p> [cite: 297, 298]
-            [cite_start]<form action="https://formspree.io/f/YOUR_ID_HERE" method="POST"> [cite: 299]
-                [cite_start]<input type="email" name="email" placeholder="YOUR EMAIL ADDRESS" required /> [cite: 300]
-                [cite_start]<button type="submit" class="cta-button">GET MY GIFT</button> [cite: 301]
+    <div class="email-capture">
+        <div class="container">
+            <h3>CLAIM YOUR FREE GIFT</h3> [cite: 296]
+            <p>I'd love to stay connected. [cite: 297] Sign up below to receive a special free gift from Sibylhaus directly in your inbox.</p> [cite: 297, 298]
+            <form action="https://formspree.io/f/YOUR_ID_HERE" method="POST"> [cite: 299]
+                <input type="email" name="email" placeholder="YOUR EMAIL ADDRESS" required /> [cite: 300]
+                <button type="submit" class="cta-button">GET MY GIFT</button> [cite: 301]
             </form>
         </div>
     </div>
 
-    [cite_start]<div class="cta-section"> [cite: 305]
-        [cite_start]<div class="container"> [cite: 306]
-            [cite_start]<h3>NEXT STEPS</h3> [cite: 307]
-            [cite_start]<div class="cta-links"> [cite: 308]
-                [cite_start]<a href="https://www.etsy.com/shop/Sibylhaus" class="cta-link-btn" target="_blank">BOOK ANOTHER READING</a> [cite: 309, 310]
-                [cite_start]<button class="cta-link-btn" id="shareBtn">SHARE THIS PAGE</button> [cite: 311]
-                [cite_start]<a href="/" class="cta-link-btn">HOME</a> [cite: 312]
+    <div class="cta-section">
+        <div class="container">
+            <h3>NEXT STEPS</h3> [cite: 307]
+            <div class="cta-links">
+                <a href="https://www.etsy.com/shop/Sibylhaus" class="cta-link-btn" target="_blank">BOOK ANOTHER READING</a> [cite: 309, 310]
+                <button class="cta-link-btn" id="shareBtn">SHARE THIS PAGE</button> [cite: 311]
+                <a href="/" class="cta-link-btn">HOME</a> [cite: 312]
             </div>
-            [cite_start]<script> [cite: 314]
-                [cite_start]document.getElementById('shareBtn').addEventListener('click', async () => { [cite: 315]
-                    [cite_start]if (navigator.share) { [cite: 316]
-                        [cite_start]try { [cite: 317]
-                            [cite_start]await navigator.share({ [cite: 318]
-                                [cite_start]title: 'Sibylhaus Reading', [cite: 319]
-                                [cite_start]text: 'Check out my private reading from Sibylhaus!', [cite: 320]
-                                [cite_start]url: window.location.href, [cite: 321]
-                            [cite_start]}); [cite: 322]
-                        } catch (err) { console.log('Error sharing:', err); [cite_start]} [cite: 323]
-                    [cite_start]} else { [cite: 323]
-                        [cite_start]const el = document.createElement('textarea'); [cite: 324, 325]
-                        [cite_start]el.value = window.location.href; [cite: 326]
-                        [cite_start]document.body.appendChild(el); [cite: 327]
-                        [cite_start]el.select(); [cite: 328]
-                        [cite_start]document.execCommand('copy'); [cite: 329]
-                        [cite_start]document.body.removeChild(el); [cite: 330]
-                        [cite_start]alert('Link copied to clipboard!'); [cite: 331]
+            <script>
+                document.getElementById('shareBtn').addEventListener('click', async () => {
+                    if (navigator.share) { [cite: 316]
+                        try {
+                            await navigator.share({ [cite: 318]
+                                title: 'Sibylhaus Reading', [cite: 319]
+                                text: 'Check out my private reading from Sibylhaus!', [cite: 320]
+                                url: window.location.href, [cite: 321]
+                            });
+                        } catch (err) { console.log('Error sharing:', err); } [cite: 323]
+                    } else {
+                        const el = document.createElement('textarea'); [cite: 324, 325]
+                        el.value = window.location.href; [cite: 326]
+                        document.body.appendChild(el); [cite: 327]
+                        el.select(); [cite: 328]
+                        document.execCommand('copy'); [cite: 329]
+                        document.body.removeChild(el); [cite: 330]
+                        alert('Link copied to clipboard!'); [cite: 331]
                     }
-                [cite_start]}); [cite: 332]
+                });
             </script>
         </div>
     </div>
 
-    [cite_start]<footer> [cite: 336]
-        &copy; 2026 SIBYLHAUS. [cite_start]ALL RIGHTS RESERVED. [cite: 337]
-    [cite_start]</footer> [cite: 338]
+    <footer>
+        &copy; 2026 SIBYLHAUS. ALL RIGHTS RESERVED. [cite: 337]
+    </footer>
 </body>
 </html>
