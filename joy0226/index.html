@@ -164,18 +164,22 @@
             color: #333;
         }
 
+        /* Styling for the Dice Photo */
         .dice-image-container {
             text-align: center;
             margin-bottom: 2rem;
+            width: 100%;
         }
 
         .dice-image {
-            max-width: 100%;
+            width: 100%;
+            max-width: 600px; /* Limits size on desktop */
             height: auto;
             border: 1px solid #ddd;
-            padding: 10px;
+            padding: 8px;
             background: #fff;
-            border-radius: 8px;
+            border-radius: 4px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
         }
 
         .card-grid {
@@ -207,22 +211,11 @@
             font-weight: 300;
         }
 
-        form {
+        .form-container {
             display: flex;
-            flex-direction: column;
-            max-width: 400px;
-            margin: 0 auto;
-            gap: 1rem;
-        }
-
-        input[type="email"] {
-            padding: 1rem;
-            border: 1px solid #333;
-            background: #111;
-            color: white;
-            font-family: "Inter", sans-serif;
-            text-align: center;
-            font-size: 0.9rem;
+            justify-content: center;
+            width: 100%;
+            overflow: hidden;
         }
 
         .cta-section {
@@ -267,6 +260,7 @@
             .hero h1 { font-size: 2.5rem; }
             header { flex-direction: column; gap: 1rem; }
             .card-grid { grid-template-columns: 1fr; }
+            iframe { width: 100% !important; }
         }
     </style>
 </head>
@@ -315,12 +309,12 @@
                 </div>
             </section>
 
+            <div class="dice-image-container">
+                <img src="images/word_dice.jpg" alt="Word Dice Result" class="dice-image">
+            </div>
+
             <section>
                 <h2>WORD DICE ORACLE</h2>
-                <div class="dice-image-container">
-                    <img src="images/word_dice.jpg" alt="Word Dice Result" class="dice-image">
-                </div>
-                
                 <div class="card-grid">
                     <div class="card">
                         <h3>Declarative</h3>
@@ -347,11 +341,10 @@
     <div class="email-capture">
         <div class="container">
             <h2>JOIN MY EMAIL LIST</h2>
-            <p>Let's stay connected. I see free perks + discounts in your future.</p>
-            <form action="https://formspree.io/f/mkovyjja" method="POST">
-                <input type="email" name="email" placeholder="YOUR EMAIL ADDRESS" required />
-                <button type="submit" class="cta-button">JOIN</button>
-            </form>
+            <p>Let's stay connected. I see free perks, plus discounts, in your future.</p>
+            <div class="form-container">
+                <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSc8O6_Cnp8vmyB9p7g-pxVyb1lljIi373FzuNAR9t5LJZyYgw/viewform?embedded=true" width="640" height="407" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
+            </div>
         </div>
     </div>
 
