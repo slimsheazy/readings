@@ -21,7 +21,8 @@
       color: var(--white);
       font-family: 'DM Mono', monospace;
       font-weight: 300;
-      line-height: 1.6;
+      line-height: 1.7;
+      font-size: 1.05rem;
       overflow-x: hidden;
     }
     body::before {
@@ -49,7 +50,7 @@
 
     .hero {
       min-height: 100vh; display: flex; flex-direction: column;
-      justify-content: flex-end; padding: 2rem; padding-top: 8rem;
+      justify-content: flex-end; padding: 2rem; padding-top: 5.5rem;
       border-bottom: 1px solid var(--border); position: relative; overflow: hidden;
     }
     .hero-eyebrow { font-size: 0.6rem; letter-spacing: 0.3em; text-transform: uppercase; color: var(--gray); margin-bottom: 1.5rem; opacity: 0; animation: fadeUp 0.8s 0.2s forwards; }
@@ -206,16 +207,15 @@
 
 <!-- HERO -->
 <div class="hero">
-  <p class="hero-eyebrow">— Private Reading · Sibylhaus · February 28, 2025</p>
+  <p class="hero-eyebrow">— Private Reading · Sibylhaus · February 28, 2026</p>
   <h1 class="hero-title">
     <span>Prepared for</span>
     Miki
   </h1>
   <div class="hero-meta">
     <div class="hero-meta-item"><label>Reader</label><p>Shea · Sibylhaus</p></div>
-    <div class="hero-meta-item"><label>Date</label><p>February 28, 2025</p></div>
+    <div class="hero-meta-item"><label>Date</label><p>February 28, 2026</p></div>
     <div class="hero-meta-item"><label>Format</label><p>Phone Consultation</p></div>
-    <div class="hero-meta-item"><label>Duration</label><p>38 Minutes</p></div>
   </div>
 </div>
 
@@ -227,7 +227,7 @@
       <div class="audio-header">
         <div>
           <div class="audio-title">Full Reading Audio</div>
-          <div style="font-size:0.65rem;color:var(--gray);margin-top:0.3rem;letter-spacing:0.1em;">Phone Consultation · Miki · Feb 28 2025</div>
+          <div style="font-size:0.65rem;color:var(--gray);margin-top:0.3rem;letter-spacing:0.1em;">Phone Consultation · Miki · Feb 28 2026</div>
         </div>
         <div class="audio-duration">38:00</div>
       </div>
@@ -235,7 +235,7 @@
       <!-- ⚠️ Replace the src below with your Google Drive direct audio link -->
       <!-- To get a direct link: Share the file → Copy link → replace /file/d/FILE_ID/view with /uc?export=download&id=FILE_ID -->
       <audio id="mainAudio" preload="metadata" style="display:none;">
-        <source src="PASTE_GOOGLE_DRIVE_DIRECT_AUDIO_LINK_HERE" type="audio/mpeg">
+        <source src="./audio/TarotPhoneMiki.mp3" type="audio/mpeg">
       </audio>
 
       <div>
@@ -254,10 +254,10 @@
           <button class="speed-btn" onclick="setSpeed(1.25,this)">1.25×</button>
           <button class="speed-btn" onclick="setSpeed(1.5,this)">1.5×</button>
           <button class="speed-btn" onclick="setSpeed(2,this)">2×</button>
-          <a href="https://drive.google.com/file/d/1VNeOUzRrqQd4vx3DbkDfRS-oB6xWnU6c/view?usp=sharing" download class="download-link">↓ Download</a>
+          <a href="./audio/TarotPhoneMiki.mp3" download class="download-link">↓ Download</a>
         </div>
       </div>
-      <p class="audio-note">This recording is private and prepared exclusively for you..</p>
+      <p class="audio-note">This recording is private and prepared exclusively for you, Miki. Please do not share the link.</p>
     </div>
   </section>
 </div>
@@ -273,7 +273,7 @@
 
       <!-- Photo 1: Two Four of Swords cards -->
       <div class="photo-block span7" onclick="openLightbox(this)">
-        <img src="./images/4swords.jpg" alt="Four of Swords · Mirror" loading="lazy">
+        <img src="./images/4swords.JPG" alt="Four of Swords · Mirror" loading="lazy">
         <div class="photo-caption">Reflection · Mirroring</div>
       </div>
 
@@ -297,7 +297,7 @@
 
       <!-- Photo 5: Lenormand Star + Tree -->
       <div class="photo-block span6" onclick="openLightbox(this)">
-        <img src="./images/starstree.jpg" alt="Lenormand Stars and Tree" loading="lazy">
+        <img src="./images/starstree.jpg" alt="Lenormand Star and Tree" loading="lazy">
       </div>
 
       <!-- Photo 6: Comfort, Magic and Passion -->
@@ -306,29 +306,35 @@
         <div class="photo-caption">How He Feels About You</div>
       </div>
 
-      <!-- Photo 7: Charms + Letters + Sunglasses + Measuring Tape -->
-      <div class="photo-block span7" onclick="openLightbox(this)">
-        <img src="./images/letterscharms.jpg" alt="Charms and Letters" loading="lazy">
-      </div>
 
     </div>
 
     <!-- Bylines for select photos -->
     <div class="photo-byline">
       <div class="photo-byline-item">
-        <div class="byline-label">Photo 4 · Oracle Cards</div>
+        <div class="byline-label">Photo 4 · Final Oracles</div>
         <div class="byline-text">Be Bold and Seek · Space (Reversed) · Desire to Reconcile · Radical Honesty · Overdue · Compatibility · <strong>Open Door</strong></div>
       </div>
       <div class="photo-byline-item">
         <div class="byline-label">Photo 6 · Comfort, Magic & Passion</div>
         <div class="byline-text">How He Feels About You</div>
       </div>
-      <div class="photo-byline-item">
-        <div class="byline-label">Photo 7 · Charms + Letters</div>
-        <div class="byline-text">The ghost charm speaks to him pulling away or ending things. The microphone — he probably wants to talk.</div>
-      </div>
     </div>
   </section>
+</div>
+
+<!-- CHARMS + LETTERS PHOTO — leads into words section -->
+<div class="wrap">
+  <div class="reveal" style="padding: 3rem 0 0;">
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:0.75rem;margin-bottom:1rem;">
+      <div class="photo-block" style="aspect-ratio:4/3;cursor:zoom-in;" onclick="openLightbox(this)">
+        <img src="./images/letterscharms.jpg" alt="Charms and Letters" loading="lazy">
+      </div>
+      <div style="display:flex;align-items:center;padding:1.5rem;">
+        <p style="font-size:0.78rem;color:rgba(245,244,240,0.65);line-height:1.9;">The ghost charm is about him going quiet or stepping away. The microphone is interesting too, like he has something he wants to say.</p>
+      </div>
+    </div>
+  </div>
 </div>
 
 <!-- SCRABBLE WORDS + NAMES -->
@@ -341,20 +347,20 @@
     <div class="words-group">
       <div class="words-group-label">Words</div>
       <div class="tiles-wrap">
-        <div class="tile">Pert</div>
-        <div class="tile">Hurt</div>
+        <div class="tile" style="color:#BFFF00;border-color:#BFFF0040;">Pert</div>
+        <div class="tile" style="color:#BFFF00;border-color:#BFFF0040;">Hurt</div>
         <div class="tile">Pet</div>
-        <div class="tile">Rue</div>
+        <div class="tile" style="color:#BFFF00;border-color:#BFFF0040;">Rue</div>
         <div class="tile">Help</div>
-        <div class="tile">Here</div>
-        <div class="tile">Rut</div>
-        <div class="tile">Pure</div>
+        <div class="tile" style="color:#BFFF00;border-color:#BFFF0040;">Here</div>
+        <div class="tile" style="color:#BFFF00;border-color:#BFFF0040;">Rut</div>
+        <div class="tile" style="color:#BFFF00;border-color:#BFFF0040;">Pure</div>
         <div class="tile">Peer</div>
-        <div class="tile">Lure</div>
+        <div class="tile" style="color:#BFFF00;border-color:#BFFF0040;">Lure</div>
         <div class="tile">Leer</div>
-        <div class="tile">True</div>
+        <div class="tile" style="color:#BFFF00;border-color:#BFFF0040;">True</div>
         <div class="tile">Tree</div>
-        <div class="tile exclaim">Three!!!</div>
+        <div class="tile" style="color:#9B59B6;border-color:#9B59B660;">Three</div>
         <div class="tile">Helper</div>
         <div class="tile">Ether</div>
       </div>
@@ -390,22 +396,11 @@
           <div class="def-origin">Old French · apert — open, bold</div>
         </div>
         <div>
-          <div class="def-text">Attractively lively or bold; cheeky in a way that is considered appealing rather than rude. Also: (of a part of the body) small and shapely.</div>
-          <div class="def-note">Confident. A little cheeky. Unapologetically themself.</div>
+          <div class="def-text">Lively, self-assured, and a little cheeky — in the most attractive way. The kind of woman who says exactly what she means and somehow still leaves you wanting more.</div>
+          <div class="def-note">Confident. A little cheeky. Unapologetically itself.</div>
         </div>
       </div>
 
-      <div class="def-item">
-        <div>
-          <div class="def-word">Leer</div>
-          <div class="def-pos">verb / noun</div>
-          <div class="def-origin">Old English · hlēor — face, cheek</div>
-        </div>
-        <div>
-          <div class="def-text">To look or gaze in an unpleasant, intense, or knowing way — suggestive of desire, malice, or sly awareness. As a noun: such a look.</div>
-          <div class="def-note">There is something being watched here. An energy that observes more than it lets on.</div>
-        </div>
-      </div>
 
       <div class="def-item">
         <div>
@@ -430,15 +425,11 @@
     <h2 class="section-title">Reading Notes</h2>
     <div class="notes-box">
       <div class="notes-text">
-[Paste your reading notes, key takeaways, or timestamps here.
+We got confirmation on his reason for disconnecting and his reason for not reaching out, which you took with stride (something he would never expect).
 
-Example format:
+We got a view of the level of integrity that your person holds in that he will not reach out to you and not come clean about what happened.
 
-— Central energy: [theme from the reading]
-— The Threes across every suit point to [what you said about this]
-— Around [timestamp]: [what came up]
-— The Space card reversed + Open Door: [your interpretation]
-— What spirit brought through for Miki: [core message]]
+It's time to decide how firm you stand on not being the one to reach out. Whether this connection might be worth taking that step for him since he now sees you as an unattainable goal that he fumbled the ball on the way to.
       </div>
     </div>
   </section>
@@ -457,17 +448,33 @@ Example format:
   </section>
 </div>
 
-<!-- SEND TO A FRIEND -->
+<!-- EMAIL LIST + SHARE -->
 <div class="wrap">
   <div class="share-box reveal">
-    <p style="font-size:0.55rem;letter-spacing:0.3em;text-transform:uppercase;color:var(--gray);margin-bottom:0.75rem;">— Share the experience</p>
-    <div class="share-title">Someone Needs<br>to See This</div>
-    <p style="font-size:0.78rem;color:var(--gray);max-width:380px;margin:0 auto 1.5rem;line-height:1.8;">Send a link to this reading to a friend. Let the cards speak for themselves.</p>
-    <div class="share-row">
-      <input type="email" class="share-input" id="friendEmail" placeholder="friend@email.com">
-      <button class="share-btn" onclick="sendToFriend()">Send</button>
+
+    <!-- PRIMARY: Email list signup -->
+    <p style="font-size:0.55rem;letter-spacing:0.3em;text-transform:uppercase;color:var(--gray);margin-bottom:0.75rem;">— Stay connected</p>
+    <div class="share-title">Join the List</div>
+    <p style="font-size:0.82rem;color:rgba(245,244,240,0.65);max-width:400px;margin:0 auto 1.75rem;line-height:1.9;">I see pixelated perks + discounts in your near future.</p>
+    <form action="https://formsubmit.co/e67dc1f204a664daa64ce95b18fa98eb" method="POST" style="display:flex;max-width:420px;margin:0 auto 0;">
+      <input type="hidden" name="_next" value="https://sibylhaus.com/thanks.html">
+      <input type="hidden" name="_subject" value="New Subscriber: Sibyl Haus">
+      <input type="hidden" name="_captcha" value="false">
+      <input type="email" name="email" placeholder="your@email.com" required class="share-input" style="border-right:none;">
+      <button type="submit" class="share-btn">Join</button>
+    </form>
+
+    <!-- SECONDARY: Share to friend -->
+    <div style="border-top:1px solid var(--border);margin-top:2.5rem;padding-top:2rem;">
+      <p style="font-size:0.55rem;letter-spacing:0.25em;text-transform:uppercase;color:var(--gray);margin-bottom:0.75rem;">— Share this reading</p>
+      <p style="font-size:0.72rem;color:var(--gray);margin-bottom:1rem;line-height:1.7;">Send a link to this reading to a friend. </p>
+      <div class="share-row" style="margin-bottom:0.5rem;">
+        <input type="email" class="share-input" id="friendEmail" placeholder="friend@email.com" style="border-right:none;">
+        <button class="share-btn" onclick="sendToFriend()">Send</button>
+      </div>
+      <p class="share-note" id="shareNote"></p>
     </div>
-    <p class="share-note" id="shareNote">They'll get a link directly to your reading — word of mouth is everything.</p>
+
   </div>
 </div>
 
@@ -479,7 +486,7 @@ Example format:
     <li><a href="https://instagram.com/sibylhaus.co" target="_blank">Instagram</a></li>
     <li><a href="#email-list" onclick="toggleEmailForm(event)">Join the List</a></li>
   </ul>
-  <span class="copy">© 2025 Sibylhaus · Private Delivery</span>
+  <span class="copy">© 2026 Sibylhaus · Private Delivery</span>
 </footer>
 
 <!-- Inline email signup (matching your Formsubmit setup) -->
