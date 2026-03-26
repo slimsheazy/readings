@@ -3,87 +3,290 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Joy's Reading Timeline</title>
+    <title>Your Readings · Joy | Sibylhaus</title>
+    //fonts.googleapis.com">
+    //fonts.googleapis.com/css2?family=Oswald:wght@400;500;700&family=DM+Mono:ital,wght@0,300;0,400&display=swap" rel="stylesheet">
     <style>
-        body { font-family: sans-serif; background: #fdfdfd; color: #333; padding: 40px 20px; line-height: 1.6; }
-        .container { max-width: 500px; margin: 0 auto; }
-        h1 { font-size: 1.5rem; letter-spacing: 1px; text-transform: uppercase; border-bottom: 1px solid #eee; padding-bottom: 10px; margin-bottom: 30px; }
-        .archive-note { font-size: 0.8rem; color: #999; background: #f9f9f9; border-left: 3px solid #ddd; padding: 10px 14px; margin-bottom: 30px; line-height: 1.6; }
-        .timeline-item { margin-bottom: 30px; padding-left: 20px; border-left: 2px solid #000; position: relative; }
-        .timeline-item.optional { border-left-color: #ccc; }
-        .date { font-size: 0.75rem; color: #aaa; display: block; margin-bottom: 2px; }
-        .title { font-weight: bold; font-size: 1rem; text-decoration: none; color: #000; display: block; }
-        .title:hover { text-decoration: underline; }
-        .topic { font-size: 0.8rem; color: #666; margin-top: 2px; }
-        .tag { display: inline-block; font-size: 0.65rem; letter-spacing: 0.08em; text-transform: uppercase; padding: 2px 7px; border: 1px solid #ddd; color: #aaa; margin-top: 5px; }
-        .tag.keep { border-color: #000; color: #333; }
+        :root {
+            --black: #060606;
+            --white: #f5f4f0;
+            --gray: #6b6b6b;
+            --border: rgba(255,255,255,0.1);
+        }
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        html { scroll-behavior: smooth; }
+        body {
+            background: var(--black);
+            color: var(--white);
+            font-family: 'DM Mono', monospace;
+            font-weight: 300;
+            line-height: 1.7;
+            font-size: 1rem;
+            min-height: 100vh;
+            padding: 5rem 2rem 4rem;
+        }
+
+        nav {
+            position: fixed;
+            top: 0; left: 0; right: 0;
+            z-index: 100;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.25rem 2rem;
+            border-bottom: 1px solid var(--border);
+            background: rgba(6,6,6,0.92);
+            backdrop-filter: blur(12px);
+        }
+        nav .logo {
+            font-family: 'Oswald', sans-serif;
+            font-weight: 700;
+            font-size: 1.1rem;
+            letter-spacing: 0.15em;
+            text-decoration: none;
+            color: var(--white);
+        }
+        nav .nav-right {
+            font-size: 0.6rem;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--gray);
+        }
+
+        .wrap { max-width: 640px; margin: 0 auto; }
+
+        .page-header {
+            padding: 3rem 0 2.5rem;
+            border-bottom: 1px solid var(--border);
+            margin-bottom: 3rem;
+        }
+        .eyebrow {
+            font-size: 0.55rem;
+            letter-spacing: 0.3em;
+            text-transform: uppercase;
+            color: var(--gray);
+            margin-bottom: 0.75rem;
+        }
+        .page-title {
+            font-family: 'Oswald', sans-serif;
+            font-size: clamp(2.5rem, 8vw, 4rem);
+            font-weight: 700;
+            text-transform: uppercase;
+            line-height: 0.9;
+            letter-spacing: -0.02em;
+        }
+        .page-title span {
+            display: block;
+            font-size: 0.4em;
+            font-family: 'DM Mono', monospace;
+            font-weight: 300;
+            color: var(--gray);
+            letter-spacing: 0.1em;
+            text-transform: none;
+            margin-bottom: 0.4rem;
+        }
+        .archive-note {
+            margin-top: 1.5rem;
+            font-size: 0.7rem;
+            color: var(--gray);
+            line-height: 1.8;
+        }
+
+        /* Timeline */
+        .timeline { display: flex; flex-direction: column; gap: 0; }
+
+        .timeline-item {
+            display: grid;
+            grid-template-columns: 1px 1fr;
+            gap: 0 1.5rem;
+            padding-bottom: 2.5rem;
+            position: relative;
+        }
+        .timeline-line {
+            width: 1px;
+            background: var(--border);
+            position: relative;
+        }
+        .timeline-line::before {
+            content: '';
+            position: absolute;
+            top: 6px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 5px;
+            height: 5px;
+            border-radius: 50%;
+            background: var(--white);
+        }
+        .timeline-item.archive .timeline-line::before {
+            background: var(--gray);
+        }
+
+        .timeline-content { padding-top: 2px; }
+
+        .item-date {
+            font-size: 0.6rem;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--gray);
+            margin-bottom: 0.4rem;
+        }
+        .item-title {
+            font-family: 'Oswald', sans-serif;
+            font-size: 1.2rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            text-decoration: none;
+            color: var(--white);
+            letter-spacing: 0.02em;
+            display: block;
+            transition: color 0.2s;
+        }
+        .item-title:hover { color: var(--gray); }
+
+        .item-topic {
+            font-size: 0.72rem;
+            color: var(--gray);
+            margin-top: 0.3rem;
+            line-height: 1.5;
+        }
+
+        .tag {
+            display: inline-block;
+            font-size: 0.55rem;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            padding: 2px 8px;
+            border: 1px solid var(--border);
+            color: var(--gray);
+            margin-top: 0.6rem;
+        }
+        .tag.keep {
+            border-color: var(--white);
+            color: var(--white);
+        }
+
+        footer {
+            margin-top: 4rem;
+            padding-top: 2rem;
+            border-top: 1px solid var(--border);
+            font-size: 0.55rem;
+            color: var(--gray);
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            display: flex;
+            justify-content: space-between;
+        }
+        footer a { color: var(--gray); text-decoration: none; }
+        footer a:hover { color: var(--white); }
+
+        @media (max-width: 600px) {
+            body { padding: 4.5rem 1.25rem 3rem; }
+            nav { padding: 1rem 1.25rem; }
+        }
     </style>
 </head>
 <body>
-    <div class="container">
-        <h1>Reading Timeline: Joy</h1>
 
-        <div class="archive-note">
-            Readings marked <strong>Keep</strong> are anchor sessions worth saving.
-            Readings marked <strong>Optional</strong> are safe to let go — they've done their work.
+    <nav>
+        <a href="https://sibylhaus.com" class="logo">Sibylhaus</a>
+        <span class="nav-right">Private Archive · Joy</span>
+    </nav>
+
+    <div class="wrap">
+
+        <div class="page-header">
+            <div class="eyebrow">Sibylhaus · Private Delivery</div>
+            <h1 class="page-title">
+                <span>Prepared for</span>
+                Joy
+            </h1>
+            <p class="archive-note">
+                <strong style="color:var(--white)">Keep</strong> — anchor reading, worth revisiting.<br>
+                <strong style="color:var(--gray)">Archive</strong> — it's done its work, safe to let go.
+            </p>
         </div>
 
-        <div class="timeline-item">
-            <span class="date">March 25, 2026</span>
-            <a href="https://slimsheazy.github.io/readings/joy406/" class="title">The Kings &amp; The Chariot</a>
-            <div class="topic">Joe — King of Cups, King of Swords · how you're seeing him now</div>
-            <span class="tag keep">Keep</span>
+        <div class="timeline">
+
+            <div class="timeline-item archive">
+                <div class="timeline-line"></div>
+                <div class="timeline-content">
+                    <div class="item-date">February 26, 2026</div>
+                    <a href="https://slimsheazy.github.io/readings/joy0226/" class="item-title">Joe — Lenormand &amp; Pendulum</a>
+                    <div class="item-topic">Cycles, commitment, sexual undertones · pendulum says yes, but don't settle</div>
+                    <span class="tag">Archive</span>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-line"></div>
+                <div class="timeline-content">
+                    <div class="item-date">February 1, 2026</div>
+                    <a href="https://slimsheazy.github.io/readings/joy2126/" class="item-title">Seven of Swords &amp; The Empress</a>
+                    <div class="item-topic">Dante — hiding money, on/off energy · is it worth it? Yes.</div>
+                    <span class="tag keep">Keep</span>
+                </div>
+            </div>
+
+            <div class="timeline-item archive">
+                <div class="timeline-line"></div>
+                <div class="timeline-content">
+                    <div class="item-date">February 5, 2026</div>
+                    <a href="https://slimsheazy.github.io/readings/joy1122/" class="item-title">Jesus Reading</a>
+                    <div class="item-topic">Slow pace, temporary connection · no heartbreak</div>
+                    <span class="tag">Archive</span>
+                </div>
+            </div>
+
+            <div class="timeline-item archive">
+                <div class="timeline-line"></div>
+                <div class="timeline-content">
+                    <div class="item-date">February 6, 2026</div>
+                    <a href="https://slimsheazy.github.io/readings/joy740/" class="item-title">When Will Dante Return</a>
+                    <div class="item-topic">Timing oracle · happening now, a few days, sooner than expected</div>
+                    <span class="tag">Archive</span>
+                </div>
+            </div>
+
+            <div class="timeline-item archive">
+                <div class="timeline-line"></div>
+                <div class="timeline-content">
+                    <div class="item-date">March 8, 2026</div>
+                    <a href="https://slimsheazy.github.io/readings/joy747/" class="item-title">Once You Reach That Level</a>
+                    <div class="item-topic">Joe — intimacy, vulnerability · falling in love forecast</div>
+                    <span class="tag">Archive</span>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-line"></div>
+                <div class="timeline-content">
+                    <div class="item-date">March 17, 2026</div>
+                    <a href="https://slimsheazy.github.io/readings/joy551/" class="item-title">Bad Reputation &amp; All Talk</a>
+                    <div class="item-topic">Joe — why he acts out, King of Wells · risk pulling away</div>
+                    <span class="tag keep">Keep</span>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-line"></div>
+                <div class="timeline-content">
+                    <div class="item-date">March 25, 2026</div>
+                    <a href="https://slimsheazy.github.io/readings/joy406/" class="item-title">The Kings &amp; The Chariot</a>
+                    <div class="item-topic">Joe — King of Cups, King of Swords · how you're seeing him now</div>
+                    <span class="tag keep">Keep</span>
+                </div>
+            </div>
+
         </div>
 
-        <div class="timeline-item">
-            <span class="date">March 17, 2026</span>
-            <a href="https://slimsheazy.github.io/readings/joy551/" class="title">Bad Reputation &amp; All Talk</a>
-            <div class="topic">Joe — why he acts out, King of Wells · risk pulling away</div>
-            <span class="tag keep">Keep</span>
-        </div>
-
-        <div class="timeline-item optional">
-            <span class="date">March 8, 2026</span>
-            <a href="https://slimsheazy.github.io/readings/joy747/" class="title">Once You Reach That Level</a>
-            <div class="topic">Joe — intimacy, vulnerability · falling in love forecast</div>
-            <span class="tag">Optional</span>
-        </div>
-
-        <div class="timeline-item optional">
-            <span class="date">February 6, 2026</span>
-            <a href="https://slimsheazy.github.io/readings/joy740/" class="title">When Will Dante Return</a>
-            <div class="topic">Dante — timing oracle · happening now, a few days, sooner than expected</div>
-            <span class="tag">Optional</span>
-        </div>
-
-        <div class="timeline-item optional">
-            <span class="date">February 5, 2026</span>
-            <a href="https://slimsheazy.github.io/readings/joy1122/" class="title">Jesus Reading</a>
-            <div class="topic">Jesus — slow pace, temporary connection · no heartbreak</div>
-            <span class="tag">Optional</span>
-        </div>
-
-        <div class="timeline-item">
-            <span class="date">February 1, 2026</span>
-            <a href="https://slimsheazy.github.io/readings/joy2126/" class="title">Seven of Swords &amp; The Empress</a>
-            <div class="topic">Dante — hiding money, on/off energy · is it worth it? Yes.</div>
-            <span class="tag keep">Keep</span>
-        </div>
-
-        <div class="timeline-item optional">
-            <span class="date">February 26, 2026</span>
-            <a href="https://slimsheazy.github.io/readings/joy0226/" class="title">Joe — Lenormand &amp; Pendulum</a>
-            <div class="topic">Joe — cycles, commitment, sexual undertones · pendulum says yes, but don't settle</div>
-            <span class="tag">Optional</span>
-        </div>
-
-        <div class="timeline-item optional">
-            <span class="date">Earlier</span>
-            <a href="https://slimsheazy.github.io/readings/joy1/" class="title">Dante — Knight Energy</a>
-            <div class="topic">Dante — equal energy, genuine interest, lots of cups · still open to connection</div>
-            <span class="tag">Optional</span>
-        </div>
+        <footer>
+            <span>© 2026 Sibylhaus · Private Archive</span>
+            <a href="https://sibylhaus.etsy.com">Book a Reading</a>
+        </footer>
 
     </div>
+
 </body>
 </html>
