@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Your Reading · Joy | Sibylhaus</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;700&family=DM+Mono:ital,wght@0,300;0,400;1,300&family=Playfair+Display:ital@1&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --black: #060606;
+      --white: #f5f4f0;
+      --gray: #6b6b6b;
+      --accent: #111111;
+      --border: rgba(255,255,255,0.1);
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--black);
+      color: var(--white);
+      font-family: 'DM Mono', monospace;
+      font-weight: 300;
+      line-height: 1.7;
+      font-size: 1.05rem;
+      overflow-x: hidden;
+    }
+    body::before {
+      content: '';
+      position: fixed; inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+      opacity: 0.04; pointer-events: none; z-index: 9999;
+    }
+    #progress {
+      position: fixed; top: 0; left: 0; height: 2px; width: 0%;
+      background: var(--white); z-index: 1000; transition: width 0.1s linear;
+    }
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 1.25rem 2rem;
+      border-bottom: 1px solid transparent;
+      transition: border-color 0.3s, background 0.3s;
+    }
+    nav.scrolled { border-color: var(--border); background: rgba(6,6,6,0.9); backdrop-filter: blur(12px); }
+    nav .logo { font-family: 'Oswald', sans-serif; font-weight: 700; font-size: 1.1rem; letter-spacing: 0.15em; text-decoration: none; color: var(--white); }
+    nav .nav-links { display: flex; gap: 2rem; list-style: none; }
+    nav .nav-links a { font-size: 0.6rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gray); text-decoration: none; transition: color 0.2s; }
+    nav .nav-links a:hover { color: var(--white); }
+
+```
+.hero {
+  min-height: 100vh; display: flex; flex-direction: column;
+  justify-content: flex-end; padding: 2rem; padding-top: 5.5rem;
+  border-bottom: 1px solid var(--border); position: relative; overflow: hidden;
+}
+.hero-eyebrow { font-size: 0.6rem; letter-spacing: 0.3em; text-transform: uppercase; color: var(--gray); margin-bottom: 1.5rem; opacity: 0; animation: fadeUp 0.8s 0.2s forwards; }
+.hero-title { font-family: 'Oswald', sans-serif; font-weight: 700; font-size: clamp(4rem, 14vw, 11rem); line-height: 0.85; text-transform: uppercase; letter-spacing: -0.02em; margin-bottom: 3rem; opacity: 0; animation: fadeUp 0.8s 0.35s forwards; }
+.hero-title span { font-family: 'Playfair Display', serif; font-style: italic; font-size: 0.42em; display: block; color: var(--gray); letter-spacing: 0.05em; margin-bottom: 0.3rem; }
+.hero-meta { display: flex; gap: 3rem; flex-wrap: wrap; padding-top: 2rem; border-top: 1px solid var(--border); opacity: 0; animation: fadeUp 0.8s 0.5s forwards; }
+.hero-meta-item label { display: block; font-size: 0.55rem; letter-spacing: 0.25em; text-transform: uppercase; color: var(--gray); margin-bottom: 0.3rem; }
+.hero-meta-item p { font-size: 0.85rem; }
+
+.wrap { max-width: 1100px; margin: 0 auto; padding: 0 2rem; }
+section { padding: 5rem 0; border-bottom: 1px solid var(--border); }
+.section-label { font-size: 0.55rem; letter-spacing: 0.3em; text-transform: uppercase; color: var(--gray); margin-bottom: 2.5rem; display: flex; align-items: center; gap: 1rem; }
+.section-label::after { content: ''; flex: 1; height: 1px; background: var(--border); }
+.section-title { font-family: 'Oswald', sans-serif; font-size: clamp(2rem, 5vw, 3.5rem); font-weight: 700; text-transform: uppercase; line-height: 0.9; letter-spacing: -0.02em; margin-bottom: 1.5rem; }
+
+/* AUDIO */
+.audio-box { background: var(--accent); border: 1px solid var(--border); padding: 3rem; margin-top: 2rem; }
+.audio-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 2.5rem; flex-wrap: wrap; gap: 1rem; }
+.audio-title { font-family: 'Oswald', sans-serif; font-size: 2rem; font-weight: 700; text-transform: uppercase; }
+.audio-duration { font-size: 0.7rem; color: var(--gray); letter-spacing: 0.15em; padding: 0.4rem 1rem; border: 1px solid var(--border); }
+.play-btn { width: 52px; height: 52px; background: var(--white); color: var(--black); border: none; cursor: pointer; display: flex; align-items: center; justify-content: center; flex-shrink: 0; transition: transform 0.2s; }
+.play-btn:hover { transform: scale(1.05); }
+.play-btn svg { width: 20px; height: 20px; }
+.player-controls { display: flex; align-items: center; gap: 1.5rem; margin-bottom: 1rem; }
+.progress-bar-wrap { flex: 1; height: 2px; background: var(--border); cursor: pointer; position: relative; }
+.progress-bar-fill { height: 100%; background: var(--white); width: 0%; pointer-events: none; }
+.time-display { font-size: 0.65rem; color: var(--gray); letter-spacing: 0.1em; white-space: nowrap; }
+.player-secondary { display: flex; gap: 0.75rem; align-items: center; flex-wrap: wrap; }
+.speed-btn { font-family: 'DM Mono', monospace; font-size: 0.65rem; letter-spacing: 0.1em; background: transparent; border: 1px solid var(--border); color: var(--white); padding: 0.3rem 0.6rem; cursor: pointer; transition: background 0.2s, color 0.2s; }
+.speed-btn:hover, .speed-btn.active { background: var(--white); color: var(--black); }
+.download-link { margin-left: auto; font-size: 0.6rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gray); text-decoration: none; border-bottom: 1px solid var(--border); padding-bottom: 1px; transition: color 0.2s; }
+.download-link:hover { color: var(--white); }
+.audio-note { font-size: 0.62rem; color: var(--gray); margin-top: 1.5rem; font-style: italic; }
+
+/* GALLERY */
+.gallery-grid { display: grid; grid-template-columns: repeat(12, 1fr); gap: 0.75rem; margin-top: 2rem; }
+.photo-block { position: relative; overflow: hidden; background: #0d0d0d; cursor: zoom-in; }
+.photo-block img { width: 100%; height: 100%; object-fit: cover; display: block; filter: grayscale(1) contrast(1.1) brightness(0.8); transition: filter 0.6s ease, transform 0.6s ease; }
+.photo-block:hover img { filter: grayscale(0) contrast(1) brightness(1); transform: scale(1.03); }
+.photo-caption { position: absolute; bottom: 0; left: 0; right: 0; padding: 0.75rem 1rem; background: linear-gradient(transparent, rgba(0,0,0,0.9)); font-size: 0.58rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--white); opacity: 0; transition: opacity 0.3s; }
+.photo-block:hover .photo-caption { opacity: 1; }
+.photo-block.span6 { grid-column: span 6; aspect-ratio: 4/3; }
+
+/* NOTES */
+.notes-box { background: var(--accent); border: 1px solid var(--border); padding: 3rem; margin-top: 2rem; position: relative; }
+.notes-box::before { content: '"'; font-family: 'Playfair Display', serif; font-size: 7rem; position: absolute; top: -1rem; left: 1.5rem; color: var(--border); line-height: 1; pointer-events: none; }
+.notes-text { font-size: 0.85rem; line-height: 2; color: rgba(245,244,240,0.8); }
+
+/* CTA */
+.cta-row { display: flex; flex-wrap: wrap; gap: 1rem; margin-top: 2rem; }
+.btn { display: inline-flex; align-items: center; gap: 0.5rem; padding: 1rem 2rem; font-family: 'Oswald', sans-serif; font-weight: 700; font-size: 0.85rem; letter-spacing: 0.15em; text-transform: uppercase; text-decoration: none; cursor: pointer; border: none; transition: background 0.2s, color 0.2s, transform 0.15s; }
+.btn:hover { transform: translateY(-2px); }
+.btn-primary { background: var(--white); color: var(--black); }
+.btn-primary:hover { background: #ddd; }
+.btn-outline { background: transparent; color: var(--white); border: 1px solid var(--border); }
+.btn-outline:hover { background: rgba(255,255,255,0.05); border-color: var(--white); }
+
+/* SHARE */
+.share-box { background: var(--accent); border: 1px solid var(--border); padding: 3rem; text-align: center; margin-top: 3rem; }
+.share-title { font-family: 'Oswald', sans-serif; font-size: 1.75rem; font-weight: 700; text-transform: uppercase; margin-bottom: 1.5rem; }
+.share-row { display: flex; max-width: 440px; margin: 0 auto 1rem; }
+.share-input { flex: 1; padding: 0.85rem 1rem; background: var(--black); border: 1px solid var(--border); border-right: none; color: var(--white); font-family: 'DM Mono', monospace; font-size: 0.75rem; outline: none; }
+.share-input:focus { border-color: rgba(255,255,255,0.3); }
+.share-btn { padding: 0 1.5rem; background: var(--white); color: var(--black); border: none; font-family: 'Oswald', sans-serif; font-weight: 700; font-size: 0.75rem; letter-spacing: 0.1em; text-transform: uppercase; cursor: pointer; }
+.share-btn:hover { background: #ddd; }
+.share-note { font-size: 0.6rem; color: var(--gray); }
+
+footer { max-width: 1100px; margin: 0 auto; padding: 3rem 2rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
+footer .logo { font-family: 'Oswald', sans-serif; font-weight: 700; font-size: 1.4rem; letter-spacing: 0.1em; text-decoration: none; color: var(--white); }
+footer .footer-links { display: flex; gap: 2rem; list-style: none; }
+footer .footer-links a { font-size: 0.6rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gray); text-decoration: none; transition: color 0.2s; }
+footer .footer-links a:hover { color: var(--white); }
+footer .copy { font-size: 0.55rem; color: var(--gray); letter-spacing: 0.1em; }
+
+@keyframes fadeUp { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: translateY(0); } }
+.reveal { opacity: 0; transform: translateY(20px); transition: opacity 0.7s ease, transform 0.7s ease; }
+.reveal.visible { opacity: 1; transform: translateY(0); }
+
+/* LIGHTBOX */
+#lightbox { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.95); z-index: 500; align-items: center; justify-content: center; cursor: zoom-out; }
+#lightbox.open { display: flex; }
+#lightbox img { max-width: 92vw; max-height: 92vh; object-fit: contain; filter: none; }
+
+@media (max-width: 768px) {
+  .wrap { padding: 0 1.25rem; }
+  section { padding: 3rem 0; }
+  .hero { padding: 1.5rem; padding-top: 5rem; }
+  .hero-title { font-size: clamp(3rem, 12vw, 6rem); margin-bottom: 2rem; }
+  .hero-meta { gap: 1.5rem; }
+  .gallery-grid { grid-template-columns: 1fr 1fr; gap: 0.5rem; }
+  .photo-block.span6 { grid-column: span 2; }
+  nav .nav-links { display: none; }
+  .audio-box { padding: 1.75rem; }
+  .audio-header { flex-direction: column; align-items: flex-start; }
+  .audio-duration { align-self: flex-end; }
+  .player-secondary { flex-wrap: wrap; }
+  .download-link { margin-left: 0; margin-top: 0.5rem; }
+  .notes-box { padding: 2rem 1.5rem; }
+  .notes-box::before { font-size: 4rem; top: 0; left: 1rem; }
+  .cta-row { flex-direction: column; }
+  .btn { width: 100%; justify-content: center; }
+  .share-box { padding: 2rem 1.5rem; }
+  .share-row { flex-direction: column; max-width: 100%; }
+  .share-input { border-right: 1px solid var(--border); margin-bottom: 0.5rem; }
+  footer { flex-direction: column; text-align: center; gap: 1.5rem; }
+  .footer-links { flex-direction: column; gap: 1rem; }
+}
+```
+
+  </style>
+</head>
+<body>
+
+<div id="progress"></div>
+<div id="lightbox" onclick="closeLightbox()"><img id="lightboxImg" src="" alt=""></div>
+
+<nav id="navbar">
+  <a href="https://sibylhaus.com" class="logo">SIBYLHAUS</a>
+  <ul class="nav-links">
+    <li><a href="#audio">Audio</a></li>
+    <li><a href="#cards">Cards</a></li>
+    <li><a href="#book">Book Again</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+
+<div class="hero">
+  <p class="hero-eyebrow">— Private Reading · Sibylhaus · March 27, 2026</p>
+  <h1 class="hero-title">
+    <span>Prepared for</span>
+    Joy
+  </h1>
+  <div class="hero-meta">
+    <div class="hero-meta-item"><label>Reader</label><p>Shea · Sibylhaus</p></div>
+    <div class="hero-meta-item"><label>Date</label><p>March 27, 2026</p></div>
+    <div class="hero-meta-item"><label>Format</label><p>Audio Reading</p></div>
+  </div>
+</div>
+
+<!-- AUDIO -->
+
+<div class="wrap">
+  <section id="audio" class="reveal">
+    <p class="section-label">01 — Your Recording</p>
+    <div class="audio-box">
+      <div class="audio-header">
+        <div>
+          <div class="audio-title">Full Reading Audio</div>
+          <div style="font-size:0.65rem;color:var(--gray);margin-top:0.3rem;letter-spacing:0.1em;">Audio Reading · Joy · Mar 27 2026</div>
+        </div>
+        <div class="audio-duration">3:15</div>
+      </div>
+
+```
+  <audio id="mainAudio" preload="metadata" style="display:none;">
+    <source src="./audio/joyjoe3.mp3" type="audio/mpeg">
+  </audio>
+
+  <div>
+    <div class="player-controls">
+      <button class="play-btn" onclick="togglePlay()">
+        <svg id="playIcon" viewBox="0 0 24 24" fill="currentColor"><polygon points="5,3 19,12 5,21"/></svg>
+        <svg id="pauseIcon" viewBox="0 0 24 24" fill="currentColor" style="display:none;"><rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/></svg>
+      </button>
+      <div class="progress-bar-wrap" onclick="seekAudio(event)">
+        <div class="progress-bar-fill" id="audioProgress"></div>
+      </div>
+      <span class="time-display" id="timeDisplay">0:00 / 3:15</span>
+    </div>
+    <div class="player-secondary">
+      <button class="speed-btn active" onclick="setSpeed(1,this)">1×</button>
+      <button class="speed-btn" onclick="setSpeed(1.25,this)">1.25×</button>
+      <button class="speed-btn" onclick="setSpeed(1.5,this)">1.5×</button>
+      <button class="speed-btn" onclick="setSpeed(2,this)">2×</button>
+      <a href="./audio/joyjoe3.mp3" download class="download-link">↓ Download</a>
+    </div>
+  </div>
+  <p class="audio-note">This recording is private and prepared exclusively for you, Joy.</p>
+</div>
+```
+
+  </section>
+</div>
+
+<!-- CARDS -->
+
+<div class="wrap">
+  <section id="cards" class="reveal">
+    <p class="section-label">02 — Key Cards</p>
+    <h2 class="section-title">What Came Through</h2>
+    <p style="color:var(--gray);font-size:0.78rem;max-width:500px;margin-bottom:0.25rem;">Hover to see in full color. Click to enlarge.</p>
+
+```
+<div class="gallery-grid">
+
+  <div class="photo-block span6" onclick="openLightbox(this)">
+    <img src="./images/chariot.jpg" alt="The Chariot" loading="lazy">
+    <div class="photo-caption">The Chariot: Full Force Ahead</div>
+  </div>
+
+  <div class="photo-block span6" onclick="openLightbox(this)">
+    <img src="./images/9wands.jpg" alt="Nine of Wands" loading="lazy">
+    <div class="photo-caption">Nine of Wands: Careful Not to Disrupt What's Good</div>
+  </div>
+
+</div>
+```
+
+  </section>
+</div>
+
+<!-- NOTES -->
+
+<div class="wrap">
+  <section id="notes" class="reveal">
+    <p class="section-label">03 — Key Insight</p>
+    <h2 class="section-title">The Message</h2>
+    <div class="notes-box">
+      <div class="notes-text">
+        <p>Joe is feeling unburdened now that you've rekindled. He's looking forward full force—The Chariot, unbridled ambition toward what's coming next together. He's also being mindful, maybe even cautious, not to make any waves. He doesn't want what happened before to happen again, so he's got one eye looking behind him while moving forward with you. No indication of anything negative. He's excited about what's coming and careful not to disrupt what's good right now. You're both in the same energy, moving in the same direction.</p>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- BOOK AGAIN -->
+
+<div class="wrap">
+  <section id="book" class="reveal">
+    <p class="section-label">04 — Continue</p>
+    <h2 class="section-title">Book Your<br>Next Session</h2>
+    <p style="color:var(--gray);font-size:0.82rem;max-width:460px;margin-bottom:0.25rem;line-height:1.9;">If this reading resonated, book your follow-up directly on Etsy. New spreads available weekly.</p>
+    <div class="cta-row">
+      <a href="https://sibylhaus.etsy.com" target="_blank" class="btn btn-primary">Book on Etsy</a>
+      <a href="https://sibylhaus.com" target="_blank" class="btn btn-outline">Visit Sibylhaus</a>
+    </div>
+  </section>
+</div>
+
+<!-- EMAIL LIST + SHARE -->
+
+<div class="wrap">
+  <div class="share-box reveal">
+    <p style="font-size:0.6rem;letter-spacing:0.3em;text-transform:uppercase;color:var(--gray);margin-bottom:1rem;">— Stay connected</p>
+    <div class="share-title" style="font-size:2.25rem;margin-bottom:1.25rem;">Join the List</div>
+    <p style="font-size:0.95rem;color:#9db88f;max-width:450px;margin:0 auto 2rem;line-height:1.9;">I see pixelated perks + discounts in your near future.</p>
+    <form action="https://formsubmit.co/e67dc1f204a664daa64ce95b18fa98eb" method="POST" style="display:flex;max-width:420px;margin:0 auto;">
+      <input type="hidden" name="_next" value="https://sibylhaus.com/thanks.html">
+      <input type="hidden" name="_subject" value="New Subscriber: Sibyl Haus">
+      <input type="hidden" name="_captcha" value="false">
+      <input type="email" name="email" placeholder="your@email.com" required class="share-input" style="border-right:none;">
+      <button type="submit" class="share-btn">Join</button>
+    </form>
+
+```
+<div style="border-top:1px solid var(--border);margin-top:3rem;padding-top:2.5rem;">
+  <p style="font-size:0.6rem;letter-spacing:0.25em;text-transform:uppercase;color:var(--gray);margin-bottom:1rem;">— Share this reading</p>
+  <p style="font-size:0.85rem;color:#ffb347;margin-bottom:1.25rem;line-height:1.9;">Send a link to this reading to a friend.</p>
+  <div class="share-row" style="margin-bottom:0.5rem;">
+    <input type="email" class="share-input" id="friendEmail" placeholder="friend@email.com" style="border-right:none;">
+    <button class="share-btn" onclick="sendToFriend()">Send</button>
+  </div>
+  <p class="share-note" id="shareNote"></p>
+</div>
+```
+
+  </div>
+</div>
+
+<!-- FOOTER -->
+
+<footer>
+  <a href="https://sibylhaus.com" class="logo">SIBYLHAUS</a>
+  <ul class="footer-links">
+    <li><a href="https://sibylhaus.etsy.com" target="_blank">Shop Etsy</a></li>
+    <li><a href="https://instagram.com/sibylhaus.co" target="_blank">Instagram</a></li>
+  </ul>
+  <span class="copy">© 2026 Sibylhaus · Private Delivery</span>
+</footer>
+
+<script>
+  // Progress bar
+  window.addEventListener('scroll', () => {
+    const d = document.documentElement;
+    document.getElementById('progress').style.width = (d.scrollTop / (d.scrollHeight - d.clientHeight) * 100) + '%';
+    document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 60);
+  });
+
+  // Reveal
+  const obs = new IntersectionObserver(e => e.forEach(x => { if(x.isIntersecting) x.target.classList.add('visible'); }), { threshold: 0.07 });
+  document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+
+  // Audio
+  const audio = document.getElementById('mainAudio');
+  let playing = false;
+  function togglePlay() {
+    playing ? audio.pause() : audio.play();
+    playing = !playing;
+    document.getElementById('playIcon').style.display = playing ? 'none' : 'block';
+    document.getElementById('pauseIcon').style.display = playing ? 'block' : 'none';
+  }
+  audio.addEventListener('timeupdate', () => {
+    const pct = (audio.currentTime / audio.duration) * 100 || 0;
+    document.getElementById('audioProgress').style.width = pct + '%';
+    document.getElementById('timeDisplay').textContent = fmt(audio.currentTime) + ' / ' + fmt(audio.duration || 195);
+  });
+  audio.addEventListener('ended', () => {
+    playing = false;
+    document.getElementById('playIcon').style.display = 'block';
+    document.getElementById('pauseIcon').style.display = 'none';
+  });
+  function seekAudio(e) {
+    const r = e.currentTarget.getBoundingClientRect();
+    audio.currentTime = ((e.clientX - r.left) / r.width) * (audio.duration || 195);
+  }
+  function fmt(s) {
+    if (!s || isNaN(s)) return '0:00';
+    return Math.floor(s/60) + ':' + String(Math.floor(s%60)).padStart(2,'0');
+  }
+  function setSpeed(spd, btn) {
+    audio.playbackRate = spd;
+    document.querySelectorAll('.speed-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+  }
+
+  // Lightbox
+  function openLightbox(el) {
+    document.getElementById('lightboxImg').src = el.querySelector('img').src;
+    document.getElementById('lightbox').classList.add('open');
+  }
+  function closeLightbox() { document.getElementById('lightbox').classList.remove('open'); }
+
+  // Send to friend
+  function sendToFriend() {
+    const email = document.getElementById('friendEmail').value;
+    const note = document.getElementById('shareNote');
+    if (!email || !email.includes('@')) { 
+      note.textContent = 'Please enter a valid email.'; 
+      note.style.color = '#f97316'; 
+      return; 
+    }
+    const pageUrl = window.location.href;
+    const sub = encodeURIComponent('You have to see this Sibylhaus reading');
+    const body = encodeURIComponent('Hey — I just got a tarot reading from Sibylhaus and had to show you.\n\nCheck it out here: ' + pageUrl + '\n\nIf you want your own reading: https://sibylhaus.etsy.com');
+    window.open('mailto:' + email + '?subject=' + sub + '&body=' + body);
+    note.textContent = '✓ Opening your email client...';
+    note.style.color = '#86efac';
+    document.getElementById('friendEmail').value = '';
+  }
+</script>
+
+</body>
+</html>
