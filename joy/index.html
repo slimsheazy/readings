@@ -4,13 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Your Readings · Joy | Sibylhaus</title>
-<link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;700&family=DM+Mono:ital,wght@0,300;0,400&display=swap">
     <style>
         :root {
             --black: #060606;
             --white: #f5f4f0;
-            --gray: #a8a8a8;        }
+            --gray: #a8a8a8;
+        }
         *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
         html { scroll-behavior: smooth; }
         body {
@@ -92,51 +93,89 @@
 
         /* Reading Table */
         .reading-table { width: 100%; border-collapse: collapse; }
-        .reading-row { border-bottom: 1px solid var(--border); transition: opacity 0.3s; }
+        .reading-row {
+            border-bottom: 1px solid var(--border);
+            transition: opacity 0.3s;
+        }
         .reading-row.archived { opacity: 0.4; }
         .reading-row[data-hidden="true"] { display: none; }
-        
         .reading-cell { padding: 2rem 0; vertical-align: top; }
-        
-        .date-cell { width: 120px; font-size: 0.65rem; color: var(--gray); text-transform: uppercase; letter-spacing: 0.1em; }
+        .date-cell {
+            width: 120px;
+            font-size: 0.65rem;
+            color: var(--gray);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
         .info-cell { padding-right: 2rem; }
-        .subject-tag { font-size: 0.55rem; color: var(--gray); text-transform: uppercase; letter-spacing: 0.2em; display: block; margin-bottom: 0.4rem; }
-        .reading-link { 
-            font-family: 'Oswald', sans-serif; 
-            font-size: 1.1rem; 
-            font-weight: 700; 
-            text-transform: uppercase; 
-            color: var(--white); 
-            text-decoration: none; 
-            display: block; 
+        .subject-tag {
+            font-size: 0.55rem;
+            color: var(--gray);
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            display: block;
+            margin-bottom: 0.4rem;
+        }
+        .reading-link {
+            font-family: 'Oswald', sans-serif;
+            font-size: 1.1rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            color: var(--white);
+            text-decoration: none;
+            display: block;
             line-height: 1.2;
         }
         .reading-link:hover { color: var(--gray); }
-        .synopsis { font-size: 0.8rem; color: var(--gray); margin-top: 0.5rem; max-width: 400px; }
-
         .audio-cell { width: 240px; text-align: right; }
-        audio { height: 32px; width: 200px; filter: invert(1); opacity: 0.7; margin-bottom: 0.5rem; }
-        .dl-link { font-size: 0.55rem; color: var(--gray); text-decoration: none; text-transform: uppercase; letter-spacing: 0.1em; }
+        audio {
+            height: 32px;
+            width: 200px;
+            filter: invert(1);
+            opacity: 0.7;
+            margin-bottom: 0.5rem;
+        }
+        .dl-link {
+            font-size: 0.55rem;
+            color: var(--gray);
+            text-decoration: none;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
         .dl-link:hover { color: var(--white); }
-
         .action-cell { width: 80px; text-align: right; }
         .archive-toggle {
-            background: none; border: 1px solid var(--border); 
-            color: var(--gray); font-size: 0.5rem; padding: 4px 8px; 
-            text-transform: uppercase; letter-spacing: 0.1em; cursor: pointer;
+            background: none;
+            border: 1px solid var(--border);
+            color: var(--gray);
+            font-size: 0.5rem;
+            padding: 4px 8px;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            cursor: pointer;
         }
         .archive-toggle:hover { border-color: var(--white); color: var(--white); }
 
         footer {
-            margin-top: 6rem; padding-top: 2rem; border-top: 1px solid var(--border);
-            font-size: 0.55rem; color: var(--gray); letter-spacing: 0.1em;
-            text-transform: uppercase; display: flex; justify-content: space-between;
+            margin-top: 6rem;
+            padding-top: 2rem;
+            border-top: 1px solid var(--border);
+            font-size: 0.55rem;
+            color: var(--gray);
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            display: flex;
+            justify-content: space-between;
         }
         footer a { color: var(--gray); text-decoration: none; }
         footer a:hover { color: var(--white); }
 
         @media (max-width: 768px) {
-            .reading-table, .reading-row, .reading-cell { display: block; width: 100%; text-align: left; }
+            .reading-table, .reading-row, .reading-cell {
+                display: block;
+                width: 100%;
+                text-align: left;
+            }
             .date-cell { padding-bottom: 0.5rem; }
             .audio-cell { width: 100%; margin-top: 1rem; }
             audio { width: 100%; }
@@ -146,203 +185,189 @@
 </head>
 <body>
 
-    <nav>
-        <a href="https://sibylhaus.com" class="logo">Sibylhaus</a>
-        <div class="nav-controls">
-            <button class="filter-btn active" onclick="setFilter('active')">Active</button>
-            <button class="filter-btn" onclick="setFilter('all')">All</button>
-            <button class="filter-btn" onclick="setFilter('archived')">Archived</button>
-        </div>
-    </nav>
+<nav>
+    <a href="https://sibylhaus.com" class="logo">Sibylhaus</a>
+    <div class="nav-controls">
+        <button class="filter-btn active" onclick="setFilter('active')">Active</button>
+        <button class="filter-btn" onclick="setFilter('all')">All</button>
+        <button class="filter-btn" onclick="setFilter('archived')">Archived</button>
+    </div>
+</nav>
 
-    <div class="wrap">
-        <div class="page-header">
-            <div class="eyebrow">Sibylhaus · Private Delivery</div>
-            <h1 class="page-title"><span>Prepared for</span> Joy</h1>
-        </div>
+<div class="wrap">
+    <div class="page-header">
+        <p class="eyebrow">Sibylhaus · Private Delivery</p>
+        <h1 class="page-title">
+            <span>Prepared for</span>
+            Joy
+        </h1>
+    </div>
 
-        <table class="reading-table" id="readings-table">
-            <!-- Mar 25 -->
+    <table class="reading-table">
+        <tbody>
+
             <tr class="reading-row" data-id="joy406">
                 <td class="reading-cell date-cell">Mar 25, 2026</td>
                 <td class="reading-cell info-cell">
                     <span class="subject-tag">Joe</span>
-                    <a href="https://slimsheazy.github.io/readings/joy406/" class="reading-link">The Kings & The Chariot</a>
-                    <p class="synopsis">King of Cups, King of Swords. How you're seeing him now.</p>
+                    <a class="reading-link" href="https://slimsheazy.github.io/readings/joy406/">The Kings & The Chariot</a>
                 </td>
                 <td class="reading-cell audio-cell">
-                    <audio controls preload="none" src="../joy406/audio/joyjoe2.mp3"></audio>
-                    <a href="../joy406/audio/joyjoe2.mp3" download="Sibylhaus_Joy_Mar25.mp3" class="dl-link">↓ Download</a>
+                    <a class="dl-link" href="../joy406/audio/joyjoe2.mp3">↓ Download</a>
                 </td>
                 <td class="reading-cell action-cell">
                     <button class="archive-toggle" onclick="toggleArchive('joy406')">Archive</button>
                 </td>
             </tr>
 
-            <!-- Mar 18 -->
-            <tr class="reading-row" data-id="joy_phone_0318">
+            <tr class="reading-row" data-id="joyconsult0318">
                 <td class="reading-cell date-cell">Mar 18, 2026</td>
                 <td class="reading-cell info-cell">
                     <span class="subject-tag">Consultation</span>
-                    <a href="https://drive.google.com/file/d/1z3UqR1u50KlHEXxupVE3aq-sngIXAZrG/view?usp=drivesdk" class="reading-link" target="_blank">Phone Consultation</a>
-                    <p class="synopsis">Recorded session discussion.</p>
+                    <a class="reading-link" href="https://drive.google.com/file/d/1z3UqR1u50KlHEXxupVE3aq-sngIXAZrG/view?usp=drivesdk">Phone Consultation</a>
                 </td>
                 <td class="reading-cell audio-cell">
-                    <a href="https://drive.google.com/file/d/1z3UqR1u50KlHEXxupVE3aq-sngIXAZrG/view?usp=drivesdk" class="dl-link" target="_blank">Watch Video →</a>
+                    <a class="dl-link" href="https://drive.google.com/file/d/1z3UqR1u50KlHEXxupVE3aq-sngIXAZrG/view?usp=drivesdk">Watch Video →</a>
                 </td>
                 <td class="reading-cell action-cell">
-                    <button class="archive-toggle" onclick="toggleArchive('joy_phone_0318')">Archive</button>
+                    <button class="archive-toggle" onclick="toggleArchive('joyconsult0318')">Archive</button>
                 </td>
             </tr>
 
-            <!-- Mar 17 -->
             <tr class="reading-row" data-id="joy551">
                 <td class="reading-cell date-cell">Mar 17, 2026</td>
                 <td class="reading-cell info-cell">
                     <span class="subject-tag">Joe</span>
-                    <a href="https://slimsheazy.github.io/readings/joy551/" class="reading-link">Bad Reputation & All Talk</a>
-                    <p class="synopsis">Why he acts out, King of Wells. Risk pulling away.</p>
+                    <a class="reading-link" href="https://slimsheazy.github.io/readings/joy551/">Bad Reputation & All Talk</a>
                 </td>
                 <td class="reading-cell audio-cell">
-                    <audio controls preload="none" src="../joy551/audio/joyjoe.mp3"></audio>
-                    <a href="../joy551/audio/joyjoe.mp3" download="Sibylhaus_Joy_Mar17.mp3" class="dl-link">↓ Download</a>
+                    <a class="dl-link" href="../joy551/audio/joyjoe.mp3">↓ Download</a>
                 </td>
                 <td class="reading-cell action-cell">
                     <button class="archive-toggle" onclick="toggleArchive('joy551')">Archive</button>
                 </td>
             </tr>
 
-            <!-- Mar 8 -->
             <tr class="reading-row" data-id="joy747">
                 <td class="reading-cell date-cell">Mar 08, 2026</td>
                 <td class="reading-cell info-cell">
                     <span class="subject-tag">Joe</span>
-                    <a href="https://slimsheazy.github.io/readings/joy747/" class="reading-link">Once You Reach That Level</a>
-                    <p class="synopsis">Intimacy, vulnerability. Falling in love forecast.</p>
+                    <a class="reading-link" href="https://slimsheazy.github.io/readings/joy747/">Once You Reach That Level</a>
                 </td>
                 <td class="reading-cell audio-cell">
-                    <audio controls preload="none" src="../joy/Joy.m4a"></audio>
-                    <a href="../joy/Joy.m4a" download="Sibylhaus_Joy_Mar8.m4a" class="dl-link">↓ Download</a>
+                    <a class="dl-link" href="../joy/Joy.m4a">↓ Download</a>
                 </td>
                 <td class="reading-cell action-cell">
                     <button class="archive-toggle" onclick="toggleArchive('joy747')">Archive</button>
                 </td>
             </tr>
 
-            <!-- Feb 26 -->
             <tr class="reading-row" data-id="joy0226">
                 <td class="reading-cell date-cell">Feb 26, 2026</td>
                 <td class="reading-cell info-cell">
                     <span class="subject-tag">Joe</span>
-                    <a href="https://slimsheazy.github.io/readings/joy0226/" class="reading-link">Lenormand & Pendulum</a>
-                    <p class="synopsis">Cycles, commitment, sexual undertones. Pendulum says yes, but don't settle.</p>
+                    <a class="reading-link" href="https://slimsheazy.github.io/readings/joy0226/">Lenormand & Pendulum</a>
                 </td>
                 <td class="reading-cell audio-cell">
-                    <a href="https://drive.google.com/file/d/1E4plIJIhSWxu_q-PnjWSEFYcAErN7Hg1/preview" class="dl-link" target="_blank">Watch Video →</a>
+                    <a class="dl-link" href="https://drive.google.com/file/d/1E4plIJIhSWxu_q-PnjWSEFYcAErN7Hg1/preview">Watch Video →</a>
                 </td>
                 <td class="reading-cell action-cell">
                     <button class="archive-toggle" onclick="toggleArchive('joy0226')">Archive</button>
                 </td>
             </tr>
 
-            <!-- Feb 6 -->
             <tr class="reading-row" data-id="joy740">
                 <td class="reading-cell date-cell">Feb 06, 2026</td>
                 <td class="reading-cell info-cell">
                     <span class="subject-tag">Dante</span>
-                    <a href="https://slimsheazy.github.io/readings/joy740/" class="reading-link">When Will Dante Return</a>
-                    <p class="synopsis">Timing oracle. Happening now, a few days, sooner than expected.</p>
+                    <a class="reading-link" href="https://slimsheazy.github.io/readings/joy740/">When Will Dante Return</a>
                 </td>
                 <td class="reading-cell audio-cell">
-                    <audio controls preload="none" src="../joy740/audio/Joy.2.6.26.mp3"></audio>
-                    <a href="../joy740/audio/Joy.2.6.26.mp3" download="Sibylhaus_Joy_Feb6.mp3" class="dl-link">↓ Download</a>
+                    <a class="dl-link" href="../joy740/audio/Joy.2.6.26.mp3">↓ Download</a>
                 </td>
                 <td class="reading-cell action-cell">
                     <button class="archive-toggle" onclick="toggleArchive('joy740')">Archive</button>
                 </td>
             </tr>
 
-            <!-- Feb 5 -->
             <tr class="reading-row" data-id="joy1122">
                 <td class="reading-cell date-cell">Feb 05, 2026</td>
                 <td class="reading-cell info-cell">
                     <span class="subject-tag">General</span>
-                    <a href="https://slimsheazy.github.io/readings/joy1122/" class="reading-link">Jesus Reading</a>
-                    <p class="synopsis">Slow pace, temporary connection. No heartbreak.</p>
+                    <a class="reading-link" href="https://slimsheazy.github.io/readings/joy1122/">Jesus Reading</a>
                 </td>
                 <td class="reading-cell audio-cell">
-                    <audio controls preload="none" src="../joy1122/audio/joy.2.5.26.m4a"></audio>
-                    <a href="../joy1122/audio/joy.2.5.26.m4a" download="Sibylhaus_Joy_Feb5.m4a" class="dl-link">↓ Download</a>
+                    <a class="dl-link" href="../joy1122/audio/joy.2.5.26.m4a">↓ Download</a>
                 </td>
                 <td class="reading-cell action-cell">
                     <button class="archive-toggle" onclick="toggleArchive('joy1122')">Archive</button>
                 </td>
             </tr>
 
-            <!-- Feb 1 -->
             <tr class="reading-row" data-id="joy2126">
                 <td class="reading-cell date-cell">Feb 01, 2026</td>
                 <td class="reading-cell info-cell">
                     <span class="subject-tag">Dante</span>
-                    <a href="https://slimsheazy.github.io/readings/joy2126/" class="reading-link">Seven of Swords & The Empress</a>
-                    <p class="synopsis">Hiding money, on/off energy. Is it worth it? Yes.</p>
+                    <a class="reading-link" href="https://slimsheazy.github.io/readings/joy2126/">Seven of Swords & The Empress</a>
                 </td>
                 <td class="reading-cell audio-cell">
-                    <audio controls preload="none" src="../joy2126/audio/Joy2126.mp3"></audio>
-                    <a href="../joy2126/audio/Joy2126.mp3" download="Sibylhaus_Joy_Feb1.mp3" class="dl-link">↓ Download</a>
+                    <a class="dl-link" href="../joy2126/audio/Joy2126.mp3">↓ Download</a>
                 </td>
                 <td class="reading-cell action-cell">
                     <button class="archive-toggle" onclick="toggleArchive('joy2126')">Archive</button>
                 </td>
             </tr>
-        </table>
 
-        <footer>
-            <span>© 2026 Sibylhaus · Private Archive</span>
-            <a href="https://sibylhaus.etsy.com">Book a Reading</a>
-        </footer>
-    </div>
+        </tbody>
+    </table>
 
-    <script>
-        let currentFilter = 'active';
-        const archives = JSON.parse(localStorage.getItem('joy_archives') || '[]');
+    <footer>
+        <span>© 2026 Sibylhaus · Private Archive</span>
+        <a href="https://sibylhaus.etsy.com">Book a Reading</a>
+    </footer>
+</div>
 
-        function toggleArchive(id) {
-            const index = archives.indexOf(id);
-            if (index > -1) {
-                archives.splice(index, 1);
-            } else {
-                archives.push(id);
-            }
-            localStorage.setItem('joy_archives', JSON.stringify(archives));
-            updateTable();
+<script>
+    let currentFilter = 'active';
+    const archives = JSON.parse(localStorage.getItem('joy_archives') || '[]');
+
+    function toggleArchive(id) {
+        const index = archives.indexOf(id);
+        if (index > -1) {
+            archives.splice(index, 1);
+        } else {
+            archives.push(id);
         }
-
-        function setFilter(f) {
-            currentFilter = f;
-            document.querySelectorAll('.filter-btn').forEach(btn => {
-                btn.classList.toggle('active', btn.innerText.toLowerCase() === f);
-            });
-            updateTable();
-        }
-
-        function updateTable() {
-            document.querySelectorAll('.reading-row').forEach(row => {
-                const id = row.getAttribute('data-id');
-                const isArchived = archives.includes(id);
-                const btn = row.querySelector('.archive-toggle');
-                
-                row.classList.toggle('archived', isArchived);
-                btn.innerText = isArchived ? 'Restore' : 'Archive';
-
-                let hidden = false;
-                if (currentFilter === 'active' && isArchived) hidden = true;
-                if (currentFilter === 'archived' && !isArchived) hidden = true;
-                row.setAttribute('data-hidden', hidden);
-            });
-        }
-
+        localStorage.setItem('joy_archives', JSON.stringify(archives));
         updateTable();
-    </script>
+    }
+
+    function setFilter(f) {
+        currentFilter = f;
+        document.querySelectorAll('.filter-btn').forEach(btn => {
+            btn.classList.toggle('active', btn.innerText.toLowerCase() === f);
+        });
+        updateTable();
+    }
+
+    function updateTable() {
+        document.querySelectorAll('.reading-row').forEach(row => {
+            const id = row.getAttribute('data-id');
+            const isArchived = archives.includes(id);
+            const btn = row.querySelector('.archive-toggle');
+            
+            row.classList.toggle('archived', isArchived);
+            btn.innerText = isArchived ? 'Restore' : 'Archive';
+
+            let hidden = false;
+            if (currentFilter === 'active' && isArchived) hidden = true;
+            if (currentFilter === 'archived' && !isArchived) hidden = true;
+            row.setAttribute('data-hidden', hidden);
+        });
+    }
+
+    updateTable();
+</script>
+
 </body>
 </html>
