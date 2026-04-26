@@ -204,120 +204,8 @@
     </div>
 
     <table class="reading-table">
-        <tbody>
-
-            <tr class="reading-row" data-id="joy406">
-                <td class="reading-cell date-cell">Mar 25, 2026</td>
-                <td class="reading-cell info-cell">
-                    <span class="subject-tag">Joe</span>
-                    <a class="reading-link" href="https://slimsheazy.github.io/readings/joy406/">The Kings & The Chariot</a>
-                </td>
-                <td class="reading-cell audio-cell">
-                    <a class="dl-link" href="../joy406/audio/joyjoe2.mp3">↓ Download</a>
-                </td>
-                <td class="reading-cell action-cell">
-                    <button class="archive-toggle" onclick="toggleArchive('joy406')">Archive</button>
-                </td>
-            </tr>
-
-            <tr class="reading-row" data-id="joyconsult0318">
-                <td class="reading-cell date-cell">Mar 18, 2026</td>
-                <td class="reading-cell info-cell">
-                    <span class="subject-tag">Consultation</span>
-                    <a class="reading-link" href="https://drive.google.com/file/d/1z3UqR1u50KlHEXxupVE3aq-sngIXAZrG/view?usp=drivesdk">Phone Consultation</a>
-                </td>
-                <td class="reading-cell audio-cell">
-                    <a class="dl-link" href="https://drive.google.com/file/d/1z3UqR1u50KlHEXxupVE3aq-sngIXAZrG/view?usp=drivesdk">Watch Video →</a>
-                </td>
-                <td class="reading-cell action-cell">
-                    <button class="archive-toggle" onclick="toggleArchive('joyconsult0318')">Archive</button>
-                </td>
-            </tr>
-
-            <tr class="reading-row" data-id="joy551">
-                <td class="reading-cell date-cell">Mar 17, 2026</td>
-                <td class="reading-cell info-cell">
-                    <span class="subject-tag">Joe</span>
-                    <a class="reading-link" href="https://slimsheazy.github.io/readings/joy551/">Bad Reputation & All Talk</a>
-                </td>
-                <td class="reading-cell audio-cell">
-                    <a class="dl-link" href="../joy551/audio/joyjoe.mp3">↓ Download</a>
-                </td>
-                <td class="reading-cell action-cell">
-                    <button class="archive-toggle" onclick="toggleArchive('joy551')">Archive</button>
-                </td>
-            </tr>
-
-            <tr class="reading-row" data-id="joy747">
-                <td class="reading-cell date-cell">Mar 08, 2026</td>
-                <td class="reading-cell info-cell">
-                    <span class="subject-tag">Joe</span>
-                    <a class="reading-link" href="https://slimsheazy.github.io/readings/joy747/">Once You Reach That Level</a>
-                </td>
-                <td class="reading-cell audio-cell">
-                    <a class="dl-link" href="../joy/Joy.m4a">↓ Download</a>
-                </td>
-                <td class="reading-cell action-cell">
-                    <button class="archive-toggle" onclick="toggleArchive('joy747')">Archive</button>
-                </td>
-            </tr>
-
-            <tr class="reading-row" data-id="joy0226">
-                <td class="reading-cell date-cell">Feb 26, 2026</td>
-                <td class="reading-cell info-cell">
-                    <span class="subject-tag">Joe</span>
-                    <a class="reading-link" href="https://slimsheazy.github.io/readings/joy0226/">Lenormand & Pendulum</a>
-                </td>
-                <td class="reading-cell audio-cell">
-                    <a class="dl-link" href="https://drive.google.com/file/d/1E4plIJIhSWxu_q-PnjWSEFYcAErN7Hg1/preview">Watch Video →</a>
-                </td>
-                <td class="reading-cell action-cell">
-                    <button class="archive-toggle" onclick="toggleArchive('joy0226')">Archive</button>
-                </td>
-            </tr>
-
-            <tr class="reading-row" data-id="joy740">
-                <td class="reading-cell date-cell">Feb 06, 2026</td>
-                <td class="reading-cell info-cell">
-                    <span class="subject-tag">Dante</span>
-                    <a class="reading-link" href="https://slimsheazy.github.io/readings/joy740/">When Will Dante Return</a>
-                </td>
-                <td class="reading-cell audio-cell">
-                    <a class="dl-link" href="../joy740/audio/Joy.2.6.26.mp3">↓ Download</a>
-                </td>
-                <td class="reading-cell action-cell">
-                    <button class="archive-toggle" onclick="toggleArchive('joy740')">Archive</button>
-                </td>
-            </tr>
-
-            <tr class="reading-row" data-id="joy1122">
-                <td class="reading-cell date-cell">Feb 05, 2026</td>
-                <td class="reading-cell info-cell">
-                    <span class="subject-tag">General</span>
-                    <a class="reading-link" href="https://slimsheazy.github.io/readings/joy1122/">Jesus Reading</a>
-                </td>
-                <td class="reading-cell audio-cell">
-                    <a class="dl-link" href="../joy1122/audio/joy.2.5.26.m4a">↓ Download</a>
-                </td>
-                <td class="reading-cell action-cell">
-                    <button class="archive-toggle" onclick="toggleArchive('joy1122')">Archive</button>
-                </td>
-            </tr>
-
-            <tr class="reading-row" data-id="joy2126">
-                <td class="reading-cell date-cell">Feb 01, 2026</td>
-                <td class="reading-cell info-cell">
-                    <span class="subject-tag">Dante</span>
-                    <a class="reading-link" href="https://slimsheazy.github.io/readings/joy2126/">Seven of Swords & The Empress</a>
-                </td>
-                <td class="reading-cell audio-cell">
-                    <a class="dl-link" href="../joy2126/audio/Joy2126.mp3">↓ Download</a>
-                </td>
-                <td class="reading-cell action-cell">
-                    <button class="archive-toggle" onclick="toggleArchive('joy2126')">Archive</button>
-                </td>
-            </tr>
-
+        <tbody id="readings-body">
+            <!-- Data injected here -->
         </tbody>
     </table>
 
@@ -329,7 +217,18 @@
 
 <script>
     let currentFilter = 'active';
+    let readingsData = [];
     const archives = JSON.parse(localStorage.getItem('joy_archives') || '[]');
+
+    async function loadReadings() {
+        try {
+            const response = await fetch('readings.json');
+            readingsData = await response.json();
+            renderTable();
+        } catch (error) {
+            console.error('Error loading readings:', error);
+        }
+    }
 
     function toggleArchive(id) {
         const index = archives.indexOf(id);
@@ -339,7 +238,7 @@
             archives.push(id);
         }
         localStorage.setItem('joy_archives', JSON.stringify(archives));
-        updateTable();
+        renderTable();
     }
 
     function setFilter(f) {
@@ -347,26 +246,43 @@
         document.querySelectorAll('.filter-btn').forEach(btn => {
             btn.classList.toggle('active', btn.innerText.toLowerCase() === f);
         });
-        updateTable();
+        renderTable();
     }
 
-    function updateTable() {
-        document.querySelectorAll('.reading-row').forEach(row => {
-            const id = row.getAttribute('data-id');
-            const isArchived = archives.includes(id);
-            const btn = row.querySelector('.archive-toggle');
-            
-            row.classList.toggle('archived', isArchived);
-            btn.innerText = isArchived ? 'Restore' : 'Archive';
+    function renderTable() {
+        const tbody = document.getElementById('readings-body');
+        tbody.innerHTML = '';
 
+        readingsData.forEach(item => {
+            const isArchived = archives.includes(item.id);
             let hidden = false;
             if (currentFilter === 'active' && isArchived) hidden = true;
             if (currentFilter === 'archived' && !isArchived) hidden = true;
-            row.setAttribute('data-hidden', hidden);
+
+            if (hidden) return;
+
+            const row = document.createElement('tr');
+            row.className = `reading-row ${isArchived ? 'archived' : ''}`;
+            row.innerHTML = `
+                <td class="reading-cell date-cell">${item.date}</td>
+                <td class="reading-cell info-cell">
+                    <span class="subject-tag">${item.type}</span>
+                    <a class="reading-link" href="${item.link}">${item.title}</a>
+                </td>
+                <td class="reading-cell audio-cell">
+                    <a class="dl-link" href="${item.audio}">${item.mediaLabel}</a>
+                </td>
+                <td class="reading-cell action-cell">
+                    <button class="archive-toggle" onclick="toggleArchive('${item.id}')">
+                        ${isArchived ? 'Restore' : 'Archive'}
+                    </button>
+                </td>
+            `;
+            tbody.appendChild(row);
         });
     }
 
-    updateTable();
+    loadReadings();
 </script>
 
 </body>
