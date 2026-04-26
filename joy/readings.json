@@ -1,5 +1,32 @@
 [
   {
+    "id": "joy95",
+    "date": "Apr 21, 2026",
+    "type": "Joe",
+    "title": "Audio Reading · Apr 21",
+    "link": "https://slimsheazy.github.io/readings/joy95/",
+    "audio": "../joy95/audio/joy95.mp3",
+    "mediaLabel": "↓ Download"
+  },
+  {
+    "id": "joy215",
+    "date": "Apr 19, 2026",
+    "type": "Joe",
+    "title": "Audio Reading · Apr 19",
+    "link": "https://slimsheazy.github.io/readings/joy215/",
+    "audio": "../joy215/audio/joyjoe8.mp3",
+    "mediaLabel": "↓ Download"
+  },
+  {
+    "id": "joy104",
+    "date": "Apr 06, 2026",
+    "type": "Joe",
+    "title": "Relationship Clarity",
+    "link": "https://slimsheazy.github.io/readings/joy104/",
+    "audio": "../joy104/audio/joy12.mp3",
+    "mediaLabel": "↓ Download"
+  },
+  {
     "id": "joy406",
     "date": "Mar 25, 2026",
     "type": "Joe",
@@ -27,6 +54,33 @@
     "mediaLabel": "↓ Download"
   },
   {
+    "id": "joy826",
+    "date": "Mar 27, 2026",
+    "type": "Joe",
+    "title": "Audio Reading · Mar 27",
+    "link": "https://slimsheazy.github.io/readings/joy826/",
+    "audio": "../joy826/audio/joyjoe3.mp3",
+    "mediaLabel": "↓ Download"
+  },
+  {
+    "id": "joy932",
+    "date": "Mar 26, 2026",
+    "type": "Joe",
+    "title": "Audio Reading · Mar 26",
+    "link": "https://slimsheazy.github.io/readings/joy932/",
+    "audio": "../joy932/audio/joyjoe3.mp3",
+    "mediaLabel": "↓ Download"
+  },
+  {
+    "id": "joyjmar12",
+    "date": "Mar 12, 2026",
+    "type": "Joe",
+    "title": "Audio Reading · Mar 12",
+    "link": "https://drive.google.com/file/d/18vcHJSqciz3erAieMyZyLAiO1BQFZdKo/view",
+    "audio": "https://drive.google.com/file/d/18vcHJSqciz3erAieMyZyLAiO1BQFZdKo/view",
+    "mediaLabel": "↓ Download"
+  },
+  {
     "id": "joy747",
     "date": "Mar 08, 2026",
     "type": "Joe",
@@ -42,6 +96,15 @@
     "title": "Lenormand & Pendulum",
     "link": "https://slimsheazy.github.io/readings/joy0226/",
     "audio": "https://drive.google.com/file/d/1E4plIJIhSWxu_q-PnjWSEFYcAErN7Hg1/preview",
+    "mediaLabel": "Watch Video →"
+  },
+  {
+    "id": "joyfeb25vid",
+    "date": "Feb 25, 2026",
+    "type": "Joe",
+    "title": "Video Reading · Feb 25",
+    "link": "https://drive.google.com/file/d/1E4pllJlhSWxu_q-PnjWSEFYcAErN7Hg1/view",
+    "audio": "https://drive.google.com/file/d/1E4pllJlhSWxu_q-PnjWSEFYcAErN7Hg1/view",
     "mediaLabel": "Watch Video →"
   },
   {
@@ -69,6 +132,24 @@
     "title": "Seven of Swords & The Empress",
     "link": "https://slimsheazy.github.io/readings/joy2126/",
     "audio": "../joy2126/audio/Joy2126.mp3",
+    "mediaLabel": "↓ Download"
+  },
+  {
+    "id": "joy1",
+    "date": "2025",
+    "type": "Dante",
+    "title": "Private Reading — Dante",
+    "link": "https://slimsheazy.github.io/readings/joy1/",
+    "audio": "",
+    "mediaLabel": "View Reading →"
+  },
+  {
+    "id": "joyjul8",
+    "date": "Jul 08, 2025",
+    "type": "Timing",
+    "title": "Will He Reach Out?",
+    "link": "https://drive.google.com/file/d/1wNKsYZXeNF55kapSo5Zn2kgT5sKSNnL9/view",
+    "audio": "https://drive.google.com/file/d/1wNKsYZXeNF55kapSo5Zn2kgT5sKSNnL9/view",
     "mediaLabel": "↓ Download"
   }
 ]
